@@ -6,14 +6,13 @@ read through both of its faces: the library's own API and files, and
 `sagara-sangama` atlases. Renamed from `jain-quantum-atlas` on 2026-10-17,
 once the library's own OCR files were fetched and Quantum stopped being the
 only text source. A
-`pipeline/` will emit `docs/data/tree.json`; a single-page frontend in `docs/`
-will browse it.
+`pipeline/` emits `docs/data/tree.json`; a single-page frontend in `docs/`
+browses it.
 
 This repo **hosts no text of its own.** It indexes metadata and structure and
 links out to jainqq.org and jainelibrary.org.
 
-**Seeded 2026-10-07; acquisition works, nothing downstream exists yet.** Read
-`notes/scratch/todo.md` before building anything, and `notes/site-structure.md`
+Read `notes/scratch/todo.md` for what is open, and `notes/site-structure.md`
 before touching either site. The figures in `notes/recon/` are from the
 seeding day — re-derive, don't quote.
 
@@ -29,6 +28,9 @@ seeding day — re-derive, don't quote.
 | `make fetch-ocr-docx` | **NETWORKED. NEEDS `rivulet` and the logged-in window.** The library's OCR Word file for each tier item Quantum has no text for → `data/ocr_docx_cache/<srno>.docx`, as served. Stops at the library's daily cap; resumable |
 | `make extract-text` | **NEEDS `rivulet`** (exits 2 without it; nothing else does). Cache → `data/text_extract/<srno>.txt`, furniture removed, pages separated by form feeds. Seconds |
 | `make count-sizes` | cache → `data/sizes.jsonl`: raw / content / IAST bytes, pages, script breakdown per item. Pure function of the cache, no rivulet. ~15 min single-threaded for the Sanskrit-only slice; `WORKERS=n` |
+| `make build` / `make changelog` | caches → `docs/data/tree.json` / `changelog.json` (no network) |
+| `make audit` | the Data Quality checks → a report; writes nothing. Offline, no rivulet |
+| `make audit-update-about` | ...and rewrite the About page's AUDIT region and every `data-stat` figure |
 
 **Every rule about the text lives in `pipeline/text_measure.py`** — the page
 splitter, the furniture patterns (the digitising libraries' OCR'd stamps,
@@ -89,8 +91,18 @@ Gujarati, Hindi and English majority of the library is not what the
 aggregator counts. The whole library is still built in memory and summarised
 into `all_stats.library_count` / `library_text_count` /
 `sanskrit_prakrit_count` / `any_sanskrit_count` for the About page, then
-dropped from the tree. The Prakrit tier and a reader-side tier control are
-the next step, not the published default.
+dropped from the tree.
+
+**The Prakrit tier is in the tree as an option** (2026-10-17): the books whose
+language string is Prakrit or Sanskrit-and-Prakrit (573, mostly the Āgama
+canon) ride along flagged `prakrit: true`. Every axis node carries `stats`
+(Sanskrit) and `stats_prakrit` (both); `all_stats` stays Sanskrit -- the
+contract -- with `all_stats_prakrit` beside it, and the changelog has
+`periods` and `periods_prakrit`. The reader chooses with an "include Prakrit"
+pill (tree page, off by default, persisted) and a checkbox over the About
+page's chart. Modelled on the Wikisource Atlas's "improperly categorized"
+pill: two totals published, the reader picks. The About page's prose and
+audits stay Sanskrit.
 
 Two consequences worth knowing: the Sanskrit tier with text is exactly the
 slice that has been fetched and measured, so `sized == text_count` and the
@@ -99,6 +111,20 @@ shift (`Sanskrit, Hindi`) means recent accessions mostly fall outside the
 tier -- and Quantum's text for the tier had already stopped by then (the
 newest item with one went online in mid-2020; its catalog runs to 2022), so
 little that had text is lost.
+
+## The About page's figures are generated, not typed
+
+Every number in `docs/about.html` sits in a `data-stat` tag that
+`make audit-update-about` rewrites, and the Data Quality lists are the region
+between its AUDIT markers -- the sibling Atlases' arrangement, adopted
+2026-10-17 (until then `about.js` computed both in the browser). **The tag is
+strict both ways**: a tag naming a figure `audit.intro_stats()` does not
+compute fails the run, and so does a computed figure with no tag. Run it after
+every `build` and `changelog`. `about.js` now draws only the chart.
+
+**Anything that defies expectation goes into the audit as a check**, not into
+prose: if it should be fixed upstream it is published; if it is ours (a
+counted text that measures empty) it prints to the console only.
 
 ## Two sources, one catalogue
 
@@ -118,9 +144,10 @@ API (no login, no challenge, 500 per page). Text comes from Quantum's booktext
 pages, which need a browser-earned clearance cookie but no account.
 
 **One exception, decided by the owner 2026-10-17: the library's own OCR Word
-files** for the tier items Quantum has no text for (325: the books OCR'd after
-Quantum's text stopped in mid-2020, plus twelve older ones Quantum serves
-empty). These need a jainelibrary.org account. The owner logs in **by hand**
+files** for the tier items Quantum has no text for (the books OCR'd after
+Quantum's text stopped in mid-2020, plus older ones whose Quantum booktext is
+empty -- `build_tree.empty_booktexts`, which also catches pages holding only a
+byte-order mark; the audit lists both). These need a jainelibrary.org account. The owner logs in **by hand**
 in a Chrome that `make library-login` opens with its own profile under
 `data/library_profile/`; `make fetch-ocr-docx` (rivulet) works through that
 window and never handles the password or the session token. OCR files only,

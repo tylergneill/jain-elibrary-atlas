@@ -1,4 +1,4 @@
-.PHONY: clearance fetch-catalog parse-catalog fetch-text library-login fetch-ocr-docx extract-text count-sizes build changelog serve serve-fulltext
+.PHONY: clearance fetch-catalog parse-catalog fetch-text library-login fetch-ocr-docx extract-text count-sizes build changelog audit audit-update-about serve serve-fulltext
 
 # ============================================================================
 # Acquisition. NETWORKED; needs the private `rivulet` package (exit 2 without
@@ -80,6 +80,18 @@ build:
 # web_date -> docs/data/changelog.json, monthly, cumulative.
 changelog:
 	python -m pipeline.build_changelog $(ARGS)
+
+# What the two catalogues get wrong, published to the About page, and every
+# data-stat figure in its prose. Offline: reads docs/data/ and the text
+# journal, so run it after `build` and `changelog`. Never mutates anything but
+# its own region of docs/about.html; strict both ways about the data-stat tags.
+#   make audit                  # report only, writes nothing
+#   make audit-update-about     # ...and rewrite the About region and figures
+audit:
+	python -m pipeline.audit $(ARGS)
+
+audit-update-about:
+	python -m pipeline.audit --update-about $(ARGS)
 
 # Serve docs/ on :8004. `serve-fulltext` also serves data/text_extract/ at
 # /text/<srno> for the txt badge -- localhost only, never published.

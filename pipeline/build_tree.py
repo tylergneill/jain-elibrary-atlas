@@ -17,7 +17,8 @@ One work per item:
     sub_domain        the catalogue's `language` string
     author            API author, else sutra_author, else Quantum's
     text              "quantum" when Quantum has a booktext for it -- a sized
-                      catalog row not journalled empty -- else "elibrary"
+                      catalog row whose booktext is not empty
+                      (`empty_booktexts`) -- else "elibrary"
                       when the library's own OCR Word file was fetched and has
                       text (behind its login; see `make fetch-ocr-docx`), else null
     pdf               the API lists a Standard PDF, or Quantum's file is a .pdf
@@ -29,7 +30,13 @@ One work per item:
     ocr_docx          the API lists an OCR Word doc (login-gated, not fetched)
     sources           ["api", "quantum"] -- which catalogues know the item
 
-`all_stats` is `shape.summarize` plus `quantum_text_count`, `elibrary_text_count`, `api_count`,
+The tree holds the Sanskrit tier and, flagged `prakrit: true`, the books
+whose language string is Prakrit or Sanskrit-and-Prakrit; every axis node
+carries `stats` (Sanskrit) and `stats_prakrit` (both), and the reader's
+"include Prakrit" pill chooses between them.
+
+`all_stats` -- the Sanskrit tier, the aggregator's contract -- is `shape.summarize`
+plus `quantum_text_count`, `elibrary_text_count`, `prakrit_count`, `api_count`,
 `quantum_count`, `last_changed` (the newest web_date) and `sourced` (the
 newest fetch: when our copy was taken, the same date docs/VERSION carries).
 
@@ -46,7 +53,7 @@ from pathlib import Path
 from pipeline.config import (API_CACHE_DIR, CATALOG_LOG_PATH, CATALOGUE_PATH, DOCS_DIR,
                              OCR_LOG_PATH, OCR_SIZES_PATH, SIZES_PATH, TEXT_EXTRACT_DIR,
                              TEXT_LOG_PATH, TREE_PATH)
-from pipeline.shape import build_axes, report, write
+from pipeline.shape import build_axes, report, split_tier_stats, summarize, write
 
 # The library's "manuscripts" folder holds block prints and horizontal-format
 # printed books, not manuscripts, so it merges into Books and the work carries
@@ -199,6 +206,17 @@ def empty_from_journal(path: Path) -> set[str]:
     return empties
 
 
+def empty_booktexts(journal: Path, sizes: dict[str, dict]) -> set[str]:
+    """Quantum booktexts with nothing in them: journalled empty, or measured empty.
+
+    The journal counts characters as served, so a booktext whose pages hold
+    only a byte-order mark (034068: 25 page markers, a BOM under each) passes
+    it; the measurement, which drops furniture and the BOM, does not.
+    """
+    measured = {s for s, r in sizes.items() if r.get("chars") and not r.get("transliterated_bytes")}
+    return empty_from_journal(journal) | measured
+
+
 def web_date(v) -> str | None:
     s = str(int(v)) if isinstance(v, (int, float)) else str(v or "")
     return f"{s[:4]}-{s[4:6]}-{s[6:8]}" if re.fullmatch(r"(19|20)\d{6}", s) else None
@@ -274,7 +292,7 @@ def make_work(srno: str, api: dict | None, q: dict | None, sizes: dict | None,
             work["pages"] = int(q["num_pages"])
         if q.get("classification"):
             work["classification"] = q["classification"]
-    if sizes and sizes.get("chars"):
+    if text and sizes and sizes.get("chars"):
         work["sizes"] = {k: sizes[k] for k in ("raw_bytes", "content_bytes", "transliterated_bytes")}
         work["sizes"]["pages"] = sizes.get("pages")
         work["sizes"]["devanagari_chars"] = sizes.get("devanagari_chars")
@@ -349,13 +367,13 @@ def main() -> None:
     quantum = load_quantum(args.catalogue)
     sizes = load_sizes(args.sizes)
     ocr_sizes = load_sizes(OCR_SIZES_PATH)
-    empty = empty_from_journal(TEXT_LOG_PATH)
+    empty = empty_booktexts(TEXT_LOG_PATH, sizes)
     on_disk = {p.stem for p in TEXT_EXTRACT_DIR.glob("*.txt")} if TEXT_EXTRACT_DIR.is_dir() else set()
     if not api and not quantum:
         raise SystemExit("neither the API cache nor data/catalogue.jsonl is present")
     print(f"api items {len(api)}   quantum rows {len(quantum)}   sized {len(sizes)}   "
           f"eLibrary OCR measured {len(ocr_sizes)}   "
-          f"journalled empty {len(empty)}   text on disk {len(on_disk)}")
+          f"empty booktexts {len(empty)}   text on disk {len(on_disk)}")
 
     srnos = sorted(set(api) | set(quantum))
     library = [make_work(s, api.get(s), quantum.get(s), sizes.get(s), empty, on_disk, ocr_sizes.get(s))
@@ -366,20 +384,35 @@ def main() -> None:
     # library (Gujarati and Hindi books, articles, magazines, audio, the
     # mixed-language editions) is counted into `all_stats.library_*` for the
     # About page and dropped from the tree. See notes/scratch/todo.md, phase 0.
-    works = [w for w in library if in_tier(w) and w["type"] in PUBLISHED_TYPES]
+    # The Prakrit tier rides along: books whose language string is Prakrit, or
+    # Sanskrit and Prakrit, are in the tree flagged `prakrit: true`, and every
+    # node carries both tiers' figures (`stats`, `stats_prakrit`); the reader's
+    # "include Prakrit" pill chooses. `all_stats` stays the Sanskrit tier, the
+    # contract above; `all_stats_prakrit` is the wider one.
+    works = [w for w in library if in_tier(w, prakrit=True) and w["type"] in PUBLISHED_TYPES]
+    for w in works:
+        if not in_tier(w):
+            w["prakrit"] = True
+    sanskrit = [w for w in works if not w.get("prakrit")]
+
+    def tier_stats(ws: list[dict]) -> dict:
+        return {
+            "canon_count": sum(1 for w in ws if w["domain"] != NOT_CANON),
+            "quantum_text_count": sum(1 for w in ws if w["text"] == "quantum"),
+            "elibrary_text_count": sum(1 for w in ws if w["text"] == "elibrary"),
+            "last_changed": max((w.get("added") or "" for w in ws), default=None) or None,
+        }
+
     extra = {
         "library_count": len(library),
         "library_text_count": sum(1 for w in library if w["text"]),
-        "sanskrit_prakrit_count": sum(1 for w in library if in_tier(w, prakrit=True)
-                                      and w["type"] in PUBLISHED_TYPES),
+        "sanskrit_prakrit_count": len(works),
         "any_sanskrit_count": sum(1 for w in library if "Sanskrit" in language_tokens(w)
                                   and w["type"] in PUBLISHED_TYPES),
-        "canon_count": sum(1 for w in works if w["domain"] != NOT_CANON),
+        "prakrit_count": len(works) - len(sanskrit),
         "api_count": len(api),
         "quantum_count": len(quantum),
-        "quantum_text_count": sum(1 for w in works if w["text"] == "quantum"),
-        "elibrary_text_count": sum(1 for w in works if w["text"] == "elibrary"),
-        "last_changed": max((w.get("added") or "" for w in works), default=None) or None,
+        **tier_stats(sanskrit),
     }
     canon_order = list(CANON.values())
 
@@ -390,8 +423,14 @@ def main() -> None:
         return (canon_order.index((d, s)) if (d, s) in canon_order else 999, s)
 
     tree = build_axes(works, "api+quantum", extra, domain_order, sub_order)
+    # build_axes summed over both tiers; the headline and every node default to
+    # the Sanskrit tier, with the wider figures kept beside them.
+    tree["all_stats_prakrit"] = {**tree["all_stats"], **tier_stats(works)}
+    tree["all_stats"] = {**summarize(sanskrit), **extra}
+    split_tier_stats(tree, lambda w: not w.get("prakrit"))
     # Before `write`: the date lands in the tree as well as in docs/VERSION.
     stamped = stamp_version(tree["all_stats"])
+    tree["all_stats_prakrit"]["sourced"] = tree["all_stats"].get("sourced")
     write(tree, args.out)
     report(tree, args.out)
     if stamped:

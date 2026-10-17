@@ -35,14 +35,8 @@ from pathlib import Path
 from pipeline.config import CHANGELOG_PATH, TREE_PATH
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("--tree", type=Path, default=TREE_PATH)
-    parser.add_argument("--out", type=Path, default=CHANGELOG_PATH)
-    args = parser.parse_args()
-
-    tree = json.loads(args.tree.read_text(encoding="utf-8"))
-    works = tree["works"]
+def series(works: list[dict]) -> tuple[list[dict], int]:
+    """Monthly cumulative periods over `works`, and how many had no date."""
     by_month: dict[str, list[dict]] = defaultdict(list)
     undated = 0
     for w in works:
@@ -76,17 +70,35 @@ def main() -> None:
             "cumulative_iast_bytes_total": c_bytes,
             "cumulative_elibrary_iast_bytes": c_library_bytes,
         })
+    return periods, undated
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    parser.add_argument("--tree", type=Path, default=TREE_PATH)
+    parser.add_argument("--out", type=Path, default=CHANGELOG_PATH)
+    args = parser.parse_args()
+
+    tree = json.loads(args.tree.read_text(encoding="utf-8"))
+    # Two series, as the tree has two tiers: `periods` over the Sanskrit tier
+    # (what the aggregator reads) and `periods_prakrit` with the Prakrit tier
+    # added, for the About page's "include Prakrit" checkbox.
+    periods, undated = series([w for w in tree["works"] if not w.get("prakrit")])
+    periods_prakrit, undated_prakrit = series(tree["works"])
 
     out = {
         "granularity": "month",
         "source": "jainelibrary.org API web_date, the day each item went online",
         "periods": periods,
         "undated_works": undated,
+        "periods_prakrit": periods_prakrit,
+        "undated_works_prakrit": undated_prakrit,
         "note": ("cumulative_text_count counts items with a text from either source: "
                  "Jain Quantum's public booktext (items added to mid-2020) or the library's "
                  "own OCR file, fetched behind its login (to July 2022); the two are split "
                  "out beside it. cumulative_iast_bytes_total covers the items fetched and "
-                 "measured."),
+                 "measured. `periods` is the Sanskrit tier; `periods_prakrit` adds the "
+                 "Prakrit tier."),
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -95,6 +107,9 @@ def main() -> None:
           f"{last.get('date')}; final count {last.get('cumulative_count')}, text "
           f"{last.get('cumulative_text_count')}, sized {last.get('cumulative_sized_count')}, "
           f"undated {undated}")
+    if periods_prakrit:
+        print(f"  with Prakrit: final count {periods_prakrit[-1]['cumulative_count']}, text "
+              f"{periods_prakrit[-1]['cumulative_text_count']}, undated {undated_prakrit}")
 
 
 if __name__ == "__main__":

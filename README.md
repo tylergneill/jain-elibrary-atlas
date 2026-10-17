@@ -30,8 +30,8 @@ from the library's own OCR files, fetched with an account.
 
 # how it works
 
-A `pipeline/` will emit `docs/data/tree.json`; a single-page frontend in
-`docs/` will browse it. The corpus is our own fetch, kept under gitignored
+A `pipeline/` emits `docs/data/tree.json`; a single-page frontend in
+`docs/` browses it. The corpus is our own fetch, kept under gitignored
 `data/` and never written to by the build.
 
 ## acquisition (not in this repo)

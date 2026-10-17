@@ -46,7 +46,7 @@
         <input type="checkbox" id="groupToggle" />
         <span id="groupToggleLabel">group by author</span>
       </label>
-      <label class="groupToggle" title="Show only items with a public OCR text on Jain Quantum, hiding the post-2022 accessions and PDF-only entries">
+      <label class="groupToggle" title="Show only items with an OCR text, from Jain Quantum or the eLibrary, hiding the PDF-only entries (mostly accessions after July 2022)">
         <input type="checkbox" id="textOnlyToggle" />
         <span>TXT only</span>
       </label>
@@ -85,6 +85,11 @@
       <div id="allRow" class="row allRow">
         <span class="title topLevel">All</span>
         <span id="allStats" class="small topLevel allStats"></span>
+        <!-- Styled by the Wikisource Atlas's .includeOrphansToggle, the pill this one is modelled on. -->
+        <label id="includePrakritToggle" class="includeOrphansToggle" title="Include the books catalogued as Prakrit, or as Sanskrit and Prakrit (mostly the Āgama canon), in the tree and every total">
+          <input type="checkbox" id="includePrakritCheckbox" />
+          include Prakrit
+        </label>
       </div>
       <hr class="allDivider" />
       <div class="hint">

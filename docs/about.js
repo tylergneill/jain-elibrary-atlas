@@ -1,13 +1,8 @@
-// about.html's scripted behaviour: the theme toggle, the figures in the prose,
-// the Data Quality lists, and the growth chart.
+// about.html's scripted behaviour: the theme toggle and the growth chart.
 //
-// The figures come from data/tree.json and data/changelog.json, never from the
-// markup -- a number typed into the page is a number that goes stale. Each
-// <span data-stat="key"> is filled from deriveStats(); an absent figure renders
-// as an em dash rather than a zero. The sibling Atlases have their audit
-// pipeline rewrite the digits in place (`audit --update-about`); this Atlas has
-// no audit stage yet, so the page derives them itself from the two published
-// files, which is also all the Data Quality lists are allowed to read.
+// The figures in the prose and the Data Quality lists are not computed here:
+// `make audit-update-about` (pipeline/audit.py) writes them into the page, so
+// it reads right with JS off and the audit can be run from a terminal.
 //
 // The theme icons and handler are duplicated from app.js rather than shared,
 // because about.html deliberately doesn't load app.js (which expects a sidebar
@@ -37,246 +32,7 @@ if (themeToggle) {
   });
 }
 
-const TREE_URL = "./data/tree.json";
 const CHANGELOG_URL = "./data/changelog.json";
-
-// The text face of the catalogue -- the same root app.js links to.
-const SITE_ROOT = "https://jainqq.org";
-
-// ---------------------------------------------------------------------------
-// Figures in the prose
-// ---------------------------------------------------------------------------
-
-const nf = new Intl.NumberFormat("en-US");
-
-function fillStats(stats) {
-  for (const el of document.querySelectorAll("[data-stat]")) {
-    const unit = el.dataset.unit;
-    let v = stats[el.dataset.stat];
-    if (typeof v === "number" && unit === "mb") v = (v / 1e6).toFixed(0);
-    else if (typeof v === "number" && unit === "kb") v = (v / 1e3).toFixed(0);
-    else if (typeof v === "number") v = nf.format(v);
-    el.textContent = v == null || v === "" ? "—" : String(v);
-  }
-}
-
-const bytesOf = (w) => (w.sizes || {}).transliterated_bytes || 0;
-const pct = (n, d) => (d ? (n / d * 100).toFixed(0) : null);
-const inQuantum = (w) => (w.sources || []).includes("quantum");
-const inApi = (w) => (w.sources || []).includes("api");
-
-// A publication year the catalogue cannot mean: not four digits, or outside
-// the span of printed Jain literature and the present.
-function oddYear(w) {
-  if (!w.publish_year) return false;
-  const y = Number(String(w.publish_year).slice(0, 4));
-  return !Number.isInteger(y) || y < 1700 || y > new Date().getFullYear();
-}
-
-// "Book_Devnagari, , , agam_index" -- a comma list with nothing between two
-// of its commas, or after the last.
-const hasEmptySlot = (w) => (w.classification || "").split(",").some((t) => !t.trim());
-
-// "Sanskrit, Sanskrit": the tier admits a language string whose tokens are
-// all Sanskrit, so a repeat gets in.
-const repeatsLanguage = (w) => (w.language || "").includes(",");
-
-function deriveStats(tree, log) {
-  const works = tree.works || [];
-  const stats = { ...(tree.all_stats || {}) };
-  // Two text sources: Quantum's public booktext, and the library's own OCR
-  // file, fetched behind its login for the items Quantum has no text for.
-  const text = works.filter((w) => w.text);
-  const publicText = works.filter((w) => w.text === "quantum");
-  const libraryOcr = works.filter((w) => w.text === "elibrary");
-
-  stats.no_text = works.length - text.length;
-  stats.no_public_text = works.length - publicText.length;
-  stats.elibrary_text_count = libraryOcr.length;
-  stats.elibrary_text_bytes = libraryOcr.reduce((s, w) => s + bytesOf(w), 0);
-  stats.both_sources = works.filter((w) => inQuantum(w) && inApi(w)).length;
-  stats.quantum_only = works.filter((w) => inQuantum(w) && !inApi(w)).length;
-  stats.api_only = works.filter((w) => !inQuantum(w)).length;
-  stats.quantum_no_text = works.filter((w) => inQuantum(w) && w.text !== "quantum").length;
-  stats.docx_count = works.filter((w) => w.ocr_docx).length;
-
-  const horizontal = works.filter((w) => w.horizontal);
-  stats.horizontal = horizontal.length;
-  stats.horizontal_text = horizontal.filter((w) => w.text === "quantum").length;
-
-  const withAuthor = works.filter((w) => w.author);
-  stats.author_count = withAuthor.length;
-  stats.author_pct = pct(withAuthor.length, works.length);
-  stats.authors_distinct = new Set(withAuthor.map((w) => w.author)).size;
-  // `editor` is set only where the catalogue names a classical author, the
-  // catalogued author then being the modern editor.
-  stats.classical_author_count = works.filter((w) => w.editor).length;
-  stats.classical_author_pct = pct(stats.classical_author_count, works.length);
-
-  stats.script_devanagari = works.filter((w) => w.script === "Hindi").length;
-  stats.script_other = works.length - stats.script_devanagari;
-  stats.classification_distinct = new Set(works.map((w) => w.classification)).size;
-  stats.classification_empty_slot = works.filter(hasEmptySlot).length;
-  stats.canon_pct = pct(stats.canon_count, works.length);
-
-  stats.text_pages = text.reduce((s, w) => s + ((w.sizes || {}).pages || 0), 0);
-  stats.iast_pct = pct(stats.transliterated_bytes, stats.content_bytes);
-  const sizes = text.map(bytesOf).sort((a, b) => a - b);
-  if (sizes.length) {
-    const mid = sizes.length >> 1;
-    stats.median_bytes = sizes.length % 2 ? sizes[mid] : (sizes[mid - 1] + sizes[mid]) / 2;
-  }
-
-  // Where the text stops: the newest accession that has one, and what has
-  // been catalogued since, by which face knows it.
-  const lastText = publicText.reduce((m, w) => (w.added && w.added > m ? w.added : m), "");
-  const since = works.filter((w) => w.added && w.added > lastText);
-  stats.last_text_added = lastText.slice(0, 7);
-  stats.since_last_text = since.length;
-  stats.since_quantum = since.filter(inQuantum).length;
-  stats.since_api_only = since.length - stats.since_quantum;
-  stats.last_quantum_year = works.filter(inQuantum)
-    .reduce((m, w) => (w.added && w.added > m ? w.added : m), "").slice(0, 4);
-  stats.first_api_only_year = works.filter((w) => !inQuantum(w) && w.added)
-    .reduce((m, w) => (!m || w.added < m ? w.added : m), "").slice(0, 4);
-
-  // The library's own OCR (the login-gated Word copy) runs two years past
-  // Quantum's text, so the books after the last text split in two: OCR'd but
-  // not public, and not OCR'd at all.
-  const lastDocx = works.filter((w) => w.ocr_docx)
-    .reduce((m, w) => (w.added && w.added > m ? w.added : m), "");
-  stats.last_docx_added = lastDocx.slice(0, 7);
-  stats.since_text_docx = since.filter((w) => w.ocr_docx).length;
-  stats.since_last_docx = works.filter((w) => w.added && w.added > lastDocx).length;
-  stats.docx_no_text = works.filter((w) => w.ocr_docx && w.text !== "quantum").length;
-  // The library's OCR files record when they were made: one batch, it turns
-  // out, for every item fetched (see Where the Text Stops).
-  const created = [...new Set(libraryOcr.map((w) => w.ocr_created).filter(Boolean))].sort();
-  stats.ocr_created_dates = created.length;
-  stats.ocr_created_first = created[0] || null;
-  stats.ocr_created_last = created[created.length - 1] || null;
-
-  const undated = works.filter((w) => !w.added);
-  stats.undated_text = undated.filter((w) => w.text === "quantum").length;
-
-  if (log) {
-    const periods = log.periods || [];
-    stats.changelog_first = periods[0]?.date?.slice(0, 7);
-    stats.changelog_last = periods[periods.length - 1]?.date?.slice(0, 7);
-    stats.undated_works = log.undated_works;
-  }
-  return stats;
-}
-
-// ---------------------------------------------------------------------------
-// Data Quality
-// ---------------------------------------------------------------------------
-// Each finding is a collapsed <details> in the siblings' audit markup. Rows are
-// built as DOM nodes, never as HTML strings: the titles come out of tree.json.
-
-function h(tag, attrs, ...children) {
-  const node = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs || {})) node.setAttribute(k, v);
-  for (const c of children) node.append(c);
-  return node;
-}
-
-function workLink(work) {
-  return h("a", { href: `${SITE_ROOT}/explore/${work.id}/1`, target: "_blank", rel: "noopener" },
-    work.title_en || work.title);
-}
-
-// A work as an audit row: serial, linked title, and whatever the finding is about.
-function workRow(work, detail) {
-  return h("span", {}, h("code", {}, work.id), " ", workLink(work), detail ? ` — ${detail}` : "");
-}
-
-function auditItem(summary, intro, rows) {
-  const details = h("details", {},
-    h("summary", { class: "audit-summary" }, h("span", {}, summary)));
-  if (intro) details.append(h("p", { style: "margin-left: 1.6em;" }, intro));
-  const list = h("ul", { style: "margin-left: 1.6em;" });
-  for (const row of rows) list.append(row.tagName === "LI" ? row : h("li", {}, row));
-  details.append(list);
-  return h("li", { class: "audit-item" }, details);
-}
-
-// A finding whose rows are themselves collapsed groups, as the siblings nest
-// a long list under its folders.
-function nestedItem(summary, intro, groups) {
-  const item = auditItem(summary, intro, groups.map(([label, rows]) => {
-    const inner = h("ul", { style: "margin-left: 1.6em;" });
-    for (const row of rows) inner.append(h("li", {}, row));
-    return h("li", { class: "audit-item" }, h("details", {},
-      h("summary", { class: "audit-summary" }, h("span", {}, `${label} (${rows.length})`)), inner));
-  }));
-  item.querySelector("ul").style.cssText = "margin-left: 1.6em; list-style: none; padding-left: 0;";
-  return item;
-}
-
-function countBy(works, keyOf) {
-  const counts = new Map();
-  for (const w of works) counts.set(keyOf(w), (counts.get(keyOf(w)) || 0) + 1);
-  return counts;
-}
-
-const items = (n) => `${nf.format(n)} ${n === 1 ? "item" : "items"}`;
-
-function renderAudit(tree) {
-  const list = document.getElementById("auditList");
-  if (!list) return;
-  const works = tree.works || [];
-  const bySerial = (a, b) => a.id.localeCompare(b.id);
-  list.innerHTML = "";
-
-  const years = works.filter(oddYear).sort(bySerial);
-  list.append(auditItem(
-    `Publication years that cannot be right (${items(years.length)})`,
-    "The catalogued year is not a four-digit year between 1700 and the present.",
-    years.map((w) => workRow(w, `"${w.publish_year}"`))));
-
-  const empty = works.filter((w) => w.text && !bytesOf(w)).sort(bySerial);
-  list.append(auditItem(
-    `Text pages that hold no text (${items(empty.length)})`,
-    "Jain Quantum serves a text for these, with page markers, but nothing legible is on the pages.",
-    empty.map((w) => workRow(w, `${nf.format((w.sizes || {}).pages || 0)} pages`))));
-
-  const repeats = works.filter(repeatsLanguage).sort(bySerial);
-  list.append(auditItem(
-    `Language strings that repeat themselves (${items(repeats.length)})`,
-    "",
-    repeats.map((w) => workRow(w, `"${w.language}"`))));
-
-  const slots = [...countBy(works.filter(hasEmptySlot), (w) => w.classification).entries()]
-    .sort((a, b) => b[1] - a[1]);
-  list.append(auditItem(
-    `Classification strings with empty slots (${nf.format(works.filter(hasEmptySlot).length)} items, ` +
-    `${slots.length} distinct strings)`,
-    "The classification is a comma-separated list, and these have nothing between two of " +
-    "their commas or after the last. Items carrying each string in parentheses.",
-    slots.map(([s, n]) => h("span", {}, h("code", {}, s), ` (${n})`))));
-
-  list.append(nestedItem(
-    "Items in only one of the two catalogues",
-    "Both sites present the same library under the same serials, but neither lists all of it. " +
-    "An item known only to Jain Quantum has no accession date; one known only to " +
-    "jainelibrary.org has no public text.",
-    [
-      ["Jain Quantum only", works.filter((w) => inQuantum(w) && !inApi(w)).sort(bySerial).map((w) => workRow(w))],
-      ["jainelibrary.org only", works.filter((w) => !inQuantum(w)).sort(bySerial)
-        .map((w) => workRow(w, w.added ? `online ${w.added.slice(0, 7)}` : ""))],
-    ]));
-
-  const dark = works.filter((w) => inQuantum(w) && !w.text);
-  const darkYears = [...countBy(dark, (w) => (w.added || "").slice(0, 4) || "undated").entries()]
-    .sort((a, b) => a[0].localeCompare(b[0]));
-  const perYear = countBy(works.filter(inQuantum), (w) => (w.added || "").slice(0, 4) || "undated");
-  list.append(auditItem(
-    `Catalogued on Jain Quantum without a text (${nf.format(dark.length)} items)`,
-    "Listed in Quantum's catalog, with a PDF in the library, but no text to read or search. " +
-    "By year the item went online, against all of that year's Sanskrit items on Quantum.",
-    darkYears.map(([y, n]) => `${y} — ${nf.format(n)} of ${nf.format(perYear.get(y))}`)));
-}
 
 // ---------------------------------------------------------------------------
 // Growth over time
@@ -306,7 +62,10 @@ function activeBands() {
 
 // `granularity` is months per group: 1 monthly, 3 quarterly, 12 yearly. Year
 // is the default because two hundred monthly bars is a texture, not a reading.
-const growthState = { mode: "cumulative", metric: "count", granularity: 12 };
+// `prakrit`: chart the changelog's `periods_prakrit` (Sanskrit and Prakrit
+// tiers) instead of `periods` (Sanskrit) -- the About page's counterpart of the
+// tree page's "include Prakrit" pill, as the Wikisource Atlas pairs its two.
+const growthState = { mode: "cumulative", metric: "count", granularity: 12, prakrit: false };
 
 // What one published period says, as running totals per band.
 function readPeriod(p) {
@@ -330,7 +89,7 @@ function diffBands(now, before) {
 // Every calendar month from the first published period to the last. A month
 // with no period carries the previous totals forward and adds nothing.
 function monthlySeries(log) {
-  const src = log.periods || [];
+  const src = (growthState.prakrit && log.periods_prakrit) || log.periods || [];
   if (!src.length) return [];
   const byMonth = new Map(src.map((p) => [p.date.slice(0, 7), p]));
   const last = src[src.length - 1].date.slice(0, 7);
@@ -512,10 +271,19 @@ function renderGrowth(series, chartEl) {
 function initGrowth(log) {
   const chartEl = document.getElementById("growthChart");
   if (!chartEl) return;
-  const series = log ? monthlySeries(log) : [];
+  let series = log ? monthlySeries(log) : [];
   if (!series.length) {
     chartEl.textContent = "Growth data unavailable.";
     return;
+  }
+  const prakritBox = document.getElementById("growthIncludePrakrit");
+  if (prakritBox) {
+    prakritBox.checked = growthState.prakrit;
+    prakritBox.addEventListener("change", () => {
+      growthState.prakrit = prakritBox.checked;
+      series = monthlySeries(log);
+      renderGrowth(series, chartEl);
+    });
   }
   const controls = document.getElementById("growthControls");
   if (controls) {
@@ -539,8 +307,6 @@ async function fetchJson(url) {
 }
 
 (async () => {
-  // The changelog is optional to everything but the chart: without it the
-  // prose's growth figures show a dash and the rest of the page still fills.
   let log = null;
   try {
     log = await fetchJson(CHANGELOG_URL);
@@ -548,16 +314,6 @@ async function fetchJson(url) {
     console.log("about: could not load changelog", e);
   }
   initGrowth(log);
-  try {
-    const tree = await fetchJson(TREE_URL);
-    fillStats(deriveStats(tree, log));
-    renderAudit(tree);
-  } catch (e) {
-    console.log("about: could not load tree", e);
-    fillStats({});
-    const list = document.getElementById("auditList");
-    if (list) list.textContent = "Data unavailable.";
-  }
 })();
 
 // The About page's one outbound link to the parent project. The markup carries

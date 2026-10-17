@@ -33,6 +33,11 @@ const state = {
   groupCategory: localStorage.getItem("groupCategory") === "1", // author axis: group a person's works by domain
   groupAuthor: localStorage.getItem("groupAuthor") === "1",     // category axis: group a sub-domain's works by author
   textOnly: localStorage.getItem("textOnly") === "1",           // hide works with no Unicode text
+  // The Prakrit tier rides in the tree flagged `prakrit: true`, and every node
+  // carries both tiers' figures (`stats` Sanskrit, `stats_prakrit` both). The
+  // "include Prakrit" pill in the All row chooses; off by default, persisted
+  // like theme. Modelled on the Wikisource Atlas's "improperly categorized" pill.
+  includePrakrit: localStorage.getItem("includePrakrit") === "1",
 
   selectedId: null,         // "cat:<domain>" | "cat:<domain>/<sub>" | "auth:<name>" | null (= All)
   scheme: "iast",           // devanagari | iast | hk | itrans | slp1
@@ -249,7 +254,29 @@ function effectiveChildren(entry) {
 }
 
 function textOnlyFiltered(works) {
-  return state.textOnly ? works.filter((w) => w.text) : works;
+  const tiered = state.includePrakrit ? works : works.filter((w) => !w.prakrit);
+  return state.textOnly ? tiered.filter((w) => w.text) : tiered;
+}
+
+// Point every node's `stats` (and the All row's) at the chosen tier, so the
+// many readers of `entry.stats` need not know there are two. The Sanskrit
+// figures are kept on first call as `_statsSanskrit`.
+function applyTier() {
+  const swap = (node) => {
+    if (!node._statsSanskrit) node._statsSanskrit = node.stats;
+    node.stats = state.includePrakrit ? (node.stats_prakrit || node._statsSanskrit) : node._statsSanskrit;
+    for (const child of node.children || []) swap(child);
+  };
+  for (const nodes of Object.values(state.data.axes || {})) nodes.forEach(swap);
+  if (!state.data._allSanskrit) state.data._allSanskrit = state.data.all_stats;
+  state.data.all_stats = state.includePrakrit
+    ? (state.data.all_stats_prakrit || state.data._allSanskrit) : state.data._allSanskrit;
+}
+
+// A node with no work in the chosen tier (a Prakrit-only canonical text, with
+// the pill off) is not there, rather than "(0 works)".
+function inTier(entry) {
+  return (entry.stats?.count ?? 0) > 0;
 }
 
 function worksOf(entry) {
@@ -403,6 +430,7 @@ function renderSidebarNode(entry, parent, depth) {
   // there as "(0 works)" -- under TXT only the sidebar is a map of what you can
   // actually reach, and 3888 of the author axis's entries have no text at all.
   if (state.textOnly && !(entry.stats?.text_count)) return null;
+  if (!inTier(entry)) return null;
   const kids = effectiveChildren(entry);
   const isExpanded = state.expanded.has(id);
 
@@ -864,7 +892,7 @@ function renderNodeBlock(entry, parent, { isSearch = false, depth = 0 } = {}) {
   }
 
   const kids = effectiveChildren(entry)
-    .filter((c) => !state.textOnly || c.stats?.text_count);
+    .filter((c) => inTier(c) && (!state.textOnly || c.stats?.text_count));
   if (kids.length && !isSearch) {
     for (const c of kids) block.appendChild(renderNodeBlock(c, entry, { depth: depth + 1 }));
   }
@@ -896,9 +924,7 @@ function renderOverview() {
   const isAuthor = state.axis === "author";
   // Under the filter, an entry holding no text is not a thin result -- it is
   // nothing to click -- so it leaves the overview as it leaves the sidebar.
-  const visible = state.textOnly
-    ? entries.filter((e) => e.stats?.text_count)
-    : entries;
+  const visible = entries.filter((e) => inTier(e) && (!state.textOnly || e.stats?.text_count));
   const ranked = isAuthor
     ? [...visible].sort((a, b) => (visibleStats(b.stats).count) - (visibleStats(a.stats).count))
     : visible;
@@ -1121,6 +1147,7 @@ async function loadData() {
   state.data = await r.json();
 
   state.works = new Map(state.data.works.map((w) => [w.id, w]));
+  applyTier();
   state.allTitledNodes = collectTitledNodes(state.data);
   state.translitCache = new Map();
   state.searchIndex = new Map();
@@ -1275,6 +1302,20 @@ function initUI() {
       }
       renderMain();
     });
+  }
+
+  const prakritToggle = document.getElementById("includePrakritCheckbox");
+  if (prakritToggle) {
+    prakritToggle.checked = state.includePrakrit;
+    prakritToggle.addEventListener("change", () => {
+      state.includePrakrit = prakritToggle.checked;
+      localStorage.setItem("includePrakrit", state.includePrakrit ? "1" : "0");
+      applyTier();
+      renderSidebarTree();
+      renderMain();
+    });
+    // The pill sits inside #allRow; a click on it must not also select All.
+    document.getElementById("includePrakritToggle").addEventListener("click", (ev) => ev.stopPropagation());
   }
 
   const textOnlyToggle = document.getElementById("textOnlyToggle");

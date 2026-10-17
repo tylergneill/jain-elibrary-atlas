@@ -183,12 +183,15 @@ Granths. The same script-and-format vocabulary as the Browse tiles. The
 subject tokens in `classification` (`Philosophy`, `Nyay`, `Buddhism`, …) are
 not offered anywhere in the interface.
 
-**The has-text rule has exceptions.** Twelve of the 1,974 Sanskrit-only
-sized rows returned an empty `fullText` (the response is ~550 bytes of
-`bookData` alone): the consecutive batch 007833–007843 and 035329. The
-fetcher journals `chars: 0` for them, and `text_count` must come from the
-journal, not from the catalog. Over the full Sanskrit-only run the text
-averaged ~1,720 characters a page (978 M characters, 569,653 pages).
+**The has-text rule has exceptions, in two shapes.** Some sized rows return
+an empty `fullText` (the response is ~550 bytes of `bookData` alone; first
+seen as the consecutive batch 007833–007843), which the fetcher journals as
+`chars: 0`. Others return page markers with only a byte-order mark under each
+(034068), which the journal counts as characters and only the measurement
+catches. So a sized catalog row is never proof of text: `text` comes from
+`build_tree.empty_booktexts`, which takes both, and the audit lists them
+("Text pages on Jain Quantum that are empty") -- count them there, not here.
+The text averages ~1,720 characters a page.
 
 ## Growth, and where Quantum stops (measured 2026-10-07)
 

@@ -105,6 +105,34 @@ def build_axes(works: list[dict], source: str, extra_stats: dict | None = None,
     }
 
 
+def split_tier_stats(tree: dict, in_default) -> None:
+    """Give every axis node two sets of figures: the default tier's and the wider one's.
+
+    The tree carries the wider tier's works (with `in_default(work)` false for
+    the extras), so `build_axes` has summed over all of them. Afterwards each
+    node's `stats` is re-derived from its default-tier works alone, and the
+    wider figures are kept beside them as `stats_prakrit`. A node with no
+    default-tier work gets `count` 0 and the frontend hides it until the reader
+    widens the tier. The Wikisource Atlas's "improperly categorized" pill is
+    the model: two totals published, the reader chooses.
+    """
+    by_id = {w["id"]: w for w in tree["works"]}
+
+    def ids_of(node: dict) -> list[str]:
+        if "work_ids" in node:
+            return node["work_ids"]
+        return [i for child in node.get("children", []) for i in ids_of(child)]
+
+    def walk(nodes: list[dict]) -> None:
+        for node in nodes:
+            node["stats_prakrit"] = node["stats"]
+            node["stats"] = summarize([by_id[i] for i in ids_of(node) if in_default(by_id[i])])
+            walk(node.get("children", []))
+
+    for nodes in tree["axes"].values():
+        walk(nodes)
+
+
 def write(tree: dict, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(tree, ensure_ascii=False, separators=(",", ":")),

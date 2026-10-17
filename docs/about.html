@@ -91,12 +91,12 @@
         </p>
         <p>
           Neither site lists everything the other does.
-          Of the <strong><span data-stat="count"></span> Sanskrit books</strong> this Atlas covers:
+          Of the <strong><span data-stat="count">2,465</span> Sanskrit books</strong> this Atlas covers:
         </p>
 
         <figure class="venn-figure">
-          <!-- Every number below carries a data-stat tag and is filled by about.js
-               from tree.json; edit the tag, not the digits. -->
+          <!-- Every number below carries a data-stat tag, rewritten by
+               `make audit-update-about`; edit the tag, not the digits. -->
           <svg viewBox="0 -16 620 216" role="img" aria-label="Sanskrit books by site: jainelibrary.org only, both sites, jainqq.org only">
 
             <text x="60" y="6" class="venn-label">jainelibrary.org</text>
@@ -109,11 +109,11 @@
             <line x1="96" y1="90" x2="215" y2="90" class="venn-leader" />
             <line x1="524" y1="90" x2="405" y2="90" class="venn-leader" />
 
-            <text x="60" y="95" class="venn-count" data-stat="api_only"></text>
+            <text x="60" y="95" class="venn-count" data-stat="api_only">57</text>
             <text x="60" y="112" class="venn-cap">library only</text>
-            <text x="310" y="95" class="venn-count venn-both" data-stat="both_sources"></text>
+            <text x="310" y="95" class="venn-count venn-both" data-stat="both_sources">2,289</text>
             <text x="310" y="112" class="venn-cap venn-both">both</text>
-            <text x="560" y="95" class="venn-count" data-stat="quantum_only"></text>
+            <text x="560" y="95" class="venn-count" data-stat="quantum_only">119</text>
             <text x="560" y="112" class="venn-cap">Quantum only</text>
           </svg>
         </figure>
@@ -125,16 +125,16 @@
         </p>
         <ul>
           <li><strong>Quantum text</strong>: the public text on jainqq.org, one page per book, no account needed.
-            <strong><span data-stat="quantum_text_count"></span></strong> of the
-            <span data-stat="count"></span> Sanskrit books have one.</li>
+            <strong><span data-stat="quantum_text_count">1,960</span></strong> of the
+            <span data-stat="count">2,465</span> Sanskrit books have one.</li>
           <li><strong>eLibrary text</strong>: the library's own OCR, a Word file beside the PDF,
             downloadable only with an account.
-            <span data-stat="docx_count"></span> of the books have one.</li>
+            <span data-stat="docx_count">2,216</span> of the books have one.</li>
         </ul>
         <p>
           <strong>The two are not the same text.</strong>
           Each eLibrary file opens with a note saying when it was made,
-          and every one this Atlas fetched says the same day, <span data-stat="ocr_created_first"></span>:
+          and every one this Atlas fetched says the same day, <span data-stat="ocr_created_first">2022-07-30</span>:
           the library re-ran OCR over its whole backlog that day,
           books added years earlier included.
           Quantum's text comes from an earlier pass over the same scans.
@@ -148,17 +148,17 @@
         <p>
           They also stop at different times
           (see <a href="#where-the-text-stops">Where the Text Stops</a>):
-          Quantum's text ends with books that went online in <span data-stat="last_text_added"></span>,
-          the library's OCR in <span data-stat="last_docx_added"></span>.
-          So <span data-stat="docx_no_text"></span> books have eLibrary text but no Quantum text.
+          Quantum's text ends with books that went online in <span data-stat="last_text_added">2020-06</span>,
+          the library's OCR in <span data-stat="last_docx_added">2022-07</span>.
+          So <span data-stat="docx_no_text">326</span> books have a library OCR file but no Quantum text.
           The Atlas uses Quantum's text wherever there is one and the library's for those
           (fetched with an account; see <a href="#scraping">Scraping</a>),
           and says which on every book:
-          <span data-stat="quantum_text_count"></span> Quantum texts and
-          <span data-stat="elibrary_text_count"></span> eLibrary texts.
+          <span data-stat="quantum_text_count">1,960</span> Quantum texts and
+          <span data-stat="elibrary_text_count">325</span> eLibrary texts.
           Because the two are separate OCR passes, their sizes are comparable but not identical,
           and a reader who opens a book's Quantum page sees Quantum's reading, not the library's.
-          The other <span data-stat="no_text"></span> books have no OCR anywhere.
+          The other <span data-stat="no_text">180</span> books have no OCR anywhere.
         </p>
         <p>
           For example,
@@ -175,12 +175,12 @@
           <code>classification</code> is mostly script and format
           (<code>Book_Devnagari</code>, <code>Manuscript</code>, <code>Dictionary</code>),
           written as a comma-separated list;
-          the Sanskrit books alone carry <span data-stat="classification_distinct"></span> distinct strings.
+          the Sanskrit books alone carry <span data-stat="classification_distinct">77</span> distinct strings.
           Subject terms exist on some records but neither site offers them for browsing.
         </p>
         <p>
           <code>script</code> names a language rather than a script:
-          <span data-stat="script_devanagari"></span> of the Sanskrit books say <code>Hindi</code>,
+          <span data-stat="script_devanagari">2,461</span> of the Sanskrit books say <code>Hindi</code>,
           meaning Devanāgarī.
           <code>language</code> is a comma-separated string as catalogued
           (<code>Sanskrit</code>, or <code>Sanskrit, Hindi</code>, typically for a text with a Hindi translation or commentary).
@@ -188,9 +188,9 @@
 
         <h3 id="manuscripts">A "Manuscripts" Folder of Printed Books</h3>
         <p>
-          The library files <span data-stat="horizontal"></span> of the Sanskrit books under "manuscripts."
+          The library files <span data-stat="horizontal">595</span> of the Sanskrit books under "manuscripts."
           These are not handwritten: they are block prints and printed books in horizontal format.
-          <span data-stat="horizontal_text"></span> of them have a Quantum text.
+          <span data-stat="horizontal_text">396</span> of them have a Quantum text.
         </p>
 
         <h3 id="authors">Authors and Editors</h3>
@@ -198,8 +198,8 @@
           The catalogue's <code>author</code> is whoever the record was filed under,
           which is often a modern editor or publisher rather than the author of the work.
           A separate field for the classical author exists
-          but is filled on only <span data-stat="classical_author_count"></span> of the Sanskrit books
-          (<span data-stat="classical_author_pct"></span>%).
+          but is filled on only <span data-stat="classical_author_count">203</span> of the Sanskrit books
+          (<span data-stat="classical_author_pct">8</span>%).
           Names are romanised without diacritics and not standardised,
           and a single field often holds several people.
         </p>
@@ -209,19 +209,19 @@
           The one subject-like structure the catalogue does carry is the Śvetāmbara
           <span class="sa-cap">आगम</span> canon:
           a tag of the form <code>agam_…</code> names the canonical text an item belongs to.
-          <span data-stat="canon_count"></span> of the Sanskrit books
-          (<span data-stat="canon_pct"></span>%) carry one.
+          <span data-stat="canon_count">455</span> of the Sanskrit books
+          (<span data-stat="canon_pct">18</span>%) carry one.
         </p>
 
         <h3 id="language">Sanskrit vs. Other Languages</h3>
         <p>
           The library is mostly Gujarati and Hindi.
-          Its two catalogues together list <span data-stat="library_count"></span> items —
+          Its two catalogues together list <span data-stat="library_count">41,587</span> items —
           books, articles, magazines and audio —
-          of which <span data-stat="library_text_count"></span> have a text.
-          Among the books, <span data-stat="any_sanskrit_count"></span> mention Sanskrit among their languages,
-          <span data-stat="sanskrit_prakrit_count"></span> are in Sanskrit, Prakrit or both and nothing else,
-          and <strong><span data-stat="count"></span></strong> are catalogued as Sanskrit alone.
+          of which <span data-stat="library_text_count">27,123</span> have a text.
+          Among the books, <span data-stat="any_sanskrit_count">7,588</span> mention Sanskrit among their languages,
+          <span data-stat="sanskrit_prakrit_count">3,038</span> are in Sanskrit, Prakrit or both and nothing else,
+          and <strong><span data-stat="count">2,465</span></strong> are catalogued as Sanskrit alone.
         </p>
       </details>
 
@@ -266,6 +266,18 @@
           recent Sanskrit editions are mostly entered as "Sanskrit, Hindi"
           and so fall outside this selection.
         </p>
+        <p>
+          <strong>Prakrit is an option.</strong>
+          The <span data-stat="prakrit_count">573</span> books catalogued as Prakrit,
+          or as Sanskrit and Prakrit, can be added with the "include Prakrit" pill
+          on the tree page and the checkbox over the growth chart below;
+          the figures elsewhere on this page stay with the Sanskrit books.
+          Most of them are the <span class="sa-cap">आगम</span> canon itself
+          (<span data-stat="prakrit_canon">497</span> carry a canon tag),
+          and <span data-stat="prakrit_undated">441</span> are on Jain Quantum's shelf of Āgama editions,
+          which the library's own catalogue does not list, so they carry no date.
+          <span data-stat="prakrit_text">570</span> of them have a text.
+        </p>
 
         <h3 id="calculating-size">Calculating Size Information</h3>
         <p>
@@ -278,15 +290,15 @@
         </ol>
         <p>
           IAST text takes up less space
-          (here <span data-stat="iast_pct"></span>% of the cleaned text's byte count)
+          (here <span data-stat="iast_pct">54</span>% of the cleaned text's byte count)
           and is more common for cross-collection size comparisons.
         </p>
         <p>
-          Every one of the <span data-stat="sized"></span> texts has been measured,
-          <span data-stat="quantum_text_count"></span> from Quantum and <span data-stat="elibrary_text_count"></span> from the library's OCR:
-          <span data-stat="text_pages"></span> pages,
-          <strong><span data-stat="transliterated_bytes" data-unit="mb"></span>&nbsp;MB</strong> as IAST,
-          with a median book of about <span data-stat="median_bytes" data-unit="kb"></span>&nbsp;KB.
+          Every one of the <span data-stat="sized">2,285</span> texts has been measured,
+          <span data-stat="quantum_text_count">1,960</span> from Quantum and <span data-stat="elibrary_text_count">325</span> from the library's OCR:
+          <span data-stat="text_pages">663,392</span> pages,
+          <strong><span data-stat="transliterated_bytes" data-unit="mb">1,419</span>&nbsp;MB</strong> as IAST,
+          with a median book of about <span data-stat="median_bytes" data-unit="kb">453</span>&nbsp;KB.
           This is OCR output with its noise still in;
           only whole lines that are plainly not content are removed.
         </p>
@@ -295,7 +307,7 @@
         <p>
           Every record on jainelibrary.org carries the day the item went online,
           so dates here are <strong>measured rather than inferred</strong>.
-          The <span data-stat="undated_works"></span> books known only to Jain Quantum
+          The <span data-stat="undated_works">119</span> books known only to Jain Quantum
           have no such record and carry no date.
         </p>
         <p>
@@ -309,7 +321,7 @@
           Where the catalogue names a classical author, the book is listed under that name,
           and the editor it was filed under is kept on an "ed." tag;
           otherwise it is listed under whatever name the catalogue gives.
-          <span data-stat="author_pct"></span>% of the books have a name of one kind or the other.
+          <span data-stat="author_pct">96</span>% of the books have a name of one kind or the other.
           No normalization is performed, so the catalogue's variant spellings of one person
           remain separate here.
         </p>
@@ -335,16 +347,625 @@
       <details class="block collapsible">
         <summary><h2 id="data-quality">Data Quality: Structural Errors</h2></summary>
 
+        <!-- AUDIT:START -- generated by `python -m pipeline.audit --update-about`; do not hand-edit between these markers -->
         <h3 id="opportunities-for-correction">Opportunities for Correction</h3>
         <p>
-          Problems in the catalogue that could be fixed at the source.
-          The lists are computed in this page from the Atlas's published data,
-          and cover the Sanskrit books only.
+          The Atlas codebase also includes an audit pipeline for
+          detecting and concisely indicating problems that should be fixed on
+          jainelibrary.org or Jain Quantum. It covers the Sanskrit books only,
+          and every figure below is re-derived by the run that publishes it.
         </p>
-        <!-- Filled by renderAudit() in about.js from data/tree.json. -->
-        <ul id="auditList" style="list-style: none; padding-left: 0;">
-          <li>Loading…</li>
+        <ul style="list-style: none; padding-left: 0;">
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>Publication years that cannot be right (3 items)</span></summary>
+          <p style="margin-left: 1.6em;">The catalogued year is not a four-digit year between 1700 and the present.</p>
+          <ul style="margin-left: 1.6em;">
+            <li><code>022363</code> <a href="https://jainqq.org/explore/022363/1" target="_blank" rel="noopener">Padarth Pradip</a> — "132"</li>
+            <li><code>022608</code> <a href="https://jainqq.org/explore/022608/1" target="_blank" rel="noopener">Pragnapanopang Tritiya Pad Sangrahani</a> — "7989"</li>
+            <li><code>032876</code> <a href="https://jainqq.org/explore/032876/1" target="_blank" rel="noopener">Gacchachar Prakirnakam</a> — "182"</li>
+          </ul>
+          </details></li>
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>Text pages on Jain Quantum that are empty (19 items)</span></summary>
+          <p style="margin-left: 1.6em;">Jain Quantum serves a text page for each, with page markers but nothing on the pages. Where the library's own OCR has text, the Atlas uses that instead.</p>
+          <ul style="margin-left: 1.6em;">
+            <li><code>007833</code> <a href="https://jainqq.org/explore/007833/1" target="_blank" rel="noopener">Bhagwat Dharm</a> — the library's OCR has text</li>
+            <li><code>007834</code> <a href="https://jainqq.org/explore/007834/1" target="_blank" rel="noopener">Chahadhala</a> — the library's OCR has text</li>
+            <li><code>007835</code> <a href="https://jainqq.org/explore/007835/1" target="_blank" rel="noopener">Dharm Pravachan</a> — the library's OCR has text</li>
+            <li><code>007836</code> <a href="https://jainqq.org/explore/007836/1" target="_blank" rel="noopener">Dharm</a> — the library's OCR has text</li>
+            <li><code>007837</code> <a href="https://jainqq.org/explore/007837/1" target="_blank" rel="noopener">Dharmbodh Purvarddh</a> — the library's OCR has text</li>
+            <li><code>007838</code> <a href="https://jainqq.org/explore/007838/1" target="_blank" rel="noopener">Dharmbodh Uttararddh</a> — the library's OCR has text</li>
+            <li><code>007839</code> <a href="https://jainqq.org/explore/007839/1" target="_blank" rel="noopener">Drashti</a> — the library's OCR has text</li>
+            <li><code>007840</code> <a href="https://jainqq.org/explore/007840/1" target="_blank" rel="noopener">Dravya Drasht Prakash</a> — the library's OCR has text</li>
+            <li><code>007841</code> <a href="https://jainqq.org/explore/007841/1" target="_blank" rel="noopener">Dravya Sangraha Tika</a> — the library's OCR has text</li>
+            <li><code>007842</code> <a href="https://jainqq.org/explore/007842/1" target="_blank" rel="noopener">Ekibhav Stotra</a> — the library's OCR has text</li>
+            <li><code>007843</code> <a href="https://jainqq.org/explore/007843/1" target="_blank" rel="noopener">Gunasthan Darpan</a> — the library's OCR has text</li>
+            <li><code>033752</code> <a href="https://jainqq.org/explore/033752/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 02</a> — the library's OCR has text</li>
+            <li><code>034068</code> <a href="https://jainqq.org/explore/034068/1" target="_blank" rel="noopener">Sujatvartarshi Charitram</a> — the library has an OCR file</li>
+            <li><code>035329</code> <a href="https://jainqq.org/explore/035329/1" target="_blank" rel="noopener">Padmanandshatam</a> — the library's OCR has text</li>
+            <li><code>035810</code> <a href="https://jainqq.org/explore/035810/1" target="_blank" rel="noopener">Parashar Dharm Samhita Vol 02 Part 02</a> — the library's OCR has text</li>
+            <li><code>036650</code> <a href="https://jainqq.org/explore/036650/1" target="_blank" rel="noopener">Kavindra Kalpalata</a> — the library's OCR has text</li>
+            <li><code>600453</code> <a href="https://jainqq.org/explore/600453/1" target="_blank" rel="noopener">Pranatipat Vrat Katha</a> — the library's OCR has text</li>
+            <li><code>600633</code> <a href="https://jainqq.org/explore/600633/1" target="_blank" rel="noopener">Shripal Charitram</a> — the library's OCR has text</li>
+            <li><code>600651</code> <a href="https://jainqq.org/explore/600651/1" target="_blank" rel="noopener">Siri Pasanaha Chariyam</a> — the library's OCR has text</li>
+          </ul>
+          </details></li>
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>OCR the library has but Jain Quantum does not show (326 items)</span></summary>
+          <p style="margin-left: 1.6em;">Jain Quantum lists these with no text to read or search, though the library OCR'd each one; its Word file is downloadable only with an account. By the year the book went online.</p>
+          <ul style="margin-left: 1.6em; list-style: none; padding-left: 0;">
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>2016 (11)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>007833</code> <a href="https://jainqq.org/explore/007833/1" target="_blank" rel="noopener">Bhagwat Dharm</a> — online 2016-06-20</li>
+            <li><code>007834</code> <a href="https://jainqq.org/explore/007834/1" target="_blank" rel="noopener">Chahadhala</a> — online 2016-06-20</li>
+            <li><code>007835</code> <a href="https://jainqq.org/explore/007835/1" target="_blank" rel="noopener">Dharm Pravachan</a> — online 2016-06-20</li>
+            <li><code>007836</code> <a href="https://jainqq.org/explore/007836/1" target="_blank" rel="noopener">Dharm</a> — online 2016-06-20</li>
+            <li><code>007837</code> <a href="https://jainqq.org/explore/007837/1" target="_blank" rel="noopener">Dharmbodh Purvarddh</a> — online 2016-06-20</li>
+            <li><code>007838</code> <a href="https://jainqq.org/explore/007838/1" target="_blank" rel="noopener">Dharmbodh Uttararddh</a> — online 2016-06-20</li>
+            <li><code>007839</code> <a href="https://jainqq.org/explore/007839/1" target="_blank" rel="noopener">Drashti</a> — online 2016-06-20</li>
+            <li><code>007840</code> <a href="https://jainqq.org/explore/007840/1" target="_blank" rel="noopener">Dravya Drasht Prakash</a> — online 2016-06-20</li>
+            <li><code>007841</code> <a href="https://jainqq.org/explore/007841/1" target="_blank" rel="noopener">Dravya Sangraha Tika</a> — online 2016-06-20</li>
+            <li><code>007842</code> <a href="https://jainqq.org/explore/007842/1" target="_blank" rel="noopener">Ekibhav Stotra</a> — online 2016-06-20</li>
+            <li><code>007843</code> <a href="https://jainqq.org/explore/007843/1" target="_blank" rel="noopener">Gunasthan Darpan</a> — online 2016-06-20</li>
+          </ul>
+</details></li>
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>2018 (1)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>034068</code> <a href="https://jainqq.org/explore/034068/1" target="_blank" rel="noopener">Sujatvartarshi Charitram</a> — online 2018-07-07</li>
+          </ul>
+</details></li>
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>2020 (83)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>020854</code> <a href="https://jainqq.org/explore/020854/1" target="_blank" rel="noopener">Uttaradhyayan Sutram Part 01</a> — online 2020-10-24</li>
+            <li><code>032984</code> <a href="https://jainqq.org/explore/032984/1" target="_blank" rel="noopener">Panchkalpa Bhashya Churni</a> — online 2020-07-02</li>
+            <li><code>033005</code> <a href="https://jainqq.org/explore/033005/1" target="_blank" rel="noopener">Alpabahutvagarbhit Stavano Avchuryalankruto</a> — online 2020-08-08</li>
+            <li><code>033006</code> <a href="https://jainqq.org/explore/033006/1" target="_blank" rel="noopener">Dasasavaga Chariyam</a> — online 2020-08-08</li>
+            <li><code>033007</code> <a href="https://jainqq.org/explore/033007/1" target="_blank" rel="noopener">Jivajivabhigam Suttam Part 01</a> — online 2020-08-30</li>
+            <li><code>033009</code> <a href="https://jainqq.org/explore/033009/1" target="_blank" rel="noopener">Kriyaratna Samucchay</a> — online 2020-09-03</li>
+            <li><code>033155</code> <a href="https://jainqq.org/explore/033155/1" target="_blank" rel="noopener">Vicharopayanam</a> — online 2020-12-04</li>
+            <li><code>035329</code> <a href="https://jainqq.org/explore/035329/1" target="_blank" rel="noopener">Padmanandshatam</a> — online 2020-05-16</li>
+            <li><code>035718</code> <a href="https://jainqq.org/explore/035718/1" target="_blank" rel="noopener">Bhuvanesh Laukik Nyay Sahasri</a> — online 2020-10-06</li>
+            <li><code>035787</code> <a href="https://jainqq.org/explore/035787/1" target="_blank" rel="noopener">Sansatta Nijjutti</a> — online 2020-10-07</li>
+            <li><code>035788</code> <a href="https://jainqq.org/explore/035788/1" target="_blank" rel="noopener">Shabdanushasanam</a> — online 2020-10-07</li>
+            <li><code>035790</code> <a href="https://jainqq.org/explore/035790/1" target="_blank" rel="noopener">Laukiknyaya Shastrartha Kala tatha Kut Shastrartha Kala</a> — online 2020-10-07</li>
+            <li><code>035794</code> <a href="https://jainqq.org/explore/035794/1" target="_blank" rel="noopener">Vadmala</a> — online 2020-10-07</li>
+            <li><code>035810</code> <a href="https://jainqq.org/explore/035810/1" target="_blank" rel="noopener">Parashar Dharm Samhita Vol 02 Part 02</a> — online 2020-12-15</li>
+            <li><code>035811</code> <a href="https://jainqq.org/explore/035811/1" target="_blank" rel="noopener">Parashar Dharm Samhita Vol 03 Part 01</a> — online 2020-12-15</li>
+            <li><code>035812</code> <a href="https://jainqq.org/explore/035812/1" target="_blank" rel="noopener">Parashar Smruti</a> — online 2020-12-15</li>
+            <li><code>035814</code> <a href="https://jainqq.org/explore/035814/1" target="_blank" rel="noopener">Sankshipta Parashar Smruti</a> — online 2020-12-15</li>
+            <li><code>035816</code> <a href="https://jainqq.org/explore/035816/1" target="_blank" rel="noopener">Siddhantlesh Sangraha</a> — online 2020-12-15</li>
+            <li><code>600453</code> <a href="https://jainqq.org/explore/600453/1" target="_blank" rel="noopener">Pranatipat Vrat Katha</a> — online 2020-06-13</li>
+            <li><code>600455</code> <a href="https://jainqq.org/explore/600455/1" target="_blank" rel="noopener">Nitishatak Satikam</a> — online 2020-07-01</li>
+            <li><code>600456</code> <a href="https://jainqq.org/explore/600456/1" target="_blank" rel="noopener">Vairagya Shatakam Satikam</a> — online 2020-07-01</li>
+            <li><code>600457</code> <a href="https://jainqq.org/explore/600457/1" target="_blank" rel="noopener">Padmanand Shatam</a> — online 2020-07-01</li>
+            <li><code>600459</code> <a href="https://jainqq.org/explore/600459/1" target="_blank" rel="noopener">Bhav Bhavna</a> — online 2020-07-23</li>
+            <li><code>600461</code> <a href="https://jainqq.org/explore/600461/1" target="_blank" rel="noopener">Narpat Jay Charit</a> — online 2020-07-23</li>
+            <li><code>600462</code> <a href="https://jainqq.org/explore/600462/1" target="_blank" rel="noopener">Aacharadarsh</a> — online 2020-07-25</li>
+            <li><code>600463</code> <a href="https://jainqq.org/explore/600463/1" target="_blank" rel="noopener">Panch Kalpa Bhashya Churni</a> — online 2020-07-25</li>
+            <li><code>600464</code> <a href="https://jainqq.org/explore/600464/1" target="_blank" rel="noopener">Vallabhaiyacharyiyam Jyotishkarandakam Prakirnakam</a> — online 2020-07-25</li>
+            <li><code>600465</code> <a href="https://jainqq.org/explore/600465/1" target="_blank" rel="noopener">Sthanang Sutra Tritiyang</a> — online 2020-09-05</li>
+            <li><code>600466</code> <a href="https://jainqq.org/explore/600466/1" target="_blank" rel="noopener">Tattvarthadhigam Sutram</a> — online 2020-09-05</li>
+            <li><code>600467</code> <a href="https://jainqq.org/explore/600467/1" target="_blank" rel="noopener">Hitopadesh</a> — online 2020-09-06</li>
+            <li><code>600468</code> <a href="https://jainqq.org/explore/600468/1" target="_blank" rel="noopener">Utpadadi Siddhi</a> — online 2020-09-05</li>
+            <li><code>600469</code> <a href="https://jainqq.org/explore/600469/1" target="_blank" rel="noopener">Vipak Shrutam</a> — online 2020-09-17</li>
+            <li><code>600470</code> <a href="https://jainqq.org/explore/600470/1" target="_blank" rel="noopener">Sthaviravali Tika</a> — online 2020-09-19</li>
+            <li><code>600471</code> <a href="https://jainqq.org/explore/600471/1" target="_blank" rel="noopener">Sutrakritang Sutram Tritiya Vibhag</a> — online 2020-09-24</li>
+            <li><code>600472</code> <a href="https://jainqq.org/explore/600472/1" target="_blank" rel="noopener">Acharangadyekadashangya Sutratdgathadyakaradi</a> — online 2020-09-19</li>
+            <li><code>600473</code> <a href="https://jainqq.org/explore/600473/1" target="_blank" rel="noopener">Dashvaikalik Sutram</a> — online 2020-09-25</li>
+            <li><code>600476</code> <a href="https://jainqq.org/explore/600476/1" target="_blank" rel="noopener">Maha Bhagwat</a> — online 2020-09-24</li>
+            <li><code>600477</code> <a href="https://jainqq.org/explore/600477/1" target="_blank" rel="noopener">Oghniryukti Sutram</a> — online 2020-09-20</li>
+            <li><code>600478</code> <a href="https://jainqq.org/explore/600478/1" target="_blank" rel="noopener">Gnatadharmkathangam</a> — online 2020-09-26</li>
+            <li><code>600479</code> <a href="https://jainqq.org/explore/600479/1" target="_blank" rel="noopener">Sthanang Sutram</a> — online 2020-09-23</li>
+            <li><code>600480</code> <a href="https://jainqq.org/explore/600480/1" target="_blank" rel="noopener">Sutrakritang Sutram Dwitiya Vibhag</a> — online 2020-09-26</li>
+            <li><code>600481</code> <a href="https://jainqq.org/explore/600481/1" target="_blank" rel="noopener">Sutrakritangam</a> — online 2020-09-26</li>
+            <li><code>600483</code> <a href="https://jainqq.org/explore/600483/1" target="_blank" rel="noopener">Vipak Sutram</a> — online 2020-09-28</li>
+            <li><code>600484</code> <a href="https://jainqq.org/explore/600484/1" target="_blank" rel="noopener">Vyavahara Sutram Part 01</a> — online 2020-09-18</li>
+            <li><code>600485</code> <a href="https://jainqq.org/explore/600485/1" target="_blank" rel="noopener">Maranvibhakti Prakirnakam</a> — online 2020-09-28</li>
+            <li><code>600486</code> <a href="https://jainqq.org/explore/600486/1" target="_blank" rel="noopener">Kal Lokprakash</a> — online 2020-09-28</li>
+            <li><code>600487</code> <a href="https://jainqq.org/explore/600487/1" target="_blank" rel="noopener">Sutrakritang Churni</a> — online 2020-09-29</li>
+            <li><code>600489</code> <a href="https://jainqq.org/explore/600489/1" target="_blank" rel="noopener">Vyavahar Sutram Part 04</a> — online 2020-09-30</li>
+            <li><code>600490</code> <a href="https://jainqq.org/explore/600490/1" target="_blank" rel="noopener">Karpur Prakar Satik</a> — online 2020-10-01</li>
+            <li><code>600491</code> <a href="https://jainqq.org/explore/600491/1" target="_blank" rel="noopener">Dashvaikalik Sutram Savchuri Sacchayam</a> — online 2020-10-01</li>
+            <li><code>600492</code> <a href="https://jainqq.org/explore/600492/1" target="_blank" rel="noopener">Bruhat Kshetra Samas</a> — online 2020-10-06</li>
+            <li><code>600493</code> <a href="https://jainqq.org/explore/600493/1" target="_blank" rel="noopener">Dashvaikalik Sutram Purvarddh</a> — online 2020-10-08</li>
+            <li><code>600494</code> <a href="https://jainqq.org/explore/600494/1" target="_blank" rel="noopener">Dashvaikalik Sutram Uttararddh</a> — online 2020-10-08</li>
+            <li><code>600495</code> <a href="https://jainqq.org/explore/600495/1" target="_blank" rel="noopener">Bhav Bhavna Part 01</a> — online 2020-10-10</li>
+            <li><code>600496</code> <a href="https://jainqq.org/explore/600496/1" target="_blank" rel="noopener">Sutrakritang Sutram Prathamo Vibhag</a> — online 2020-10-10</li>
+            <li><code>600497</code> <a href="https://jainqq.org/explore/600497/1" target="_blank" rel="noopener">Shantinath Charitam</a> — online 2020-10-22</li>
+            <li><code>600498</code> <a href="https://jainqq.org/explore/600498/1" target="_blank" rel="noopener">Shripal Rajano Ras Arth Sahit</a> — online 2020-10-24</li>
+            <li><code>600499</code> <a href="https://jainqq.org/explore/600499/1" target="_blank" rel="noopener">Prashnottar Ratnamala</a> — online 2020-10-24</li>
+            <li><code>600501</code> <a href="https://jainqq.org/explore/600501/1" target="_blank" rel="noopener">Panchashak Prakaran</a> — online 2020-10-26</li>
+            <li><code>600503</code> <a href="https://jainqq.org/explore/600503/1" target="_blank" rel="noopener">Navpad Prakaranam Part 01</a> — online 2020-12-21</li>
+            <li><code>600504</code> <a href="https://jainqq.org/explore/600504/1" target="_blank" rel="noopener">Navpad Prakaranam Part 02</a> — online 2020-12-08</li>
+            <li><code>600505</code> <a href="https://jainqq.org/explore/600505/1" target="_blank" rel="noopener">Narbhavditthantovanaymala</a> — online 2020-12-08</li>
+            <li><code>600506</code> <a href="https://jainqq.org/explore/600506/1" target="_blank" rel="noopener">Shraddhdinkrutya Sutram Part 01</a> — online 2020-12-08</li>
+            <li><code>600508</code> <a href="https://jainqq.org/explore/600508/1" target="_blank" rel="noopener">Gandharsharddha Shatak Vrutti</a> — online 2020-12-08</li>
+            <li><code>600509</code> <a href="https://jainqq.org/explore/600509/1" target="_blank" rel="noopener">Sangrahani Tika</a> — online 2020-12-08</li>
+            <li><code>600510</code> <a href="https://jainqq.org/explore/600510/1" target="_blank" rel="noopener">Bruhat Sangrahani Prakaranam</a> — online 2020-12-08</li>
+            <li><code>600511</code> <a href="https://jainqq.org/explore/600511/1" target="_blank" rel="noopener">Shraddhapratikraman Sutram Vandittuityaparabhidhanam</a> — online 2020-12-08</li>
+            <li><code>600512</code> <a href="https://jainqq.org/explore/600512/1" target="_blank" rel="noopener">Mool Granth Samput - Jivvichar - Navtattva - Dandak - Jambudwip Sangrahani - Bruhat Sangrahani - Kshetrasamas - Karmgranth - Sindur - Chausaranpayanna</a> — online 2020-12-10</li>
+            <li><code>600513</code> <a href="https://jainqq.org/explore/600513/1" target="_blank" rel="noopener">Samay Prabhrut</a> — online 2020-12-10</li>
+            <li><code>600514</code> <a href="https://jainqq.org/explore/600514/1" target="_blank" rel="noopener">Gyansara</a> — online 2020-12-17</li>
+            <li><code>600515</code> <a href="https://jainqq.org/explore/600515/1" target="_blank" rel="noopener">Updeshrahasya Prakaranam</a> — online 2020-12-17</li>
+            <li><code>600516</code> <a href="https://jainqq.org/explore/600516/1" target="_blank" rel="noopener">Ashtak Prakaranam</a> — online 2020-12-17</li>
+            <li><code>600517</code> <a href="https://jainqq.org/explore/600517/1" target="_blank" rel="noopener">Aradhana Sara</a> — online 2020-12-21</li>
+            <li><code>600518</code> <a href="https://jainqq.org/explore/600518/1" target="_blank" rel="noopener">Anekant Vyavastha Prakaranam</a> — online 2020-12-21</li>
+            <li><code>600519</code> <a href="https://jainqq.org/explore/600519/1" target="_blank" rel="noopener">Updeshmala Satik</a> — online 2020-12-21</li>
+            <li><code>600520</code> <a href="https://jainqq.org/explore/600520/1" target="_blank" rel="noopener">Nigodshattrinshika</a> — online 2020-12-21</li>
+            <li><code>600521</code> <a href="https://jainqq.org/explore/600521/1" target="_blank" rel="noopener">Pudgalshattrinshika Satika</a> — online 2020-12-21</li>
+            <li><code>600522</code> <a href="https://jainqq.org/explore/600522/1" target="_blank" rel="noopener">Hitacharanam Part 01</a> — online 2020-12-21</li>
+            <li><code>600523</code> <a href="https://jainqq.org/explore/600523/1" target="_blank" rel="noopener">Hitacharanam Part 02</a> — online 2020-12-21</li>
+            <li><code>600524</code> <a href="https://jainqq.org/explore/600524/1" target="_blank" rel="noopener">Paryushanparv Kalpalata</a> — online 2020-12-21</li>
+            <li><code>600525</code> <a href="https://jainqq.org/explore/600525/1" target="_blank" rel="noopener">Paryushanparv Kalpaprabha</a> — online 2020-12-21</li>
+            <li><code>600526</code> <a href="https://jainqq.org/explore/600526/1" target="_blank" rel="noopener">Pratima Shatakam</a> — online 2020-12-21</li>
+            <li><code>600527</code> <a href="https://jainqq.org/explore/600527/1" target="_blank" rel="noopener">Vyavahar Shuddhi Prakash</a> — online 2020-12-23</li>
+          </ul>
+</details></li>
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>2021 (103)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>023648</code> <a href="https://jainqq.org/explore/023648/1" target="_blank" rel="noopener">Yogshastram</a> — online 2021-02-11</li>
+            <li><code>023652</code> <a href="https://jainqq.org/explore/023652/1" target="_blank" rel="noopener">Samayasara Prakaranam</a> — online 2021-02-24</li>
+            <li><code>033352</code> <a href="https://jainqq.org/explore/033352/1" target="_blank" rel="noopener">Gautamiya Mahakavyam</a> — online 2021-06-20</li>
+            <li><code>033361</code> <a href="https://jainqq.org/explore/033361/1" target="_blank" rel="noopener">Vignapti Matrasiddhi</a> — online 2021-06-21</li>
+            <li><code>033387</code> <a href="https://jainqq.org/explore/033387/1" target="_blank" rel="noopener">Dwadash Vrat Katha Sangraha</a> — online 2021-07-15</li>
+            <li><code>033388</code> <a href="https://jainqq.org/explore/033388/1" target="_blank" rel="noopener">Dharmbindu Prakaranam</a> — online 2021-07-15</li>
+            <li><code>033436</code> <a href="https://jainqq.org/explore/033436/1" target="_blank" rel="noopener">Dharmsharmabhyuday</a> — online 2021-08-25</li>
+            <li><code>033443</code> <a href="https://jainqq.org/explore/033443/1" target="_blank" rel="noopener">Bhaktamar Katha Kamkumbh</a> — online 2021-08-25</li>
+            <li><code>033444</code> <a href="https://jainqq.org/explore/033444/1" target="_blank" rel="noopener">Prakrit Dwyashray Mahakavyam</a> — online 2021-08-26</li>
+            <li><code>033451</code> <a href="https://jainqq.org/explore/033451/1" target="_blank" rel="noopener">Mallinath Mahakavyam</a> — online 2021-08-26</li>
+            <li><code>033521</code> <a href="https://jainqq.org/explore/033521/1" target="_blank" rel="noopener">Satik Nitivakyamrutasya</a> — online 2021-09-27</li>
+            <li><code>033523</code> <a href="https://jainqq.org/explore/033523/1" target="_blank" rel="noopener">Abhinav Manovigyanam</a> — online 2021-09-27</li>
+            <li><code>033524</code> <a href="https://jainqq.org/explore/033524/1" target="_blank" rel="noopener">Arvachinam Manovigyanam</a> — online 2021-09-27</li>
+            <li><code>033693</code> <a href="https://jainqq.org/explore/033693/1" target="_blank" rel="noopener">Raia Paseniya Suttam</a> — online 2021-12-15</li>
+            <li><code>033694</code> <a href="https://jainqq.org/explore/033694/1" target="_blank" rel="noopener">Aendrastutichaturvinshatika</a> — online 2021-12-15</li>
+            <li><code>033696</code> <a href="https://jainqq.org/explore/033696/1" target="_blank" rel="noopener">Mrucchakatikam</a> — online 2021-12-16</li>
+            <li><code>033697</code> <a href="https://jainqq.org/explore/033697/1" target="_blank" rel="noopener">Mrucchakatikam</a> — online 2021-12-16</li>
+            <li><code>033698</code> <a href="https://jainqq.org/explore/033698/1" target="_blank" rel="noopener">Aayar Suttam</a> — online 2021-12-16</li>
+            <li><code>033699</code> <a href="https://jainqq.org/explore/033699/1" target="_blank" rel="noopener">Shringarvaragyatarangini</a> — online 2021-12-16</li>
+            <li><code>033709</code> <a href="https://jainqq.org/explore/033709/1" target="_blank" rel="noopener">Mrucchakatikam</a> — online 2021-12-18</li>
+            <li><code>033721</code> <a href="https://jainqq.org/explore/033721/1" target="_blank" rel="noopener">Jambudivpannatti Suttam Part 02</a> — online 2021-12-20</li>
+            <li><code>033746</code> <a href="https://jainqq.org/explore/033746/1" target="_blank" rel="noopener">Savartikganashtadhyayisutrapath</a> — online 2021-12-25</li>
+            <li><code>033751</code> <a href="https://jainqq.org/explore/033751/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 01</a> — online 2021-12-30</li>
+            <li><code>035868</code> <a href="https://jainqq.org/explore/035868/1" target="_blank" rel="noopener">Gyanshri Mitra Nibandhavali</a> — online 2021-03-13</li>
+            <li><code>035975</code> <a href="https://jainqq.org/explore/035975/1" target="_blank" rel="noopener">Vyapti Panchakam</a> — online 2021-12-03</li>
+            <li><code>036547</code> <a href="https://jainqq.org/explore/036547/1" target="_blank" rel="noopener">Chandonu Shasanam</a> — online 2021-01-08</li>
+            <li><code>036550</code> <a href="https://jainqq.org/explore/036550/1" target="_blank" rel="noopener">Chetodutam</a> — online 2021-01-08</li>
+            <li><code>036552</code> <a href="https://jainqq.org/explore/036552/1" target="_blank" rel="noopener">Dhundhak Mat Samiksha</a> — online 2021-01-08</li>
+            <li><code>036554</code> <a href="https://jainqq.org/explore/036554/1" target="_blank" rel="noopener">Hammirmad Mardahanam</a> — online 2021-01-16</li>
+            <li><code>036569</code> <a href="https://jainqq.org/explore/036569/1" target="_blank" rel="noopener">Karak Mala</a> — online 2021-01-21</li>
+            <li><code>036570</code> <a href="https://jainqq.org/explore/036570/1" target="_blank" rel="noopener">Karunras Kadambakam Paia Khand 01</a> — online 2021-01-21</li>
+            <li><code>036571</code> <a href="https://jainqq.org/explore/036571/1" target="_blank" rel="noopener">Karuna Vajrayudham</a> — online 2021-01-21</li>
+            <li><code>036574</code> <a href="https://jainqq.org/explore/036574/1" target="_blank" rel="noopener">Kurmma Putra Charitra</a> — online 2021-01-21</li>
+            <li><code>036579</code> <a href="https://jainqq.org/explore/036579/1" target="_blank" rel="noopener">Parmadhyatma Tarangini</a> — online 2021-01-21</li>
+            <li><code>036585</code> <a href="https://jainqq.org/explore/036585/1" target="_blank" rel="noopener">Sanatan Jain Granth Mala</a> — online 2021-01-22</li>
+            <li><code>036586</code> <a href="https://jainqq.org/explore/036586/1" target="_blank" rel="noopener">Saraswata Darsh</a> — online 2021-01-22</li>
+            <li><code>036588</code> <a href="https://jainqq.org/explore/036588/1" target="_blank" rel="noopener">Shat Trinshatva Swadhyay</a> — online 2021-01-22</li>
+            <li><code>036593</code> <a href="https://jainqq.org/explore/036593/1" target="_blank" rel="noopener">Siddhasen Divakar Krut Granthmala</a> — online 2021-01-22</li>
+            <li><code>036595</code> <a href="https://jainqq.org/explore/036595/1" target="_blank" rel="noopener">Surimantra Pattalekhan Vidhi</a> — online 2021-01-22</li>
+            <li><code>036597</code> <a href="https://jainqq.org/explore/036597/1" target="_blank" rel="noopener">Swapna Chintamani</a> — online 2021-01-22</li>
+            <li><code>036605</code> <a href="https://jainqq.org/explore/036605/1" target="_blank" rel="noopener">Vigyan Vad Vimarsh</a> — online 2021-01-22</li>
+            <li><code>036608</code> <a href="https://jainqq.org/explore/036608/1" target="_blank" rel="noopener">Aapastamb Shrautsutriya Dhurtswami Bhashyam Vol 01</a> — online 2021-01-30</li>
+            <li><code>036609</code> <a href="https://jainqq.org/explore/036609/1" target="_blank" rel="noopener">Aapastamb Shrautsutriya Dhurtswami Bhashyam Vol 02</a> — online 2021-01-30</li>
+            <li><code>036618</code> <a href="https://jainqq.org/explore/036618/1" target="_blank" rel="noopener">Balidwip Granth</a> — online 2021-02-06</li>
+            <li><code>036619</code> <a href="https://jainqq.org/explore/036619/1" target="_blank" rel="noopener">Bambhdatto</a> — online 2021-02-06</li>
+            <li><code>036625</code> <a href="https://jainqq.org/explore/036625/1" target="_blank" rel="noopener">Bhim Vikram Vyayog Tatha Dharmoddharanam Nam Natakam</a> — online 2021-02-06</li>
+            <li><code>036626</code> <a href="https://jainqq.org/explore/036626/1" target="_blank" rel="noopener">Bruhaspati Smruti</a> — online 2021-02-06</li>
+            <li><code>036628</code> <a href="https://jainqq.org/explore/036628/1" target="_blank" rel="noopener">Chakrapani Vijay Mahakavyam</a> — online 2021-02-06</li>
+            <li><code>036637</code> <a href="https://jainqq.org/explore/036637/1" target="_blank" rel="noopener">Halayudh Kosh</a> — online 2021-04-03</li>
+            <li><code>036638</code> <a href="https://jainqq.org/explore/036638/1" target="_blank" rel="noopener">Hansvilas</a> — online 2021-04-03</li>
+            <li><code>036640</code> <a href="https://jainqq.org/explore/036640/1" target="_blank" rel="noopener">Ishtsiddhi</a> — online 2021-04-03</li>
+            <li><code>036641</code> <a href="https://jainqq.org/explore/036641/1" target="_blank" rel="noopener">Ishvarvilas Mahakavyam</a> — online 2021-04-03</li>
+            <li><code>036643</code> <a href="https://jainqq.org/explore/036643/1" target="_blank" rel="noopener">Kanhadde Prabandh</a> — online 2021-04-03</li>
+            <li><code>036649</code> <a href="https://jainqq.org/explore/036649/1" target="_blank" rel="noopener">Kavindra Chandrodaya</a> — online 2021-04-03</li>
+            <li><code>036650</code> <a href="https://jainqq.org/explore/036650/1" target="_blank" rel="noopener">Kavindra Kalpalata</a> — online 2021-04-03</li>
+            <li><code>036655</code> <a href="https://jainqq.org/explore/036655/1" target="_blank" rel="noopener">Kavya Mimansa</a> — online 2021-04-03</li>
+            <li><code>036835</code> <a href="https://jainqq.org/explore/036835/1" target="_blank" rel="noopener">Siddha Hemchandra Shabdanushasan</a> — online 2021-06-09</li>
+            <li><code>036847</code> <a href="https://jainqq.org/explore/036847/1" target="_blank" rel="noopener">Falvarddhi Parshwanath Mahatmya Mahakavyam</a> — online 2021-06-12</li>
+            <li><code>036857</code> <a href="https://jainqq.org/explore/036857/1" target="_blank" rel="noopener">Nalkaha</a> — online 2021-06-14</li>
+            <li><code>036865</code> <a href="https://jainqq.org/explore/036865/1" target="_blank" rel="noopener">Siddha Hemchandra Shabdanushasan</a> — online 2021-06-15</li>
+            <li><code>036870</code> <a href="https://jainqq.org/explore/036870/1" target="_blank" rel="noopener">Shastravartta Samucchay Part 03</a> — online 2021-06-16</li>
+            <li><code>036879</code> <a href="https://jainqq.org/explore/036879/1" target="_blank" rel="noopener">Aachar Ratnakar Pratham Prakash</a> — online 2021-11-04</li>
+            <li><code>036881</code> <a href="https://jainqq.org/explore/036881/1" target="_blank" rel="noopener">Aapstambashulbasutram</a> — online 2021-11-04</li>
+            <li><code>036887</code> <a href="https://jainqq.org/explore/036887/1" target="_blank" rel="noopener">Akbarsahi Sringara Darpan</a> — online 2021-11-04</li>
+            <li><code>036917</code> <a href="https://jainqq.org/explore/036917/1" target="_blank" rel="noopener">Dinakrandanam Dwatrinshika</a> — online 2021-11-13</li>
+            <li><code>600528</code> <a href="https://jainqq.org/explore/600528/1" target="_blank" rel="noopener">Parmarsh Swadhyay Granth Sangraha</a> — online 2021-01-21</li>
+            <li><code>600529</code> <a href="https://jainqq.org/explore/600529/1" target="_blank" rel="noopener">Updesh Saptati</a> — online 2021-01-30</li>
+            <li><code>600530</code> <a href="https://jainqq.org/explore/600530/1" target="_blank" rel="noopener">Panchlingi Prakaranam</a> — online 2021-02-02</li>
+            <li><code>600531</code> <a href="https://jainqq.org/explore/600531/1" target="_blank" rel="noopener">Dan Prakash</a> — online 2021-02-02</li>
+            <li><code>600532</code> <a href="https://jainqq.org/explore/600532/1" target="_blank" rel="noopener">Vandaruvrutti Shravakvidhi</a> — online 2021-02-06</li>
+            <li><code>600533</code> <a href="https://jainqq.org/explore/600533/1" target="_blank" rel="noopener">Karpur Prakar</a> — online 2021-02-23</li>
+            <li><code>600535</code> <a href="https://jainqq.org/explore/600535/1" target="_blank" rel="noopener">Dharmratna Prakaran Part 02</a> — online 2021-02-24</li>
+            <li><code>600536</code> <a href="https://jainqq.org/explore/600536/1" target="_blank" rel="noopener">Vairagya Shatakam</a> — online 2021-02-24</li>
+            <li><code>600537</code> <a href="https://jainqq.org/explore/600537/1" target="_blank" rel="noopener">Dharmvidhi Prakaran</a> — online 2021-02-24</li>
+            <li><code>600538</code> <a href="https://jainqq.org/explore/600538/1" target="_blank" rel="noopener">Dwatrinshikatrayi</a> — online 2021-02-13</li>
+            <li><code>600539</code> <a href="https://jainqq.org/explore/600539/1" target="_blank" rel="noopener">Anuyogdwar Sutram</a> — online 2021-05-29</li>
+            <li><code>600540</code> <a href="https://jainqq.org/explore/600540/1" target="_blank" rel="noopener">Ashtak Prakaranam</a> — online 2021-05-29</li>
+            <li><code>600541</code> <a href="https://jainqq.org/explore/600541/1" target="_blank" rel="noopener">Shaddarshan Samucchayo Cha</a> — online 2021-05-29</li>
+            <li><code>600545</code> <a href="https://jainqq.org/explore/600545/1" target="_blank" rel="noopener">Uttaradhyayan Tika</a> — online 2021-06-08</li>
+            <li><code>600546</code> <a href="https://jainqq.org/explore/600546/1" target="_blank" rel="noopener">Uttaradhyayan Sutram Part 01</a> — online 2021-06-09</li>
+            <li><code>600547</code> <a href="https://jainqq.org/explore/600547/1" target="_blank" rel="noopener">Uttaradhyayan Sutram Part 02</a> — online 2021-06-10</li>
+            <li><code>600548</code> <a href="https://jainqq.org/explore/600548/1" target="_blank" rel="noopener">Uttaradhyayan Sutram Part 03</a> — online 2021-06-10</li>
+            <li><code>600554</code> <a href="https://jainqq.org/explore/600554/1" target="_blank" rel="noopener">Karm Prakruti</a> — online 2021-06-16</li>
+            <li><code>600557</code> <a href="https://jainqq.org/explore/600557/1" target="_blank" rel="noopener">Jagdu Charitam Mahakavyam</a> — online 2021-07-05</li>
+            <li><code>600560</code> <a href="https://jainqq.org/explore/600560/1" target="_blank" rel="noopener">Dharmbindu Prakaranam</a> — online 2021-07-15</li>
+            <li><code>600561</code> <a href="https://jainqq.org/explore/600561/1" target="_blank" rel="noopener">Dharmbindu Prakaranam</a> — online 2021-07-16</li>
+            <li><code>600562</code> <a href="https://jainqq.org/explore/600562/1" target="_blank" rel="noopener">Neminath Charit Mahakavyam</a> — online 2021-07-16</li>
+            <li><code>600563</code> <a href="https://jainqq.org/explore/600563/1" target="_blank" rel="noopener">Panchvastuk Prakaran</a> — online 2021-07-24</li>
+            <li><code>600564</code> <a href="https://jainqq.org/explore/600564/1" target="_blank" rel="noopener">Pratima Sthapan Nyaya</a> — online 2021-07-24</li>
+            <li><code>600566</code> <a href="https://jainqq.org/explore/600566/1" target="_blank" rel="noopener">Paryushankalpakhyam Barsasutram Sachitram</a> — online 2021-08-19</li>
+            <li><code>600567</code> <a href="https://jainqq.org/explore/600567/1" target="_blank" rel="noopener">Pandavcharitam Mahakavyam</a> — online 2021-08-20</li>
+            <li><code>600568</code> <a href="https://jainqq.org/explore/600568/1" target="_blank" rel="noopener">Pandavcharitam Mahakavyam</a> — online 2021-08-20</li>
+            <li><code>600569</code> <a href="https://jainqq.org/explore/600569/1" target="_blank" rel="noopener">Pratikramansutrapadvivrutti</a> — online 2021-08-20</li>
+            <li><code>600570</code> <a href="https://jainqq.org/explore/600570/1" target="_blank" rel="noopener">Prashamrati Prakaranam</a> — online 2021-08-25</li>
+            <li><code>600571</code> <a href="https://jainqq.org/explore/600571/1" target="_blank" rel="noopener">Pradyumna Charitra Mahakavyam</a> — online 2021-08-25</li>
+            <li><code>600572</code> <a href="https://jainqq.org/explore/600572/1" target="_blank" rel="noopener">Mahavir Chariyam</a> — online 2021-09-01</li>
+            <li><code>600573</code> <a href="https://jainqq.org/explore/600573/1" target="_blank" rel="noopener">Vimalnath Charitram</a> — online 2021-09-01</li>
+            <li><code>600574</code> <a href="https://jainqq.org/explore/600574/1" target="_blank" rel="noopener">Samachari Prakaranam</a> — online 2021-09-14</li>
+            <li><code>600575</code> <a href="https://jainqq.org/explore/600575/1" target="_blank" rel="noopener">Sthulibhadra Charitram</a> — online 2021-09-14</li>
+            <li><code>600576</code> <a href="https://jainqq.org/explore/600576/1" target="_blank" rel="noopener">Sukshamarth Vichar Saroddhar</a> — online 2021-11-01</li>
+            <li><code>600577</code> <a href="https://jainqq.org/explore/600577/1" target="_blank" rel="noopener">Karmprakruti Sangrahani</a> — online 2021-11-01</li>
+            <li><code>600578</code> <a href="https://jainqq.org/explore/600578/1" target="_blank" rel="noopener">Pranatipat Vrat</a> — online 2021-11-04</li>
+            <li><code>600579</code> <a href="https://jainqq.org/explore/600579/1" target="_blank" rel="noopener">Kalpasutra Subodhi Vruttika Hindi Anuwad</a> — online 2021-12-15</li>
+          </ul>
+</details></li>
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>2022 (128)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>033752</code> <a href="https://jainqq.org/explore/033752/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 02</a> — online 2022-01-02</li>
+            <li><code>033753</code> <a href="https://jainqq.org/explore/033753/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 03</a> — online 2022-01-02</li>
+            <li><code>033754</code> <a href="https://jainqq.org/explore/033754/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 04</a> — online 2022-01-02</li>
+            <li><code>033755</code> <a href="https://jainqq.org/explore/033755/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 05</a> — online 2022-01-02</li>
+            <li><code>033756</code> <a href="https://jainqq.org/explore/033756/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 06</a> — online 2022-01-02</li>
+            <li><code>033757</code> <a href="https://jainqq.org/explore/033757/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 07</a> — online 2022-01-05</li>
+            <li><code>033758</code> <a href="https://jainqq.org/explore/033758/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 08</a> — online 2022-01-04</li>
+            <li><code>033759</code> <a href="https://jainqq.org/explore/033759/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 09</a> — online 2022-01-04</li>
+            <li><code>033760</code> <a href="https://jainqq.org/explore/033760/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 10</a> — online 2022-01-02</li>
+            <li><code>033761</code> <a href="https://jainqq.org/explore/033761/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 11</a> — online 2022-01-02</li>
+            <li><code>033762</code> <a href="https://jainqq.org/explore/033762/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 12</a> — online 2022-01-03</li>
+            <li><code>033763</code> <a href="https://jainqq.org/explore/033763/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 13 14</a> — online 2022-01-02</li>
+            <li><code>033765</code> <a href="https://jainqq.org/explore/033765/1" target="_blank" rel="noopener">Nishreyasam Sanskrit Patram 15 16</a> — online 2022-01-04</li>
+            <li><code>033972</code> <a href="https://jainqq.org/explore/033972/1" target="_blank" rel="noopener">Uttaradhyayana Sutra</a> — online 2022-03-04</li>
+            <li><code>035988</code> <a href="https://jainqq.org/explore/035988/1" target="_blank" rel="noopener">Parshwa Jinvar Mahima Stotram</a> — online 2022-03-09</li>
+            <li><code>035989</code> <a href="https://jainqq.org/explore/035989/1" target="_blank" rel="noopener">Pratapsinh Rasa</a> — online 2022-03-11</li>
+            <li><code>035990</code> <a href="https://jainqq.org/explore/035990/1" target="_blank" rel="noopener">Shraddhdinkrutya Aatmninda aur Dwadash Bhavna aur Pratapsinh Rasa</a> — online 2022-03-11</li>
+            <li><code>036022</code> <a href="https://jainqq.org/explore/036022/1" target="_blank" rel="noopener">Amrut Kavya Sangraha</a> — online 2022-06-02</li>
+            <li><code>037006</code> <a href="https://jainqq.org/explore/037006/1" target="_blank" rel="noopener">Sadbodhchandroday</a> — online 2022-03-25</li>
+            <li><code>037007</code> <a href="https://jainqq.org/explore/037007/1" target="_blank" rel="noopener">Shrutdip 02</a> — online 2022-03-25</li>
+            <li><code>037010</code> <a href="https://jainqq.org/explore/037010/1" target="_blank" rel="noopener">Vasudev Hindi Madhyam Khand Part 02</a> — online 2022-03-25</li>
+            <li><code>037012</code> <a href="https://jainqq.org/explore/037012/1" target="_blank" rel="noopener">Ashtahnika Dhurakhyanam</a> — online 2022-03-24</li>
+            <li><code>037017</code> <a href="https://jainqq.org/explore/037017/1" target="_blank" rel="noopener">Arhannamsahasrakam</a> — online 2022-03-26</li>
+            <li><code>037018</code> <a href="https://jainqq.org/explore/037018/1" target="_blank" rel="noopener">Yati Pratikraman Sutram</a> — online 2022-03-26</li>
+            <li><code>037020</code> <a href="https://jainqq.org/explore/037020/1" target="_blank" rel="noopener">Mandalvichar Prakaranam</a> — online 2022-03-26</li>
+            <li><code>037029</code> <a href="https://jainqq.org/explore/037029/1" target="_blank" rel="noopener">Hansratna Mahakavyam</a> — online 2022-03-31</li>
+            <li><code>037038</code> <a href="https://jainqq.org/explore/037038/1" target="_blank" rel="noopener">Shastra Sandesh Mala Part 25</a> — online 2022-04-02</li>
+            <li><code>037039</code> <a href="https://jainqq.org/explore/037039/1" target="_blank" rel="noopener">Shastra Sandesh Mala Part 26</a> — online 2022-04-02</li>
+            <li><code>037041</code> <a href="https://jainqq.org/explore/037041/1" target="_blank" rel="noopener">Stotra Sandesh Mala 01</a> — online 2022-04-04</li>
+            <li><code>037042</code> <a href="https://jainqq.org/explore/037042/1" target="_blank" rel="noopener">Stotra Sandesh Mala 02</a> — online 2022-04-04</li>
+            <li><code>037043</code> <a href="https://jainqq.org/explore/037043/1" target="_blank" rel="noopener">Stotra Sandesh Mala 03</a> — online 2022-04-04</li>
+            <li><code>037044</code> <a href="https://jainqq.org/explore/037044/1" target="_blank" rel="noopener">Stotra Sandesh Mala 04</a> — online 2022-04-05</li>
+            <li><code>037045</code> <a href="https://jainqq.org/explore/037045/1" target="_blank" rel="noopener">Stotra Sandesh Mala 05</a> — online 2022-04-05</li>
+            <li><code>037046</code> <a href="https://jainqq.org/explore/037046/1" target="_blank" rel="noopener">Stotra Sandesh Mala 06</a> — online 2022-04-05</li>
+            <li><code>037047</code> <a href="https://jainqq.org/explore/037047/1" target="_blank" rel="noopener">Stotra Sandesh Mala 07</a> — online 2022-04-05</li>
+            <li><code>037048</code> <a href="https://jainqq.org/explore/037048/1" target="_blank" rel="noopener">Stotra Sandesh Mala 08</a> — online 2022-04-06</li>
+            <li><code>037049</code> <a href="https://jainqq.org/explore/037049/1" target="_blank" rel="noopener">Stotra Sandesh Mala 09</a> — online 2022-04-06</li>
+            <li><code>037050</code> <a href="https://jainqq.org/explore/037050/1" target="_blank" rel="noopener">Stotra Sandesh Mala 10</a> — online 2022-04-06</li>
+            <li><code>037051</code> <a href="https://jainqq.org/explore/037051/1" target="_blank" rel="noopener">Stotra Sandesh Mala 11</a> — online 2022-04-06</li>
+            <li><code>037052</code> <a href="https://jainqq.org/explore/037052/1" target="_blank" rel="noopener">Stotra Sandesh Mala 12</a> — online 2022-04-06</li>
+            <li><code>037053</code> <a href="https://jainqq.org/explore/037053/1" target="_blank" rel="noopener">Stotra Sandesh Mala 13</a> — online 2022-04-07</li>
+            <li><code>037054</code> <a href="https://jainqq.org/explore/037054/1" target="_blank" rel="noopener">Stotra Sandesh Mala 14</a> — online 2022-04-07</li>
+            <li><code>037055</code> <a href="https://jainqq.org/explore/037055/1" target="_blank" rel="noopener">Stotra Sandesh Mala 15</a> — online 2022-04-07</li>
+            <li><code>037056</code> <a href="https://jainqq.org/explore/037056/1" target="_blank" rel="noopener">Stotra Sandesh Mala 16</a> — online 2022-04-08</li>
+            <li><code>037057</code> <a href="https://jainqq.org/explore/037057/1" target="_blank" rel="noopener">Stotra Sandesh Mala 17</a> — online 2022-04-08</li>
+            <li><code>037058</code> <a href="https://jainqq.org/explore/037058/1" target="_blank" rel="noopener">Stotra Sandesh Mala 18</a> — online 2022-04-09</li>
+            <li><code>037059</code> <a href="https://jainqq.org/explore/037059/1" target="_blank" rel="noopener">Stotra Sandesh Mala 19</a> — online 2022-04-13</li>
+            <li><code>037060</code> <a href="https://jainqq.org/explore/037060/1" target="_blank" rel="noopener">Stotra Sandesh Mala 20</a> — online 2022-04-13</li>
+            <li><code>037107</code> <a href="https://jainqq.org/explore/037107/1" target="_blank" rel="noopener">Nyayasiddhant Manjari</a> — online 2022-04-23</li>
+            <li><code>037220</code> <a href="https://jainqq.org/explore/037220/1" target="_blank" rel="noopener">Gacchachar Payanna</a> — online 2022-05-17</li>
+            <li><code>037276</code> <a href="https://jainqq.org/explore/037276/1" target="_blank" rel="noopener">Shattrinshajjalpa Vichar Sangraha Tatha Shattrinshajjalpa Saroddharscha</a> — online 2022-05-30</li>
+            <li><code>037278</code> <a href="https://jainqq.org/explore/037278/1" target="_blank" rel="noopener">Sankrama Karanam Part 01</a> — online 2022-05-31</li>
+            <li><code>037279</code> <a href="https://jainqq.org/explore/037279/1" target="_blank" rel="noopener">Sankrama Karanam Part 02</a> — online 2022-05-31</li>
+            <li><code>037280</code> <a href="https://jainqq.org/explore/037280/1" target="_blank" rel="noopener">Bauddh Darshan Mimansa</a> — online 2022-06-01</li>
+            <li><code>037281</code> <a href="https://jainqq.org/explore/037281/1" target="_blank" rel="noopener">Bauddh Darshan</a> — online 2022-06-01</li>
+            <li><code>037282</code> <a href="https://jainqq.org/explore/037282/1" target="_blank" rel="noopener">Madhyantvibhagshastram</a> — online 2022-06-01</li>
+            <li><code>037283</code> <a href="https://jainqq.org/explore/037283/1" target="_blank" rel="noopener">Chatushatakam</a> — online 2022-06-01</li>
+            <li><code>037287</code> <a href="https://jainqq.org/explore/037287/1" target="_blank" rel="noopener">Nyayadarshanam</a> — online 2022-06-02</li>
+            <li><code>037288</code> <a href="https://jainqq.org/explore/037288/1" target="_blank" rel="noopener">Bauddh Nyaya Vol 01</a> — online 2022-06-03</li>
+            <li><code>037297</code> <a href="https://jainqq.org/explore/037297/1" target="_blank" rel="noopener">Parisittha Sangaho</a> — online 2022-06-10</li>
+            <li><code>037306</code> <a href="https://jainqq.org/explore/037306/1" target="_blank" rel="noopener">Anuttaropapatikdashang Sutra - Antkruddashang Sutra - Aupapatik Sutra</a> — online 2022-06-10</li>
+            <li><code>037307</code> <a href="https://jainqq.org/explore/037307/1" target="_blank" rel="noopener">Suyagada Suttam Part 01</a> — online 2022-06-11</li>
+            <li><code>037309</code> <a href="https://jainqq.org/explore/037309/1" target="_blank" rel="noopener">Dwyashray Mahakavyam Part 01</a> — online 2022-06-11</li>
+            <li><code>037310</code> <a href="https://jainqq.org/explore/037310/1" target="_blank" rel="noopener">Dwyashray Mahakavyam Part 02</a> — online 2022-06-11</li>
+            <li><code>600580</code> <a href="https://jainqq.org/explore/600580/1" target="_blank" rel="noopener">Vyavahar Sutra Saptam Uddeshak</a> — online 2022-01-01</li>
+            <li><code>600581</code> <a href="https://jainqq.org/explore/600581/1" target="_blank" rel="noopener">Kalpasutram</a> — online 2022-01-02</li>
+            <li><code>600582</code> <a href="https://jainqq.org/explore/600582/1" target="_blank" rel="noopener">Anuttaropapatik Dasha Navmang</a> — online 2022-01-02</li>
+            <li><code>600583</code> <a href="https://jainqq.org/explore/600583/1" target="_blank" rel="noopener">Antgadadasanam Tabba Bhashya Sahit</a> — online 2022-01-02</li>
+            <li><code>600584</code> <a href="https://jainqq.org/explore/600584/1" target="_blank" rel="noopener">Kalpasutram</a> — online 2022-01-07</li>
+            <li><code>600585</code> <a href="https://jainqq.org/explore/600585/1" target="_blank" rel="noopener">Upasak Dasha Sutra</a> — online 2022-02-21</li>
+            <li><code>600586</code> <a href="https://jainqq.org/explore/600586/1" target="_blank" rel="noopener">Uvavai Sutra</a> — online 2022-02-21</li>
+            <li><code>600587</code> <a href="https://jainqq.org/explore/600587/1" target="_blank" rel="noopener">Jambudwip Pragnapti</a> — online 2022-02-22</li>
+            <li><code>600588</code> <a href="https://jainqq.org/explore/600588/1" target="_blank" rel="noopener">Prakrit Manorama Vyakaran</a> — online 2022-02-20</li>
+            <li><code>600589</code> <a href="https://jainqq.org/explore/600589/1" target="_blank" rel="noopener">Pratapsinh Charitam</a> — online 2022-02-20</li>
+            <li><code>600590</code> <a href="https://jainqq.org/explore/600590/1" target="_blank" rel="noopener">Bhagwati Sutra Part 01</a> — online 2022-02-23</li>
+            <li><code>600591</code> <a href="https://jainqq.org/explore/600591/1" target="_blank" rel="noopener">Bhagwati Sutra Part 02</a> — online 2022-02-22</li>
+            <li><code>600592</code> <a href="https://jainqq.org/explore/600592/1" target="_blank" rel="noopener">Bhagwati Sutra Part 03</a> — online 2022-02-22</li>
+            <li><code>600593</code> <a href="https://jainqq.org/explore/600593/1" target="_blank" rel="noopener">Bhagwati Sutra Part 04</a> — online 2022-02-25</li>
+            <li><code>600594</code> <a href="https://jainqq.org/explore/600594/1" target="_blank" rel="noopener">Bhagwati Sutra Part 05</a> — online 2022-02-25</li>
+            <li><code>600596</code> <a href="https://jainqq.org/explore/600596/1" target="_blank" rel="noopener">Bhagwati Sutra Part 07</a> — online 2022-02-24</li>
+            <li><code>600597</code> <a href="https://jainqq.org/explore/600597/1" target="_blank" rel="noopener">Niryavalika Sutra</a> — online 2022-02-23</li>
+            <li><code>600598</code> <a href="https://jainqq.org/explore/600598/1" target="_blank" rel="noopener">Samvayang Sutra</a> — online 2022-02-23</li>
+            <li><code>600599</code> <a href="https://jainqq.org/explore/600599/1" target="_blank" rel="noopener">Pannavana Sutra Part 01</a> — online 2022-02-28</li>
+            <li><code>600600</code> <a href="https://jainqq.org/explore/600600/1" target="_blank" rel="noopener">Pannavana Sutra Part 02</a> — online 2022-02-25</li>
+            <li><code>600601</code> <a href="https://jainqq.org/explore/600601/1" target="_blank" rel="noopener">Pannavana Sutra Part 03</a> — online 2022-02-27</li>
+            <li><code>600602</code> <a href="https://jainqq.org/explore/600602/1" target="_blank" rel="noopener">Vasupujya Charitra Part 01</a> — online 2022-03-08</li>
+            <li><code>600603</code> <a href="https://jainqq.org/explore/600603/1" target="_blank" rel="noopener">Vasupujya Charitra Part 02</a> — online 2022-03-05</li>
+            <li><code>600604</code> <a href="https://jainqq.org/explore/600604/1" target="_blank" rel="noopener">Vasupujya Charitra Part 03</a> — online 2022-03-08</li>
+            <li><code>600605</code> <a href="https://jainqq.org/explore/600605/1" target="_blank" rel="noopener">Vasupujya Charitra Part 04</a> — online 2022-03-08</li>
+            <li><code>600606</code> <a href="https://jainqq.org/explore/600606/1" target="_blank" rel="noopener">Vasupujya Charitra Part 05</a> — online 2022-03-08</li>
+            <li><code>600607</code> <a href="https://jainqq.org/explore/600607/1" target="_blank" rel="noopener">Vasupujya Charitra Part 06</a> — online 2022-03-04</li>
+            <li><code>600608</code> <a href="https://jainqq.org/explore/600608/1" target="_blank" rel="noopener">Vasupujya Charitra Part 07</a> — online 2022-03-05</li>
+            <li><code>600609</code> <a href="https://jainqq.org/explore/600609/1" target="_blank" rel="noopener">Vasupujya Charitra Part 08</a> — online 2022-03-09</li>
+            <li><code>600614</code> <a href="https://jainqq.org/explore/600614/1" target="_blank" rel="noopener">Shuddhmatyadichatushtay Charitram</a> — online 2022-03-08</li>
+            <li><code>600615</code> <a href="https://jainqq.org/explore/600615/1" target="_blank" rel="noopener">Dipalika Kalpa</a> — online 2022-03-08</li>
+            <li><code>600616</code> <a href="https://jainqq.org/explore/600616/1" target="_blank" rel="noopener">Thanang Sutra</a> — online 2022-03-08</li>
+            <li><code>600617</code> <a href="https://jainqq.org/explore/600617/1" target="_blank" rel="noopener">Lakshmipunj Charitram</a> — online 2022-03-09</li>
+            <li><code>600618</code> <a href="https://jainqq.org/explore/600618/1" target="_blank" rel="noopener">Hansraj Charitram</a> — online 2022-03-09</li>
+            <li><code>600619</code> <a href="https://jainqq.org/explore/600619/1" target="_blank" rel="noopener">Shreeshen Charitram</a> — online 2022-03-09</li>
+            <li><code>600620</code> <a href="https://jainqq.org/explore/600620/1" target="_blank" rel="noopener">Vishvasen Charitram</a> — online 2022-03-09</li>
+            <li><code>600621</code> <a href="https://jainqq.org/explore/600621/1" target="_blank" rel="noopener">Chitrasen Padmavati Charitram</a> — online 2022-03-09</li>
+            <li><code>600622</code> <a href="https://jainqq.org/explore/600622/1" target="_blank" rel="noopener">Chandrodar Rajarshi Charitram</a> — online 2022-03-09</li>
+            <li><code>600623</code> <a href="https://jainqq.org/explore/600623/1" target="_blank" rel="noopener">Mallinath Charitram</a> — online 2022-03-09</li>
+            <li><code>600624</code> <a href="https://jainqq.org/explore/600624/1" target="_blank" rel="noopener">Hans Keshav Charitram</a> — online 2022-03-09</li>
+            <li><code>600625</code> <a href="https://jainqq.org/explore/600625/1" target="_blank" rel="noopener">Vidyapati Charitram</a> — online 2022-03-09</li>
+            <li><code>600626</code> <a href="https://jainqq.org/explore/600626/1" target="_blank" rel="noopener">Samprati Raj Katha</a> — online 2022-03-09</li>
+            <li><code>600627</code> <a href="https://jainqq.org/explore/600627/1" target="_blank" rel="noopener">Sinh Shreshthi Charitram</a> — online 2022-03-09</li>
+            <li><code>600628</code> <a href="https://jainqq.org/explore/600628/1" target="_blank" rel="noopener">Dharmanrup Charitram</a> — online 2022-03-09</li>
+            <li><code>600629</code> <a href="https://jainqq.org/explore/600629/1" target="_blank" rel="noopener">Mitratray Charitram</a> — online 2022-03-09</li>
+            <li><code>600630</code> <a href="https://jainqq.org/explore/600630/1" target="_blank" rel="noopener">Posh Dashmi Katha</a> — online 2022-03-09</li>
+            <li><code>600631</code> <a href="https://jainqq.org/explore/600631/1" target="_blank" rel="noopener">Ratisar Charitram</a> — online 2022-03-09</li>
+            <li><code>600632</code> <a href="https://jainqq.org/explore/600632/1" target="_blank" rel="noopener">Sindur Prakaranam</a> — online 2022-03-09</li>
+            <li><code>600633</code> <a href="https://jainqq.org/explore/600633/1" target="_blank" rel="noopener">Shripal Charitram</a> — online 2022-03-09</li>
+            <li><code>600634</code> <a href="https://jainqq.org/explore/600634/1" target="_blank" rel="noopener">Sthanangnamna Strutiyangasyapangam Jivabhigam Nam Sutram</a> — online 2022-03-12</li>
+            <li><code>600635</code> <a href="https://jainqq.org/explore/600635/1" target="_blank" rel="noopener">Vyavahara Sutra Pithika Dwitiya Uddeshak</a> — online 2022-03-15</li>
+            <li><code>600636</code> <a href="https://jainqq.org/explore/600636/1" target="_blank" rel="noopener">Vyavahara Sutra Chaturtha Uddeshak</a> — online 2022-03-15</li>
+            <li><code>600637</code> <a href="https://jainqq.org/explore/600637/1" target="_blank" rel="noopener">Vyavahara Sutra Panchamoddeshak</a> — online 2022-03-15</li>
+            <li><code>600638</code> <a href="https://jainqq.org/explore/600638/1" target="_blank" rel="noopener">Vyavahara Sutra Shashtoddeshak</a> — online 2022-03-15</li>
+            <li><code>600639</code> <a href="https://jainqq.org/explore/600639/1" target="_blank" rel="noopener">Vyavahara Sutra Saptamoddeshak</a> — online 2022-03-15</li>
+            <li><code>600641</code> <a href="https://jainqq.org/explore/600641/1" target="_blank" rel="noopener">Vyavahara Sutra Navamoddesh</a> — online 2022-03-15</li>
+            <li><code>600642</code> <a href="https://jainqq.org/explore/600642/1" target="_blank" rel="noopener">Bruhad Shantidhara Path tatha Chandraprabh Swami Bruhad Jwalamalini Devi Mantra</a> — online 2022-03-15</li>
+            <li><code>600643</code> <a href="https://jainqq.org/explore/600643/1" target="_blank" rel="noopener">Laghu Shantidhara Path tatha Chandraprabh Swami Bruhad Jwalamalini Devi Mantra</a> — online 2022-03-15</li>
+            <li><code>600645</code> <a href="https://jainqq.org/explore/600645/1" target="_blank" rel="noopener">Shatrunjay Mahatmyollekh</a> — online 2022-05-16</li>
+            <li><code>600646</code> <a href="https://jainqq.org/explore/600646/1" target="_blank" rel="noopener">Vichar Panchashika</a> — online 2022-06-03</li>
+            <li><code>600647</code> <a href="https://jainqq.org/explore/600647/1" target="_blank" rel="noopener">Pandav Charitra Mahakavyam Part 02</a> — online 2022-06-03</li>
+            <li><code>600649</code> <a href="https://jainqq.org/explore/600649/1" target="_blank" rel="noopener">Panchsangraha Part 01</a> — online 2022-06-10</li>
+            <li><code>600650</code> <a href="https://jainqq.org/explore/600650/1" target="_blank" rel="noopener">Panchsangraha Part 02</a> — online 2022-06-10</li>
+            <li><code>600651</code> <a href="https://jainqq.org/explore/600651/1" target="_blank" rel="noopener">Siri Pasanaha Chariyam</a> — online 2022-07-20</li>
+          </ul>
+</details></li>
+          </ul>
+          </details></li>
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>Books the library's OCR batch skipped (1 item)</span></summary>
+          <p style="margin-left: 1.6em;">The library's OCR files were all made on 2022-07-30, over the books then online; these were online by that day but have no OCR file.</p>
+          <ul style="margin-left: 1.6em;">
+            <li><code>600652</code> <a href="https://jainqq.org/explore/600652/1" target="_blank" rel="noopener">Samboh Sittari</a> — online 2022-07-25</li>
+          </ul>
+          </details></li>
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>Language strings that repeat themselves (1 item)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>004064</code> <a href="https://jainqq.org/explore/004064/1" target="_blank" rel="noopener">Tattvartha Kartutatnmat Nirnay</a> — "Sanskrit, Sanskrit"</li>
+          </ul>
+          </details></li>
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>Classification strings with empty slots (117 items, 64 distinct strings)</span></summary>
+          <p style="margin-left: 1.6em;">The classification is a comma-separated list, and these have nothing between two of their commas or after the last. Items carrying each string in parentheses.</p>
+          <ul style="margin-left: 1.6em;">
+            <li><code>Book_Devnagari, , , agam_index</code> (49)</li>
+            <li><code>Book_Devnagari, , , agam_anuyogdwar</code> (3)</li>
+            <li><code>Book_Devnagari, , , agam_bhagwati</code> (3)</li>
+            <li><code>Book_Devnagari, Agam, Canon, , agam_aavashyak</code> (2)</li>
+            <li><code>Book_Devnagari, , ,</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_aaturpratyakhyan</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_aavashyak</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_acharang</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_antkrutdasha</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_anuttaropapatikdasha</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_aupapatik</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_bhaktaparigna</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_bruhatkalpa</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_chandrapragnapti</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_chatusharan</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_dashashrutaskandh</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_devendrastava</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_ganividya</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_gyatadharmkatha</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_jambudwipapragnapti</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_jitkalpa</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_jivajivabhigam</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_kalpavatansika</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_mahanishith</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_mahapratyakhyan</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_maransamadhi</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_nandisutra</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_nirayavalika</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_nishith</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_oghniryukti</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_pragyapana</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_prashnavyakaran</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_pushpachulika</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_pushpika</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_rajprashniya</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_samvayang</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_sanstarak</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_sthanang</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_suryapragnapti</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_sutrakritang</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_tandulvaicharik</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_upasakdasha</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_uttaradhyayan</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_vipakshrut</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_vrushnidasha</code> (1)</li>
+            <li><code>Book_Devnagari, , , agam_vyavahara</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, , agam_bruhatkalpa, agam_vyavahara</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, , agam_nandisutra</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, , agam_upasakdasha</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, , agam_uttaradhyayan</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, Conduct, ,</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, Conduct, , agam_aupapatik</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, Conduct, , agam_gyatadharmkatha</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, Conduct, , agam_prashnavyakaran</code> (1)</li>
+            <li><code>Book_Devnagari, Agam, Canon, Metaphysics, , agam_sutrakritang</code> (1)</li>
+            <li><code>Book_Devnagari, Tirth, ,</code> (1)</li>
+            <li><code>Dictionary, Dictionary, Agam, Canon, , agam_dictionary</code> (1)</li>
+            <li><code>Manuscript, , , agam_antkrutdasha</code> (1)</li>
+            <li><code>Manuscript, , , agam_anuttaropapatikdasha</code> (1)</li>
+            <li><code>Manuscript, , , agam_bhagwati</code> (1)</li>
+            <li><code>Manuscript, , , agam_chandrapragnapti</code> (1)</li>
+            <li><code>Manuscript, , , agam_gyatadharmkatha</code> (1)</li>
+            <li><code>Manuscript, , , agam_upasakdasha</code> (1)</li>
+            <li><code>Manuscript, , , agam_vipakshrut</code> (1)</li>
+          </ul>
+          </details></li>
+          <li class="audit-item"><details>
+            <summary class="audit-summary"><span>Items in only one of the two catalogues (176 items)</span></summary>
+          <p style="margin-left: 1.6em;">Both sites present the same library under the same serials, but neither lists all of it. A book only Jain Quantum lists has no accession date and no OCR file, both of which come from the library; one only jainelibrary.org lists has no public text.</p>
+          <ul style="margin-left: 1.6em; list-style: none; padding-left: 0;">
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>Jain Quantum only (119)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>002521</code> <a href="https://jainqq.org/explore/002521/1" target="_blank" rel="noopener">Agam 40 Mool 01 Aavashyam Sutra Niryukti Part 01</a> — text on Quantum</li>
+            <li><code>002522</code> <a href="https://jainqq.org/explore/002522/1" target="_blank" rel="noopener">Agam 40 Mool 01 Aavashyam Sutra Niryukti Part 02</a> — text on Quantum</li>
+            <li><code>002569</code> <a href="https://jainqq.org/explore/002569/1" target="_blank" rel="noopener">Agam 43 Mool 04 Uttaradhyayan Sutra Part 02</a> — text on Quantum</li>
+            <li><code>002733</code> <a href="https://jainqq.org/explore/002733/1" target="_blank" rel="noopener">Agam 07 Ang 07 Upashak Dashang Sutra</a> — text on Quantum</li>
+            <li><code>002985</code> <a href="https://jainqq.org/explore/002985/1" target="_blank" rel="noopener">Agam 44 Chulika 01 Nandi Sutra</a> — text on Quantum</li>
+            <li><code>007376</code> <a href="https://jainqq.org/explore/007376/1" target="_blank" rel="noopener">Agam 06 Ang 06 Gnatadharma Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>007377</code> <a href="https://jainqq.org/explore/007377/1" target="_blank" rel="noopener">Agam 10 Ang 10 Prashna Vyakaran Shwetambar</a> — text on Quantum</li>
+            <li><code>007378</code> <a href="https://jainqq.org/explore/007378/1" target="_blank" rel="noopener">Agam 12 Upang 01 Aupapatik Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>007379</code> <a href="https://jainqq.org/explore/007379/1" target="_blank" rel="noopener">Agam 13 Upang 02 Rajprashniya Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>007380</code> <a href="https://jainqq.org/explore/007380/1" target="_blank" rel="noopener">Agam 24 to 33 Das Prakirnak Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>007381</code> <a href="https://jainqq.org/explore/007381/1" target="_blank" rel="noopener">Agam 43 Mool 04 Uttaradhyayan Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>009499</code> <a href="https://jainqq.org/explore/009499/1" target="_blank" rel="noopener">Aabhanak Jagannath</a> — text on Quantum</li>
+            <li><code>009516</code> <a href="https://jainqq.org/explore/009516/1" target="_blank" rel="noopener">Shatrunjaya Mahatmya</a> — text on Quantum</li>
+            <li><code>016004</code> <a href="https://jainqq.org/explore/016004/1" target="_blank" rel="noopener">Isibhasiyaim ka Prakrit Sanskrit Shabdakosha</a> — text on Quantum</li>
+            <li><code>020966</code> <a href="https://jainqq.org/explore/020966/1" target="_blank" rel="noopener">Anuyogdwar Sutram Part 01</a> — text on Quantum</li>
+            <li><code>020967</code> <a href="https://jainqq.org/explore/020967/1" target="_blank" rel="noopener">Anuyogdwar Sutram Part 02</a> — text on Quantum</li>
+            <li><code>021001</code> <a href="https://jainqq.org/explore/021001/1" target="_blank" rel="noopener">Agam 01 Ang 01 Acharanga Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021002</code> <a href="https://jainqq.org/explore/021002/1" target="_blank" rel="noopener">Agam 02 Ang 02 Sutrakrutang Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021003</code> <a href="https://jainqq.org/explore/021003/1" target="_blank" rel="noopener">Agam 03 Ang 03 Sthanang Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021004</code> <a href="https://jainqq.org/explore/021004/1" target="_blank" rel="noopener">Agam 04 Ang 04 Samvayang Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021005</code> <a href="https://jainqq.org/explore/021005/1" target="_blank" rel="noopener">Agam 05 Ang 05 Bhagvati Vyakhya Pragnapti Sutra Part 01 Shwetambar</a> — text on Quantum</li>
+            <li><code>021006</code> <a href="https://jainqq.org/explore/021006/1" target="_blank" rel="noopener">Agam 05 Ang 05 Bhagvati Vyakhya Pragnapti Sutra Part 02 Shwetambar</a> — text on Quantum</li>
+            <li><code>021007</code> <a href="https://jainqq.org/explore/021007/1" target="_blank" rel="noopener">Agam 05 Ang 05 Bhagvati Vyakhya Pragnapti Sutra Part 03 Shwetambar</a> — text on Quantum</li>
+            <li><code>021008</code> <a href="https://jainqq.org/explore/021008/1" target="_blank" rel="noopener">Agam 06 Ang 06 Gnatadharma Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021009</code> <a href="https://jainqq.org/explore/021009/1" target="_blank" rel="noopener">Agam 07 Ang 07 Upashak Dashang Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021010</code> <a href="https://jainqq.org/explore/021010/1" target="_blank" rel="noopener">Agam 08 Ang 08 Antkrutdashang Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021011</code> <a href="https://jainqq.org/explore/021011/1" target="_blank" rel="noopener">Agam 09 Ang 09 Anuttaropapatik Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021012</code> <a href="https://jainqq.org/explore/021012/1" target="_blank" rel="noopener">Agam 10 Ang 10 Prashna Vyakaran Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021013</code> <a href="https://jainqq.org/explore/021013/1" target="_blank" rel="noopener">Agam 11 Ang 11 Vipak Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021014</code> <a href="https://jainqq.org/explore/021014/1" target="_blank" rel="noopener">Agam 12 Upang 01 Aupapatik Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021015</code> <a href="https://jainqq.org/explore/021015/1" target="_blank" rel="noopener">Agam 13 Upang 02 Rajprashniya Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021016</code> <a href="https://jainqq.org/explore/021016/1" target="_blank" rel="noopener">Agam 14 Upang 03 Jivabhigam Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021017</code> <a href="https://jainqq.org/explore/021017/1" target="_blank" rel="noopener">Agam 15 Upang 04 Pragnapana Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021018</code> <a href="https://jainqq.org/explore/021018/1" target="_blank" rel="noopener">Agam 16 Upang 05 Surya Pragnapti Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021019</code> <a href="https://jainqq.org/explore/021019/1" target="_blank" rel="noopener">Agam 17 Upang 06 Chandra Pragnapti Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021020</code> <a href="https://jainqq.org/explore/021020/1" target="_blank" rel="noopener">Agam 18 Upang 07 Jambudveep Pragnapti Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021021</code> <a href="https://jainqq.org/explore/021021/1" target="_blank" rel="noopener">Agam 19 Upang 08 Niryavalika Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021022</code> <a href="https://jainqq.org/explore/021022/1" target="_blank" rel="noopener">Agam 20 Upang 09 Kalpavatansika Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021023</code> <a href="https://jainqq.org/explore/021023/1" target="_blank" rel="noopener">Agam 21 Upang 10 Pushpika Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021024</code> <a href="https://jainqq.org/explore/021024/1" target="_blank" rel="noopener">Agam 22 Upang 11 Pushpa Chulika Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021025</code> <a href="https://jainqq.org/explore/021025/1" target="_blank" rel="noopener">Agam 23 Upang 12 Vrashnidasha Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021026</code> <a href="https://jainqq.org/explore/021026/1" target="_blank" rel="noopener">Agam 24 Prakirnaka 01 Chatusharan Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021027</code> <a href="https://jainqq.org/explore/021027/1" target="_blank" rel="noopener">Agam 25 Prakirnaka 02 Atur Pratyakhna Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021028</code> <a href="https://jainqq.org/explore/021028/1" target="_blank" rel="noopener">Agam 26 Prakirnaka 03 Maha Pratyakhyan Shwetambar</a> — text on Quantum</li>
+            <li><code>021029</code> <a href="https://jainqq.org/explore/021029/1" target="_blank" rel="noopener">Agam 27 Prakirnaka 04 Bhaktaparigna Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021030</code> <a href="https://jainqq.org/explore/021030/1" target="_blank" rel="noopener">Agam 28 Prakirnaka 05 Tandul Vaicharik Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021031</code> <a href="https://jainqq.org/explore/021031/1" target="_blank" rel="noopener">Agam 29 Prakirnaka 06 Sanstarak Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021033</code> <a href="https://jainqq.org/explore/021033/1" target="_blank" rel="noopener">Agam 31 Prakirnaka 08 Ganivijja Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021034</code> <a href="https://jainqq.org/explore/021034/1" target="_blank" rel="noopener">Agam 32 Prakirnaka 09 Devendrastava Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021035</code> <a href="https://jainqq.org/explore/021035/1" target="_blank" rel="noopener">Agam 33 Prakirnaka 10 Maran Samadhi Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021036</code> <a href="https://jainqq.org/explore/021036/1" target="_blank" rel="noopener">Agam 34 Chhed 01 Nishith Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021037</code> <a href="https://jainqq.org/explore/021037/1" target="_blank" rel="noopener">Agam 35 Chhed 02 Bruhatkalpa Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021038</code> <a href="https://jainqq.org/explore/021038/1" target="_blank" rel="noopener">Agam 36 Chhed 03 Vyavahara Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021039</code> <a href="https://jainqq.org/explore/021039/1" target="_blank" rel="noopener">Agam 37 Chhed 04 Dashashrutskandh Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021040</code> <a href="https://jainqq.org/explore/021040/1" target="_blank" rel="noopener">Agam 38 Chhed 05 Jitkalpa Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021041</code> <a href="https://jainqq.org/explore/021041/1" target="_blank" rel="noopener">Agam 39 Chhed 06 Mahanishith Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021042</code> <a href="https://jainqq.org/explore/021042/1" target="_blank" rel="noopener">Agam 40 Mool 01 Aavashyak Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021043</code> <a href="https://jainqq.org/explore/021043/1" target="_blank" rel="noopener">Agam 41 Mool 02 Ogh Pind Niryukti Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021045</code> <a href="https://jainqq.org/explore/021045/1" target="_blank" rel="noopener">Agam 43 Mool 04 Uttaradhyayan Sutra Shwetambar</a> — text on Quantum</li>
+            <li><code>021046</code> <a href="https://jainqq.org/explore/021046/1" target="_blank" rel="noopener">Agam 44 Chulika 01 Nandi Sutra Shwetambar</a> — text on Quantum</li>
+            <li><em>… and 59 more</em></li>
+          </ul>
+</details></li>
+            <li class="audit-item"><details>
+<summary class="audit-summary"><span>jainelibrary.org only (57)</span></summary>
+          <ul style="margin-left: 1.6em;">
+            <li><code>020758</code> <a href="https://jainqq.org/explore/020758/1" target="_blank" rel="noopener">Stotra Ratnakar Satik Part 01</a> — online 2023-03-14</li>
+            <li><code>033008</code> <a href="https://jainqq.org/explore/033008/1" target="_blank" rel="noopener">Jivajivabhigam Suttam Part 02</a> — online 2023-07-31</li>
+            <li><code>033720</code> <a href="https://jainqq.org/explore/033720/1" target="_blank" rel="noopener">Jambudivpannatti Suttam Part 01</a> — online 2023-08-01</li>
+            <li><code>036187</code> <a href="https://jainqq.org/explore/036187/1" target="_blank" rel="noopener">Varah Brihat Samhita</a> — online 2023-02-15</li>
+            <li><code>036279</code> <a href="https://jainqq.org/explore/036279/1" target="_blank" rel="noopener">Nishabhakte Swarupato Dushitattvavichar</a> — online 2023-05-30</li>
+            <li><code>036321</code> <a href="https://jainqq.org/explore/036321/1" target="_blank" rel="noopener">Saklarhat Stotram Satik</a> — online 2023-06-21</li>
+            <li><code>037714</code> <a href="https://jainqq.org/explore/037714/1" target="_blank" rel="noopener">Mokshmarg Prakashak</a> — online 2023-01-10</li>
+            <li><code>037715</code> <a href="https://jainqq.org/explore/037715/1" target="_blank" rel="noopener">Meru Mandar Puran</a> — online 2023-01-10</li>
+            <li><code>037716</code> <a href="https://jainqq.org/explore/037716/1" target="_blank" rel="noopener">Upasakadhyayan</a> — online 2023-01-11</li>
+            <li><code>037753</code> <a href="https://jainqq.org/explore/037753/1" target="_blank" rel="noopener">Anekarth Sangraha Sabhashantar</a> — online 2023-04-06</li>
+            <li><code>037754</code> <a href="https://jainqq.org/explore/037754/1" target="_blank" rel="noopener">Acharang Sutram</a> — online 2023-04-07</li>
+            <li><code>037757</code> <a href="https://jainqq.org/explore/037757/1" target="_blank" rel="noopener">Uttaradhyayan Sutram</a> — online 2023-04-11</li>
+            <li><code>037760</code> <a href="https://jainqq.org/explore/037760/1" target="_blank" rel="noopener">Updesh Shatakadi Chatushtayam</a> — online 2023-04-12</li>
+            <li><code>037913</code> <a href="https://jainqq.org/explore/037913/1" target="_blank" rel="noopener">Samvayang Sutram</a> — online 2023-05-25</li>
+            <li><code>037915</code> <a href="https://jainqq.org/explore/037915/1" target="_blank" rel="noopener">Samyag Gyan Samyag Darshan Puja</a> — online 2023-05-26</li>
+            <li><code>037916</code> <a href="https://jainqq.org/explore/037916/1" target="_blank" rel="noopener">Samyag Darshan Shuddhi</a> — online 2023-05-26</li>
+            <li><code>037921</code> <a href="https://jainqq.org/explore/037921/1" target="_blank" rel="noopener">Upmiti Bhav Prapancha Katha Ashtam Prastav</a> — online 2023-06-01</li>
+            <li><code>037923</code> <a href="https://jainqq.org/explore/037923/1" target="_blank" rel="noopener">Pratikraman Sootra</a> — online 2023-06-01</li>
+            <li><code>037924</code> <a href="https://jainqq.org/explore/037924/1" target="_blank" rel="noopener">Swaroday Shastra</a> — online 2023-06-01</li>
+            <li><code>037925</code> <a href="https://jainqq.org/explore/037925/1" target="_blank" rel="noopener">Harishchandra Kathanakam Aparajitkathanakam</a> — online 2023-06-02</li>
+            <li><code>037952</code> <a href="https://jainqq.org/explore/037952/1" target="_blank" rel="noopener">Uvasagdasao Antgaddasao Anuttarovavaiyadasao</a> — online 2023-07-31</li>
+            <li><code>038633</code> <a href="https://jainqq.org/explore/038633/1" target="_blank" rel="noopener">Trishashti Shalaka Purush Parv 01</a> — online 2024-01-06</li>
+            <li><code>038634</code> <a href="https://jainqq.org/explore/038634/1" target="_blank" rel="noopener">Trishashti Shalaka Purush Parv 02 03 04</a> — online 2024-01-06</li>
+            <li><code>038636</code> <a href="https://jainqq.org/explore/038636/1" target="_blank" rel="noopener">Kruparas Kosh</a> — online 2024-01-06</li>
+            <li><code>038637</code> <a href="https://jainqq.org/explore/038637/1" target="_blank" rel="noopener">Gyansara Sutram</a> — online 2024-01-06</li>
+            <li><code>039636</code> <a href="https://jainqq.org/explore/039636/1" target="_blank" rel="noopener">Arhannam Sahasra Samucchay</a> — online 2025-01-01</li>
+            <li><code>039674</code> <a href="https://jainqq.org/explore/039674/1" target="_blank" rel="noopener">Rushimandal Stotram Mool</a> — online 2025-03-28</li>
+            <li><code>039676</code> <a href="https://jainqq.org/explore/039676/1" target="_blank" rel="noopener">Shabda Shakti Prakashika</a> — online 2025-04-12</li>
+            <li><code>039730</code> <a href="https://jainqq.org/explore/039730/1" target="_blank" rel="noopener">Aatmbhramocchedan Bhanu</a> — online 2025-06-11</li>
+            <li><code>039731</code> <a href="https://jainqq.org/explore/039731/1" target="_blank" rel="noopener">Gatha Sahasri</a> — online 2025-06-11</li>
+            <li><code>039732</code> <a href="https://jainqq.org/explore/039732/1" target="_blank" rel="noopener">Tattvarth Tika Arth Prakashika</a> — online 2025-06-11</li>
+            <li><code>042244</code> <a href="https://jainqq.org/explore/042244/1" target="_blank" rel="noopener">Traividya Goshthi</a> — online 2025-04-23</li>
+            <li><code>042246</code> <a href="https://jainqq.org/explore/042246/1" target="_blank" rel="noopener">Vajsaneya Samhita</a> — online 2025-04-23</li>
+            <li><code>042248</code> <a href="https://jainqq.org/explore/042248/1" target="_blank" rel="noopener">Vidyankur</a> — online 2025-04-23</li>
+            <li><code>043520</code> <a href="https://jainqq.org/explore/043520/1" target="_blank" rel="noopener">Shraman Upayogi Sutro Sarth</a> — online 2025-03-27</li>
+            <li><code>043521</code> <a href="https://jainqq.org/explore/043521/1" target="_blank" rel="noopener">Vanditta Sutranu Vivaran</a> — online 2025-03-27</li>
+            <li><code>043522</code> <a href="https://jainqq.org/explore/043522/1" target="_blank" rel="noopener">Shraddhvidhi Prakaran</a> — online 2025-03-27</li>
+            <li><code>045007</code> <a href="https://jainqq.org/explore/045007/1" target="_blank" rel="noopener">Jain Mandir Hastlikhit Granth Krampradarshak Patram</a> — online 2026-06-09</li>
+            <li><code>600882</code> <a href="https://jainqq.org/explore/600882/1" target="_blank" rel="noopener">Shrutbodh Tika Manorama Sahit</a> — online 2024-04-16</li>
+            <li><code>600883</code> <a href="https://jainqq.org/explore/600883/1" target="_blank" rel="noopener">Shastravartta Samucchay Dikprada Vrutti Sahit</a> — online 2024-04-16</li>
+            <li><code>600884</code> <a href="https://jainqq.org/explore/600884/1" target="_blank" rel="noopener">Shodshak Prakaranam</a> — online 2024-04-17</li>
+            <li><code>600885</code> <a href="https://jainqq.org/explore/600885/1" target="_blank" rel="noopener">Shadshiti Prakash</a> — online 2024-04-17</li>
+            <li><code>600886</code> <a href="https://jainqq.org/explore/600886/1" target="_blank" rel="noopener">Sandehdolavali Prakaranam</a> — online 2024-04-17</li>
+            <li><code>600887</code> <a href="https://jainqq.org/explore/600887/1" target="_blank" rel="noopener">Sarvagna Shatakam</a> — online 2024-04-18</li>
+            <li><code>600888</code> <a href="https://jainqq.org/explore/600888/1" target="_blank" rel="noopener">Shrimad Bhagvatadya Padyavyakhya Shatakam</a> — online 2024-04-18</li>
+            <li><code>600889</code> <a href="https://jainqq.org/explore/600889/1" target="_blank" rel="noopener">Syadwad Rahasya Patram</a> — online 2024-05-04</li>
+            <li><code>600890</code> <a href="https://jainqq.org/explore/600890/1" target="_blank" rel="noopener">Stotra Ratnakar Part 01 Satik</a> — online 2024-05-06</li>
+            <li><code>600891</code> <a href="https://jainqq.org/explore/600891/1" target="_blank" rel="noopener">Sukrutsagar Savyakhya</a> — online 2024-05-07</li>
+            <li><code>600892</code> <a href="https://jainqq.org/explore/600892/1" target="_blank" rel="noopener">Anjanasundari Charitram</a> — online 2024-05-15</li>
+            <li><code>600893</code> <a href="https://jainqq.org/explore/600893/1" target="_blank" rel="noopener">Adhyatma Jeet Sangraha</a> — online 2024-05-15</li>
+            <li><code>600895</code> <a href="https://jainqq.org/explore/600895/1" target="_blank" rel="noopener">Nirnaysagar Panchang Samvat 2002</a> — online 2024-06-06</li>
+            <li><code>600896</code> <a href="https://jainqq.org/explore/600896/1" target="_blank" rel="noopener">Nirnaysagar Panchang Samvat 2003</a> — online 2024-06-06</li>
+            <li><code>600897</code> <a href="https://jainqq.org/explore/600897/1" target="_blank" rel="noopener">Nirnaysagar Panchang Samvat 2004</a> — online 2024-06-06</li>
+            <li><code>600898</code> <a href="https://jainqq.org/explore/600898/1" target="_blank" rel="noopener">Nirnaysagar Panchang Samvat 2058</a> — online 2024-06-06</li>
+            <li><code>600899</code> <a href="https://jainqq.org/explore/600899/1" target="_blank" rel="noopener">Parvkatha Sangraha</a> — online 2024-10-22</li>
+            <li><code>600900</code> <a href="https://jainqq.org/explore/600900/1" target="_blank" rel="noopener">Pindvishuddhi Prakaranam</a> — online 2024-12-07</li>
+            <li><code>600901</code> <a href="https://jainqq.org/explore/600901/1" target="_blank" rel="noopener">Brihat Rhinkarkalpa Vivaranam tatha Vardhaman Vidya Kalpa</a> — online 2025-02-12</li>
+          </ul>
+</details></li>
+          </ul>
+          </details></li>
         </ul>
+        <!-- AUDIT:END -->
       </details>
 
       <details class="block collapsible">
@@ -361,6 +982,9 @@
         <span class="gb-group"><span class="gb-ctl-label">totals</span>
           <span class="gb-seg"><button type="button" data-axis="mode" data-value="cumulative">cumulative</button><button
                 type="button" data-axis="mode" data-value="added">period</button></span></span>
+        <label class="gb-group" title="Add the books catalogued as Prakrit, or Sanskrit and Prakrit, to the chart">
+          <input type="checkbox" id="growthIncludePrakrit" /> include Prakrit
+        </label>
         </div>
 
         <div class="gb-legend">
@@ -373,37 +997,40 @@
 
         <p>
           See <a href="#calculating-dates">Calculating Date Information</a> above for the method.
-          The chart runs from <span data-stat="changelog_first"></span> to <span data-stat="changelog_last"></span>
-          and leaves out the <span data-stat="undated_works"></span> undated books,
-          <span data-stat="undated_text"></span> of which have a text.
+          The chart runs from <span data-stat="changelog_first">2007-01</span> to <span data-stat="changelog_last">2026-06</span>
+          and leaves out the <span data-stat="undated_works">119</span> undated books,
+          <span data-stat="undated_text">70</span> of which have a text
+          (<span data-stat="undated_works_prakrit">560</span> with Prakrit included, most of them the Āgama shelf).
         </p>
 
         <h3 id="where-the-text-stops">Where the Text Stops</h3>
         <p>
-          Jain Quantum's catalog runs to the end of <span data-stat="last_quantum_year"></span>,
+          Jain Quantum's catalog runs to the end of <span data-stat="last_quantum_year">2022</span>,
           but its text stops earlier,
           and the library's own OCR stops in between.
           By when a book went online, there are three eras:
         </p>
         <ul>
-          <li><strong>To <span data-stat="last_text_added"></span>: Quantum text.</strong>
+          <li><strong>To <span data-stat="last_text_added">2020-06</span>: Quantum text.</strong>
             The newest Sanskrit book with a text on Quantum went online then.</li>
-          <li><strong>To <span data-stat="last_docx_added"></span>: eLibrary text only.</strong>
-            <span data-stat="since_text_docx"></span> books were OCR'd by the library,
+          <li><strong>To <span data-stat="last_docx_added">2022-07</span>: eLibrary text only.</strong>
+            <span data-stat="since_text_docx">313</span> books were OCR'd by the library,
             whose Word copy needs an account;
             Quantum lists those it has but shows no text for them.
             The Atlas fetched these copies, and the chart shows them in their own colour.</li>
           <li><strong>Since then: PDF only.</strong>
-            The <span data-stat="since_last_docx"></span> books added since have no OCR anywhere,
+            The <span data-stat="since_last_docx">130</span> books added since have no OCR anywhere,
             public or not.
-            <span data-stat="since_api_only"></span> of them, online from
-            <span data-stat="first_api_only_year"></span>, are not in Quantum's catalog at all.</li>
+            <span data-stat="since_api_only">57</span> of them, online from
+            <span data-stat="first_api_only_year">2023</span>, are not in Quantum's catalog at all.</li>
         </ul>
         <p>
           The library's OCR stops so cleanly because it was one batch,
-          run on <span data-stat="ocr_created_first"></span> over everything then in the library
+          run on <span data-stat="ocr_created_first">2022-07-30</span> over the books then in the library
           (see <a href="#pdfs-and-texts">PDFs and Two Text Sources</a>),
           and has not been run since.
+          It skipped <span data-stat="batch_missed">1</span> that were already online
+          (listed under <a href="#data-quality">Data Quality</a>).
         </p>
         <p>
           So the text series flattens while the library keeps growing,
