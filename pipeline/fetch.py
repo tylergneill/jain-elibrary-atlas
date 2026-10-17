@@ -66,6 +66,14 @@ def fetch_text_main():
     return _load("rivulet.extract.jainquantum.fetch_fulltext", "main")
 
 
+def library_login_main():
+    return _load("rivulet.extract.jainelibrary.login_cli", "main")
+
+
+def fetch_ocr_docx_main():
+    return _load("rivulet.extract.jainelibrary.fetch_ocr_docx", "main")
+
+
 def available() -> bool:
     """Whether networked work is possible here. Asks, rather than exits."""
     try:

@@ -8,14 +8,17 @@ in E-bhāratīsampat's dict shape, which the aggregator already reads:
     {"granularity": "month", "periods": [
         {"date": "2007-03-01",
          "cumulative_count": ...,            every catalogued item
-         "cumulative_text_count": ...,       items with a Quantum booktext
+         "cumulative_text_count": ...,       items with a text, from either source
+         "cumulative_quantum_text_count": ..., of which Quantum's public booktext
+         "cumulative_elibrary_text_count": ...,  of which the library's own OCR file (eLibrary)
          "cumulative_sized_count": ...,      items whose text was fetched and measured
          "cumulative_iast_bytes_total": ...} IAST bytes over the sized items -- a FLOOR
      ], "undated_works": N}
 
-**`cumulative_text_count` flattens after mid-2020**, when Quantum's text for
-the tier stops (its catalog runs on to 2022); that is the finding, not an
-artefact, and the About page says so. The byte
+**Quantum's text stops with items added in June 2020** (its catalog runs on to
+2022), and the library's own OCR, fetched behind its login, carries the count
+on to July 2022. Both are in `cumulative_text_count`, and split out beside it
+so the chart can show which is which. After July 2022 no item has text. The byte
 series covers only what has been fetched (the Sanskrit-only slice on the
 seeding day) and is published as the floor it is.
 
@@ -50,21 +53,28 @@ def main() -> None:
         by_month[added[:7]].append(w)
 
     periods = []
-    c_all = c_text = c_sized = c_bytes = 0
+    c_all = c_text = c_quantum = c_library = c_sized = c_bytes = c_library_bytes = 0
     for month in sorted(by_month):
         ws = by_month[month]
         c_all += len(ws)
         c_text += sum(1 for w in ws if w.get("text"))
+        c_quantum += sum(1 for w in ws if w.get("text") == "quantum")
+        c_library += sum(1 for w in ws if w.get("text") == "elibrary")
         sized = [w for w in ws if w.get("sizes")]
         c_sized += len(sized)
         c_bytes += sum(w["sizes"].get("transliterated_bytes", 0) for w in sized)
+        c_library_bytes += sum(w["sizes"].get("transliterated_bytes", 0) for w in sized
+                               if w.get("text") == "elibrary")
         periods.append({
             "date": f"{month}-01",
             "added": len(ws),
             "cumulative_count": c_all,
             "cumulative_text_count": c_text,
+            "cumulative_quantum_text_count": c_quantum,
+            "cumulative_elibrary_text_count": c_library,
             "cumulative_sized_count": c_sized,
             "cumulative_iast_bytes_total": c_bytes,
+            "cumulative_elibrary_iast_bytes": c_library_bytes,
         })
 
     out = {
@@ -72,10 +82,11 @@ def main() -> None:
         "source": "jainelibrary.org API web_date, the day each item went online",
         "periods": periods,
         "undated_works": undated,
-        "note": ("cumulative_text_count counts items with a Jain Quantum booktext and "
-                 "flattens after mid-2020, when Quantum's text stops (its catalog runs to 2022); "
-                 "cumulative_iast_bytes_total covers only the items fetched and measured "
-                 "so far and is a floor."),
+        "note": ("cumulative_text_count counts items with a text from either source: "
+                 "Jain Quantum's public booktext (items added to mid-2020) or the library's "
+                 "own OCR file, fetched behind its login (to July 2022); the two are split "
+                 "out beside it. cumulative_iast_bytes_total covers the items fetched and "
+                 "measured."),
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

@@ -1,4 +1,4 @@
-.PHONY: clearance fetch-catalog parse-catalog fetch-text extract-text count-sizes build changelog serve serve-fulltext
+.PHONY: clearance fetch-catalog parse-catalog fetch-text library-login fetch-ocr-docx extract-text count-sizes build changelog serve serve-fulltext
 
 # ============================================================================
 # Acquisition. NETWORKED; needs the private `rivulet` package (exit 2 without
@@ -36,6 +36,20 @@ parse-catalog:
 #   make fetch-text ARGS="--languages any-sanskrit"
 fetch-text:
 	python -m pipeline.fetch_text $(ARGS)
+
+# The library's own OCR Word files, for the tier items OCR'd after Quantum's
+# text stopped (mid-2020 to mid-2022). Needs a jainelibrary.org account: the
+# login is done BY HAND in the window `library-login` opens (its own profile
+# under data/), which must stay open while the fetcher runs. The library caps
+# downloads per day; the fetcher stops at the cap and resumes on the next run.
+#   make library-login
+#   make fetch-ocr-docx
+#   make fetch-ocr-docx ARGS="--limit 5"
+library-login:
+	python -m pipeline.library_login $(ARGS)
+
+fetch-ocr-docx:
+	python -m pipeline.fetch_ocr_docx $(ARGS)
 
 # ============================================================================
 # Offline, from the cache.

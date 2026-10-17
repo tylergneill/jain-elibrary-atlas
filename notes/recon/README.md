@@ -36,3 +36,15 @@ items above ~100 KB of docx, **1.5–2.1 plaintext characters per docx byte**
 Sanskrit-tagged items. Small items fall to 0.4–0.5 because a docx carries
 ~40–50 KB of fixed overhead. So docx bytes are a usable surface proxy for text
 volume, with a floor to subtract — not a measurement.
+
+## `ocr_compare.py`
+
+Quantum's cleaned booktext against the library's own OCR Word file for the
+same item, on five items that have both (fetched 2026-10-17 into
+`data/ocr_docx_compare/`, apart from the real cache): 008422, 600178, 020470,
+034357, 600400, one per accession era. Needs `data/text_extract/` and that
+folder. Result: **the same scans, a different OCR pass.** Lengths agree to a
+few percent (600400: 6% fewer characters, more words), but only 63–97% of
+words match in order, through word division (`श्री हेमचंद्राचार्य` vs
+`श्रीहेमचंद्राचार्य…`) and different misreadings; neither is clearly better.
+Every library file's note says it was made on 2022-07-30.

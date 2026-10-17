@@ -141,7 +141,117 @@ def to_iast(text: str) -> str:
 
 def measure(full_text: str, raw_bytes: int) -> dict:
     """The sibling trio plus this corpus's script breakdown, for one item."""
-    pages = clean_pages(full_text)
+    return _measure_pages(clean_pages(full_text), raw_bytes)
+
+
+# ---------------------------------------------------------------------------
+# The library's own OCR Word files (`data/ocr_docx_cache/<srno>.docx`), for the
+# items OCR'd after Quantum's text stopped. Same cleaning, different container.
+#
+# A file is a normal .docx: the text is in `word/document.xml`, one `<w:p>`
+# per OCR'd line or paragraph. It carries **no page boundaries** to speak of
+# (an explicit page break or two at most), so its `pages` count is the
+# number of page-break-separated segments, not the book's page count. It opens
+# with the library's boilerplate, "OCR Unicode Note." through "Please provide
+# feed back on this book at the following link: ...", which is cut.
+# ---------------------------------------------------------------------------
+
+_W_P_RE = re.compile(r"<w:p[ >].*?</w:p>|<w:p/>", re.S)
+_W_TOKEN_RE = re.compile(r'<w:t(?: [^>]*)?>(.*?)</w:t>|<w:tab/>|<w:br w:type="page"/>|<w:br/>|<w:br [^>]*/>', re.S)
+_PAGE_BREAK = "\x0c"
+_NOTE_START_RE = re.compile(r"^\s*OCR\s+Unicode\s+Note", re.I)
+_NOTE_END_RE = re.compile(r"feed\s*back\s+on\s+this\s+book", re.I)
+_NOTE_MAX_PARAGRAPHS = 40
+
+
+def docx_text(data: bytes) -> str:
+    """The document's paragraphs as lines, page breaks as form feeds. No cleaning."""
+    import html
+    import zipfile
+    from io import BytesIO
+
+    xml = zipfile.ZipFile(BytesIO(data)).read("word/document.xml").decode("utf-8", "replace")
+    lines = []
+    for para in _W_P_RE.findall(xml):
+        out = []
+        for m in _W_TOKEN_RE.finditer(para):
+            token = m.group(0)
+            if m.group(1) is not None:
+                out.append(html.unescape(m.group(1)))
+            elif token == "<w:tab/>":
+                out.append("\t")
+            elif 'w:type="page"' in token:
+                out.append("\n" + _PAGE_BREAK + "\n")
+            else:
+                out.append("\n")
+        lines.append("".join(out))
+    return "\n".join(lines)
+
+
+_NOTE_FIELDS_RE = {
+    "pdf_pages": re.compile(r"Pdf Page Count:\s*(\d+)", re.I),
+    "ocr_pages": re.compile(r"OCR Page Count:\s*(\d+)", re.I),
+    "ocr_created": re.compile(r"Create Time:\s*(\d{4}-\d{2}-\d{2})", re.I),
+}
+
+
+def split_library_note(text: str) -> tuple[str, str]:
+    """(the library's opening "OCR Unicode Note", the rest). Note is "" if absent.
+
+    The note is the file's whole first page: it ends at the first explicit
+    page break, after "Please provide feed back on this book ..." and a block
+    giving the PDF and OCR page counts and the OCR's creation time. Where no
+    page break follows (not yet seen), it ends after that feedback link line.
+    """
+    lines = text.split("\n")
+    first = next((i for i, ln in enumerate(lines) if ln.strip()), None)
+    if first is None or not _NOTE_START_RE.match(lines[first]):
+        return "", text
+    head = text[:4000]
+    if _PAGE_BREAK in head:
+        cut = text.index(_PAGE_BREAK)
+        return text[:cut], text[cut + 1:]
+    for i in range(first, min(len(lines), first + _NOTE_MAX_PARAGRAPHS)):
+        if _NOTE_END_RE.search(lines[i]):
+            end = i + 2 if i + 1 < len(lines) and lines[i + 1].startswith("http") else i + 1
+            return "\n".join(lines[:end]), "\n".join(lines[end:])
+    return "", text
+
+
+def library_note_fields(data: bytes) -> dict:
+    """The note's own record: PDF and OCR page counts, OCR creation date."""
+    note, _ = split_library_note(docx_text(data))
+    out = {}
+    for key, pattern in _NOTE_FIELDS_RE.items():
+        m = pattern.search(note)
+        if m:
+            out[key] = int(m.group(1)) if key.endswith("pages") else m.group(1)
+    return out
+
+
+def clean_docx(data: bytes) -> list[str]:
+    """A library OCR file -> clean pages (segments between explicit page breaks)."""
+    _, text = split_library_note(docx_text(data))
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    pages = [clean_page(p) for p in text.split(_PAGE_BREAK)]
+    return [p for p in pages if p]
+
+
+def measure_docx(data: bytes) -> dict:
+    """`measure` for a library OCR Word file, plus the note's own record.
+
+    `pages` is the note's OCR page count where it gives one: the file itself
+    has no page boundaries to count.
+    """
+    rec = _measure_pages(clean_docx(data), len(data))
+    note = library_note_fields(data)
+    rec.update(note)
+    if note.get("ocr_pages"):
+        rec["pages"] = note["ocr_pages"]
+    return rec
+
+
+def _measure_pages(pages: list[str], raw_bytes: int) -> dict:
     text = "\n\n".join(pages)
     content = text.encode("utf-8")
     return {

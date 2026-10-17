@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Jain Quantum Atlas</title>
+  <title>About — Jain eLibrary Atlas</title>
   <link rel="stylesheet" href="./styles.css" />
   <script>
     (function () {
@@ -17,7 +17,7 @@
 <body>
   <header class="topbar about-topbar">
     <div class="brand">
-      <a href="./index.html" class="brand-title brand-title-link" title="Back to All">Jain Quantum Atlas</a>
+      <a href="./index.html" class="brand-title brand-title-link" title="Back to All">Jain eLibrary Atlas</a>
     </div>
 
     <nav class="topnav">
@@ -45,6 +45,8 @@
           is an online library of Jain literature run by JAINA's education arm.
           <a href="https://jainqq.org" target="_blank" rel="noopener">jainqq.org</a> ("Jain Quantum")
           is its full-text search engine, which also publishes the OCR text of each item it indexes.
+          The library has OCR'd more of its books than Quantum shows,
+          and this Atlas reads both.
         </p>
         <p>
           This unofficial “atlas” interface — not affiliated in any way —
@@ -61,7 +63,7 @@
           For more perspective on this and sibling Atlas projects, see <a href="https://sagarasangama.info/" id="parentLink">Sāgarasaṅgama</a>.
         </p>
         <p>
-          code: <span id="appVersion"></span>, <a href="https://github.com/tylergneill/jain-quantum-atlas" target="_blank" rel="noopener">on GitHub</a>
+          code: <span id="appVersion"></span>, <a href="https://github.com/tylergneill/jain-elibrary-atlas" target="_blank" rel="noopener">on GitHub</a>
         </p>
         <p>
           <span id="contentDate"></span>
@@ -116,15 +118,47 @@
           </svg>
         </figure>
 
-        <h3 id="pdfs-and-texts">PDFs and Texts</h3>
+        <h3 id="pdfs-and-texts">PDFs and Two Text Sources</h3>
         <p>
           Every item is a PDF of a printed book, and the PDF is the primary object.
-          Text exists only as OCR of that PDF, in two places:
-          as a Word document in the library, behind its login
-          (<span data-stat="docx_count"></span> of the <span data-stat="count"></span> Sanskrit books have one),
-          and as the public text on Jain Quantum
-          (<strong><span data-stat="text_count"></span></strong> do).
-          The remaining <span data-stat="no_text"></span> can be seen in the library but not read as text anywhere public.
+          Text exists only as OCR of that PDF, and there are two sources of it:
+        </p>
+        <ul>
+          <li><strong>Quantum text</strong>: the public text on jainqq.org, one page per book, no account needed.
+            <strong><span data-stat="quantum_text_count"></span></strong> of the
+            <span data-stat="count"></span> Sanskrit books have one.</li>
+          <li><strong>eLibrary text</strong>: the library's own OCR, a Word file beside the PDF,
+            downloadable only with an account.
+            <span data-stat="docx_count"></span> of the books have one.</li>
+        </ul>
+        <p>
+          <strong>The two are not the same text.</strong>
+          Each eLibrary file opens with a note saying when it was made,
+          and every one this Atlas fetched says the same day, <span data-stat="ocr_created_first"></span>:
+          the library re-ran OCR over its whole backlog that day,
+          books added years earlier included.
+          Quantum's text comes from an earlier pass over the same scans.
+          On five books that have both, the two are the same length to within a few percent,
+          but only 63–97% of their words match in order.
+          They divide words differently
+          (<span class="sa-cap">श्री हेमचंद्राचार्य</span> against <span class="sa-cap">श्रीहेमचंद्राचार्य</span>)
+          and misread different letters;
+          neither is clearly the better.
+        </p>
+        <p>
+          They also stop at different times
+          (see <a href="#where-the-text-stops">Where the Text Stops</a>):
+          Quantum's text ends with books that went online in <span data-stat="last_text_added"></span>,
+          the library's OCR in <span data-stat="last_docx_added"></span>.
+          So <span data-stat="docx_no_text"></span> books have eLibrary text but no Quantum text.
+          The Atlas uses Quantum's text wherever there is one and the library's for those
+          (fetched with an account; see <a href="#scraping">Scraping</a>),
+          and says which on every book:
+          <span data-stat="quantum_text_count"></span> Quantum texts and
+          <span data-stat="elibrary_text_count"></span> eLibrary texts.
+          Because the two are separate OCR passes, their sizes are comparable but not identical,
+          and a reader who opens a book's Quantum page sees Quantum's reading, not the library's.
+          The other <span data-stat="no_text"></span> books have no OCR anywhere.
         </p>
         <p>
           For example,
@@ -156,7 +190,7 @@
         <p>
           The library files <span data-stat="horizontal"></span> of the Sanskrit books under "manuscripts."
           These are not handwritten: they are block prints and printed books in horizontal format.
-          <span data-stat="horizontal_text"></span> of them have a public text.
+          <span data-stat="horizontal_text"></span> of them have a Quantum text.
         </p>
 
         <h3 id="authors">Authors and Editors</h3>
@@ -184,7 +218,7 @@
           The library is mostly Gujarati and Hindi.
           Its two catalogues together list <span data-stat="library_count"></span> items —
           books, articles, magazines and audio —
-          of which <span data-stat="library_text_count"></span> have a public text.
+          of which <span data-stat="library_text_count"></span> have a text.
           Among the books, <span data-stat="any_sanskrit_count"></span> mention Sanskrit among their languages,
           <span data-stat="sanskrit_prakrit_count"></span> are in Sanskrit, Prakrit or both and nothing else,
           and <strong><span data-stat="count"></span></strong> are catalogued as Sanskrit alone.
@@ -202,10 +236,18 @@
           The library's own records come from its public catalogue interface.
         </p>
         <p>
-          Text comes from Jain Quantum alone: one request for each Sanskrit book that has a text.
+          Text comes from Jain Quantum wherever it has one: one request for each Sanskrit book with a text.
           With polite scraping (2 seconds per request), this takes a little over an hour.
-          Texts are fetched for the purpose of calculating size and none is shared publicly.
-          Nothing is fetched from behind the library's login, and no PDFs were fetched at all.
+        </p>
+        <p>
+          For the books Quantum has no text for but the library OCR'd,
+          the library's own Word copy was fetched instead, through an account on jainelibrary.org,
+          one file every 2 seconds and within the library's daily download limit.
+          Each is kept as the library served it and as plain text derived from it.
+        </p>
+        <p>
+          Texts from either source are fetched for the purpose of calculating size and none is shared publicly.
+          No PDFs were fetched at all.
         </p>
 
         <h3 id="sanskrit-tier">Sanskrit Books Only</h3>
@@ -240,7 +282,8 @@
           and is more common for cross-collection size comparisons.
         </p>
         <p>
-          Every one of the <span data-stat="sized"></span> public texts has been measured:
+          Every one of the <span data-stat="sized"></span> texts has been measured,
+          <span data-stat="quantum_text_count"></span> from Quantum and <span data-stat="elibrary_text_count"></span> from the library's OCR:
           <span data-stat="text_pages"></span> pages,
           <strong><span data-stat="transliterated_bytes" data-unit="mb"></span>&nbsp;MB</strong> as IAST,
           with a median book of about <span data-stat="median_bytes" data-unit="kb"></span>&nbsp;KB.
@@ -281,11 +324,11 @@
         </p>
         <p>
           Each title links to Jain Quantum's page viewer.
-          A "text" tag links to the full OCR text where there is one;
+          A "text" tag links to the Quantum text where there is one (eLibrary texts have no public page);
           "PDF" and "docx" tags are inert, marking files that exist behind the library's login.
           "horizontal" marks a book from the "manuscripts" folder,
           and "API only" one that Jain Quantum does not list.
-          A "TXT only" toggle hides everything without a public text.
+          A "TXT only" toggle hides everything without a text from either source.
         </p>
       </details>
 
@@ -321,7 +364,8 @@
         </div>
 
         <div class="gb-legend">
-        <span class="gb-key"><span class="gb-swatch gb-text"></span>public text</span>
+        <span class="gb-key"><span class="gb-swatch gb-text"></span>Quantum text</span>
+        <span class="gb-key"><span class="gb-swatch gb-library"></span>eLibrary text</span>
         <span class="gb-key"><span class="gb-swatch gb-pdf"></span>PDF only</span>
         </div>
 
@@ -336,17 +380,34 @@
 
         <h3 id="where-the-text-stops">Where the Text Stops</h3>
         <p>
-          The newest Sanskrit book with a public text went online in
-          <strong><span data-stat="last_text_added"></span></strong>.
-          The <span data-stat="since_last_text"></span> added to the library since have none:
-          <span data-stat="since_quantum"></span> of them, online by the end of
-          <span data-stat="last_quantum_year"></span>, are listed in Jain Quantum's catalog without a text;
-          the <span data-stat="since_api_only"></span> online from
-          <span data-stat="first_api_only_year"></span> are not in it at all.
+          Jain Quantum's catalog runs to the end of <span data-stat="last_quantum_year"></span>,
+          but its text stops earlier,
+          and the library's own OCR stops in between.
+          By when a book went online, there are three eras:
+        </p>
+        <ul>
+          <li><strong>To <span data-stat="last_text_added"></span>: Quantum text.</strong>
+            The newest Sanskrit book with a text on Quantum went online then.</li>
+          <li><strong>To <span data-stat="last_docx_added"></span>: eLibrary text only.</strong>
+            <span data-stat="since_text_docx"></span> books were OCR'd by the library,
+            whose Word copy needs an account;
+            Quantum lists those it has but shows no text for them.
+            The Atlas fetched these copies, and the chart shows them in their own colour.</li>
+          <li><strong>Since then: PDF only.</strong>
+            The <span data-stat="since_last_docx"></span> books added since have no OCR anywhere,
+            public or not.
+            <span data-stat="since_api_only"></span> of them, online from
+            <span data-stat="first_api_only_year"></span>, are not in Quantum's catalog at all.</li>
+        </ul>
+        <p>
+          The library's OCR stops so cleanly because it was one batch,
+          run on <span data-stat="ocr_created_first"></span> over everything then in the library
+          (see <a href="#pdfs-and-texts">PDFs and Two Text Sources</a>),
+          and has not been run since.
         </p>
         <p>
           So the text series flattens while the library keeps growing,
-          and the count of public texts describes the library as it stood some years ago.
+          and the count of texts describes the library as it stood in mid-2022.
           The slow growth of the item series in recent years is partly an artefact of the
           <a href="#sanskrit-tier">cataloguing shift</a> described above,
           which moves new Sanskrit editions out of this selection.

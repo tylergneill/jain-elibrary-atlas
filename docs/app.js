@@ -506,7 +506,7 @@ function categoryLabel(work) {
   return `${displayTitle(domain, null)} › ${displayTitle(sub, null)}`;
 }
 
-// The site-specific half of app.js for jain-quantum-atlas: how a work renders
+// The site-specific half of app.js for jain-elibrary-atlas: how a work renders
 // and where its links go. Spliced into the shared frontend in place of the
 // E-bhāratīsampat block; everything else in app.js is collection-agnostic.
 //
@@ -605,7 +605,9 @@ function viewerUrl(work) {
 
 function textUrl(work) {
   // The slug is the library's romanised title, not the Indic one shown.
-  return work.text ? `${SITE_ROOT}/booktext/${slugOf(work.title_en || work.title)}/${work.id}` : null;
+  // Only Quantum's text has a public page; the library's OCR is behind its login.
+  return work.text === "quantum"
+    ? `${SITE_ROOT}/booktext/${slugOf(work.title_en || work.title)}/${work.id}` : null;
 }
 
 function metadataUrl(work) {

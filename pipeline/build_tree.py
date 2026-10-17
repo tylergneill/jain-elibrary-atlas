@@ -17,15 +17,19 @@ One work per item:
     sub_domain        the catalogue's `language` string
     author            API author, else sutra_author, else Quantum's
     text              "quantum" when Quantum has a booktext for it -- a sized
-                      catalog row not journalled empty -- else null
+                      catalog row not journalled empty -- else "elibrary"
+                      when the library's own OCR Word file was fetched and has
+                      text (behind its login; see `make fetch-ocr-docx`), else null
     pdf               the API lists a Standard PDF, or Quantum's file is a .pdf
-    sizes             from data/sizes.jsonl, where the text was fetched and measured
+    sizes             from data/sizes.jsonl (Quantum) or data/ocr_sizes.jsonl (library
+                      OCR), where the text was fetched and measured
+    ocr_created       library OCR only: the date the library's OCR file was made
     has_text          the clean text is on this machine (data/text_extract/)
     added             web_date as YYYY-MM-DD
     ocr_docx          the API lists an OCR Word doc (login-gated, not fetched)
     sources           ["api", "quantum"] -- which catalogues know the item
 
-`all_stats` is `shape.summarize` plus `quantum_text_count`, `api_count`,
+`all_stats` is `shape.summarize` plus `quantum_text_count`, `elibrary_text_count`, `api_count`,
 `quantum_count`, `last_changed` (the newest web_date) and `sourced` (the
 newest fetch: when our copy was taken, the same date docs/VERSION carries).
 
@@ -40,7 +44,8 @@ from datetime import date
 from pathlib import Path
 
 from pipeline.config import (API_CACHE_DIR, CATALOG_LOG_PATH, CATALOGUE_PATH, DOCS_DIR,
-                             SIZES_PATH, TEXT_EXTRACT_DIR, TEXT_LOG_PATH, TREE_PATH)
+                             OCR_LOG_PATH, OCR_SIZES_PATH, SIZES_PATH, TEXT_EXTRACT_DIR,
+                             TEXT_LOG_PATH, TREE_PATH)
 from pipeline.shape import build_axes, report, write
 
 # The library's "manuscripts" folder holds block prints and horizontal-format
@@ -200,7 +205,7 @@ def web_date(v) -> str | None:
 
 
 def make_work(srno: str, api: dict | None, q: dict | None, sizes: dict | None,
-              empty: set[str], on_disk: set[str]) -> dict:
+              empty: set[str], on_disk: set[str], ocr: dict | None = None) -> dict:
     title = (api or {}).get("title_en") or (q or {}).get("title") or srno
     native = (api or {}).get("title_native") or (q or {}).get("title_lang")
     language = (api or {}).get("language") or (q or {}).get("language") or ""
@@ -218,6 +223,10 @@ def make_work(srno: str, api: dict | None, q: dict | None, sizes: dict | None,
         author = None
     q_sized = bool(q and (q.get("file_size") or "").strip())
     text = "quantum" if (q_sized and srno not in empty) else None
+    # The library's own OCR stands in only where Quantum has no text; the
+    # fetcher never takes it for an item that has one.
+    if text is None and ocr and ocr.get("chars"):
+        text, sizes = "elibrary", ocr
     api_files = [it["file_type"] for it in ((api or {}).get("download_items") or [])]
     pdf = ("Standard PDF" in api_files) or bool(q and (q.get("filename") or "").lower().endswith(".pdf"))
     canon = canon_of(canon_tokens(api, q))
@@ -269,6 +278,8 @@ def make_work(srno: str, api: dict | None, q: dict | None, sizes: dict | None,
         work["sizes"] = {k: sizes[k] for k in ("raw_bytes", "content_bytes", "transliterated_bytes")}
         work["sizes"]["pages"] = sizes.get("pages")
         work["sizes"]["devanagari_chars"] = sizes.get("devanagari_chars")
+    if text == "elibrary" and ocr.get("ocr_created"):
+        work["ocr_created"] = ocr["ocr_created"]
     if srno in on_disk:
         work["has_text"] = True
     return work
@@ -311,7 +322,7 @@ def stamp_version(stats: dict) -> str | None:
     path = DOCS_DIR / "VERSION"
     lines = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
     kv = {l.split("=")[0].strip(): l for l in lines if "=" in l}
-    newest = newest_fetch(TEXT_LOG_PATH, CATALOG_LOG_PATH)[:10]
+    newest = newest_fetch(TEXT_LOG_PATH, CATALOG_LOG_PATH, OCR_LOG_PATH)[:10]
     content = newest or kv.get("__content_version__", "").partition("=")[2].strip().strip("\"'")
     if not content:
         return None
@@ -337,15 +348,18 @@ def main() -> None:
     api = load_api(args.api_cache)
     quantum = load_quantum(args.catalogue)
     sizes = load_sizes(args.sizes)
+    ocr_sizes = load_sizes(OCR_SIZES_PATH)
     empty = empty_from_journal(TEXT_LOG_PATH)
     on_disk = {p.stem for p in TEXT_EXTRACT_DIR.glob("*.txt")} if TEXT_EXTRACT_DIR.is_dir() else set()
     if not api and not quantum:
         raise SystemExit("neither the API cache nor data/catalogue.jsonl is present")
     print(f"api items {len(api)}   quantum rows {len(quantum)}   sized {len(sizes)}   "
+          f"eLibrary OCR measured {len(ocr_sizes)}   "
           f"journalled empty {len(empty)}   text on disk {len(on_disk)}")
 
     srnos = sorted(set(api) | set(quantum))
-    library = [make_work(s, api.get(s), quantum.get(s), sizes.get(s), empty, on_disk) for s in srnos]
+    library = [make_work(s, api.get(s), quantum.get(s), sizes.get(s), empty, on_disk, ocr_sizes.get(s))
+               for s in srnos]
     # THE CONTRACT: what this Atlas publishes -- and so what Sāgarasaṅgama
     # reads -- is the Sanskrit tier only: items whose catalogued language is
     # exactly "Sanskrit", of the three text-bearing types. The rest of the
@@ -363,7 +377,8 @@ def main() -> None:
         "canon_count": sum(1 for w in works if w["domain"] != NOT_CANON),
         "api_count": len(api),
         "quantum_count": len(quantum),
-        "quantum_text_count": sum(1 for w in works if w["text"]),
+        "quantum_text_count": sum(1 for w in works if w["text"] == "quantum"),
+        "elibrary_text_count": sum(1 for w in works if w["text"] == "elibrary"),
         "last_changed": max((w.get("added") or "" for w in works), default=None) or None,
     }
     canon_order = list(CANON.values())

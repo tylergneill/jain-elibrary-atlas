@@ -27,6 +27,14 @@ CATALOGUE_PATH = DATA_DIR / "catalogue.jsonl"
 # by the recon pull on 2026-10-07; its fetcher is not yet in rivulet.
 API_CACHE_DIR = DATA_DIR / "metadata_cache" / "jainelibrary"
 
+# The library's own OCR Word files, for the items OCR'd after Quantum's text
+# stopped (mid-2020 to mid-2022). Fetched through a Chrome the owner logs in to
+# by hand (`make library-login`); kept as served, text derived offline.
+LIBRARY_PROFILE_DIR = DATA_DIR / "library_profile"
+OCR_DOCX_CACHE_DIR = DATA_DIR / "ocr_docx_cache"    # <srno>.docx as served
+OCR_LOG_PATH = DATA_DIR / "ocr_fetch_log.jsonl"
+OCR_SIZES_PATH = DATA_DIR / "ocr_sizes.jsonl"       # make count-sizes, the docx half
+
 # The two directories every Atlas shares.
 FULLTEXT_CACHE_DIR = DATA_DIR / "fulltext_cache"    # what the site served
 TEXT_EXTRACT_DIR = DATA_DIR / "text_extract"        # clean text derived from it

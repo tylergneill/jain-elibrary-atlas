@@ -7,1362 +7,1872 @@
    "added": 42,
    "cumulative_count": 42,
    "cumulative_text_count": 42,
+   "cumulative_quantum_text_count": 42,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 42,
-   "cumulative_iast_bytes_total": 29904178
+   "cumulative_iast_bytes_total": 29904178,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2007-08-01",
    "added": 1,
    "cumulative_count": 43,
    "cumulative_text_count": 43,
+   "cumulative_quantum_text_count": 43,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 43,
-   "cumulative_iast_bytes_total": 30214980
+   "cumulative_iast_bytes_total": 30214980,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2007-09-01",
    "added": 2,
    "cumulative_count": 45,
    "cumulative_text_count": 45,
+   "cumulative_quantum_text_count": 45,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 45,
-   "cumulative_iast_bytes_total": 32584635
+   "cumulative_iast_bytes_total": 32584635,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2007-11-01",
    "added": 6,
    "cumulative_count": 51,
    "cumulative_text_count": 51,
+   "cumulative_quantum_text_count": 51,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 51,
-   "cumulative_iast_bytes_total": 39185087
+   "cumulative_iast_bytes_total": 39185087,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-03-01",
    "added": 3,
    "cumulative_count": 54,
    "cumulative_text_count": 54,
+   "cumulative_quantum_text_count": 54,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 54,
-   "cumulative_iast_bytes_total": 41098847
+   "cumulative_iast_bytes_total": 41098847,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-04-01",
    "added": 1,
    "cumulative_count": 55,
    "cumulative_text_count": 55,
+   "cumulative_quantum_text_count": 55,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 55,
-   "cumulative_iast_bytes_total": 41429245
+   "cumulative_iast_bytes_total": 41429245,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-05-01",
    "added": 8,
    "cumulative_count": 63,
    "cumulative_text_count": 63,
+   "cumulative_quantum_text_count": 63,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 63,
-   "cumulative_iast_bytes_total": 45580546
+   "cumulative_iast_bytes_total": 45580546,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-06-01",
    "added": 3,
    "cumulative_count": 66,
    "cumulative_text_count": 66,
+   "cumulative_quantum_text_count": 66,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 66,
-   "cumulative_iast_bytes_total": 48716663
+   "cumulative_iast_bytes_total": 48716663,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-07-01",
    "added": 14,
    "cumulative_count": 80,
    "cumulative_text_count": 80,
+   "cumulative_quantum_text_count": 80,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 80,
-   "cumulative_iast_bytes_total": 58816695
+   "cumulative_iast_bytes_total": 58816695,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-08-01",
    "added": 1,
    "cumulative_count": 81,
    "cumulative_text_count": 81,
+   "cumulative_quantum_text_count": 81,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 81,
-   "cumulative_iast_bytes_total": 59891880
+   "cumulative_iast_bytes_total": 59891880,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-09-01",
    "added": 1,
    "cumulative_count": 82,
    "cumulative_text_count": 82,
+   "cumulative_quantum_text_count": 82,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 82,
-   "cumulative_iast_bytes_total": 60304487
+   "cumulative_iast_bytes_total": 60304487,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2008-10-01",
    "added": 1,
    "cumulative_count": 83,
    "cumulative_text_count": 83,
+   "cumulative_quantum_text_count": 83,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 83,
-   "cumulative_iast_bytes_total": 60376993
+   "cumulative_iast_bytes_total": 60376993,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-01-01",
    "added": 3,
    "cumulative_count": 86,
    "cumulative_text_count": 86,
+   "cumulative_quantum_text_count": 86,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 86,
-   "cumulative_iast_bytes_total": 63028748
+   "cumulative_iast_bytes_total": 63028748,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-02-01",
    "added": 6,
    "cumulative_count": 92,
    "cumulative_text_count": 92,
+   "cumulative_quantum_text_count": 92,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 92,
-   "cumulative_iast_bytes_total": 66496804
+   "cumulative_iast_bytes_total": 66496804,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-03-01",
    "added": 9,
    "cumulative_count": 101,
    "cumulative_text_count": 101,
+   "cumulative_quantum_text_count": 101,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 101,
-   "cumulative_iast_bytes_total": 78543575
+   "cumulative_iast_bytes_total": 78543575,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-07-01",
    "added": 1,
    "cumulative_count": 102,
    "cumulative_text_count": 102,
+   "cumulative_quantum_text_count": 102,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 102,
-   "cumulative_iast_bytes_total": 79735339
+   "cumulative_iast_bytes_total": 79735339,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-08-01",
    "added": 1,
    "cumulative_count": 103,
    "cumulative_text_count": 103,
+   "cumulative_quantum_text_count": 103,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 103,
-   "cumulative_iast_bytes_total": 80326654
+   "cumulative_iast_bytes_total": 80326654,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-09-01",
    "added": 6,
    "cumulative_count": 109,
    "cumulative_text_count": 109,
+   "cumulative_quantum_text_count": 109,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 109,
-   "cumulative_iast_bytes_total": 88047472
+   "cumulative_iast_bytes_total": 88047472,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-10-01",
    "added": 16,
    "cumulative_count": 125,
    "cumulative_text_count": 125,
+   "cumulative_quantum_text_count": 125,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 125,
-   "cumulative_iast_bytes_total": 102095041
+   "cumulative_iast_bytes_total": 102095041,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-11-01",
    "added": 2,
    "cumulative_count": 127,
    "cumulative_text_count": 127,
+   "cumulative_quantum_text_count": 127,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 127,
-   "cumulative_iast_bytes_total": 104547928
+   "cumulative_iast_bytes_total": 104547928,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2009-12-01",
    "added": 19,
    "cumulative_count": 146,
    "cumulative_text_count": 146,
+   "cumulative_quantum_text_count": 146,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 146,
-   "cumulative_iast_bytes_total": 119508927
+   "cumulative_iast_bytes_total": 119508927,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-01-01",
    "added": 8,
    "cumulative_count": 154,
    "cumulative_text_count": 154,
+   "cumulative_quantum_text_count": 154,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 154,
-   "cumulative_iast_bytes_total": 123417190
+   "cumulative_iast_bytes_total": 123417190,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-02-01",
    "added": 5,
    "cumulative_count": 159,
    "cumulative_text_count": 159,
+   "cumulative_quantum_text_count": 159,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 159,
-   "cumulative_iast_bytes_total": 128057099
+   "cumulative_iast_bytes_total": 128057099,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-04-01",
    "added": 7,
    "cumulative_count": 166,
    "cumulative_text_count": 166,
+   "cumulative_quantum_text_count": 166,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 166,
-   "cumulative_iast_bytes_total": 137146853
+   "cumulative_iast_bytes_total": 137146853,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-05-01",
    "added": 26,
    "cumulative_count": 192,
    "cumulative_text_count": 192,
+   "cumulative_quantum_text_count": 192,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 192,
-   "cumulative_iast_bytes_total": 147590993
+   "cumulative_iast_bytes_total": 147590993,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-06-01",
    "added": 14,
    "cumulative_count": 206,
    "cumulative_text_count": 206,
+   "cumulative_quantum_text_count": 206,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 206,
-   "cumulative_iast_bytes_total": 154724404
+   "cumulative_iast_bytes_total": 154724404,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-07-01",
    "added": 7,
    "cumulative_count": 213,
    "cumulative_text_count": 213,
+   "cumulative_quantum_text_count": 213,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 213,
-   "cumulative_iast_bytes_total": 160312751
+   "cumulative_iast_bytes_total": 160312751,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-08-01",
    "added": 6,
    "cumulative_count": 219,
    "cumulative_text_count": 219,
+   "cumulative_quantum_text_count": 219,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 219,
-   "cumulative_iast_bytes_total": 162310264
+   "cumulative_iast_bytes_total": 162310264,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-09-01",
    "added": 2,
    "cumulative_count": 221,
    "cumulative_text_count": 221,
+   "cumulative_quantum_text_count": 221,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 221,
-   "cumulative_iast_bytes_total": 162860165
+   "cumulative_iast_bytes_total": 162860165,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-10-01",
    "added": 7,
    "cumulative_count": 228,
    "cumulative_text_count": 228,
+   "cumulative_quantum_text_count": 228,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 228,
-   "cumulative_iast_bytes_total": 167106323
+   "cumulative_iast_bytes_total": 167106323,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-11-01",
    "added": 37,
    "cumulative_count": 265,
    "cumulative_text_count": 265,
+   "cumulative_quantum_text_count": 265,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 265,
-   "cumulative_iast_bytes_total": 196047565
+   "cumulative_iast_bytes_total": 196047565,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2010-12-01",
    "added": 2,
    "cumulative_count": 267,
    "cumulative_text_count": 267,
+   "cumulative_quantum_text_count": 267,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 267,
-   "cumulative_iast_bytes_total": 197436784
+   "cumulative_iast_bytes_total": 197436784,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-02-01",
    "added": 9,
    "cumulative_count": 276,
    "cumulative_text_count": 276,
+   "cumulative_quantum_text_count": 276,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 276,
-   "cumulative_iast_bytes_total": 205300874
+   "cumulative_iast_bytes_total": 205300874,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-03-01",
    "added": 5,
    "cumulative_count": 281,
    "cumulative_text_count": 281,
+   "cumulative_quantum_text_count": 281,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 281,
-   "cumulative_iast_bytes_total": 210222610
+   "cumulative_iast_bytes_total": 210222610,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-04-01",
    "added": 16,
    "cumulative_count": 297,
    "cumulative_text_count": 297,
+   "cumulative_quantum_text_count": 297,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 297,
-   "cumulative_iast_bytes_total": 221545899
+   "cumulative_iast_bytes_total": 221545899,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-05-01",
    "added": 46,
    "cumulative_count": 343,
    "cumulative_text_count": 343,
+   "cumulative_quantum_text_count": 343,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 343,
-   "cumulative_iast_bytes_total": 251928136
+   "cumulative_iast_bytes_total": 251928136,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-06-01",
    "added": 48,
    "cumulative_count": 391,
    "cumulative_text_count": 391,
+   "cumulative_quantum_text_count": 391,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 391,
-   "cumulative_iast_bytes_total": 276573198
+   "cumulative_iast_bytes_total": 276573198,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-07-01",
    "added": 55,
    "cumulative_count": 446,
    "cumulative_text_count": 446,
+   "cumulative_quantum_text_count": 446,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 446,
-   "cumulative_iast_bytes_total": 301471448
+   "cumulative_iast_bytes_total": 301471448,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-08-01",
    "added": 64,
    "cumulative_count": 510,
    "cumulative_text_count": 510,
+   "cumulative_quantum_text_count": 510,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 510,
-   "cumulative_iast_bytes_total": 345455435
+   "cumulative_iast_bytes_total": 345455435,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-10-01",
    "added": 4,
    "cumulative_count": 514,
    "cumulative_text_count": 514,
+   "cumulative_quantum_text_count": 514,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 514,
-   "cumulative_iast_bytes_total": 348082640
+   "cumulative_iast_bytes_total": 348082640,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2011-12-01",
    "added": 2,
    "cumulative_count": 516,
    "cumulative_text_count": 516,
+   "cumulative_quantum_text_count": 516,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 516,
-   "cumulative_iast_bytes_total": 350324356
+   "cumulative_iast_bytes_total": 350324356,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2012-01-01",
    "added": 9,
    "cumulative_count": 525,
    "cumulative_text_count": 525,
+   "cumulative_quantum_text_count": 525,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 525,
-   "cumulative_iast_bytes_total": 355542474
+   "cumulative_iast_bytes_total": 355542474,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2012-02-01",
    "added": 9,
    "cumulative_count": 534,
    "cumulative_text_count": 534,
+   "cumulative_quantum_text_count": 534,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 534,
-   "cumulative_iast_bytes_total": 359646790
+   "cumulative_iast_bytes_total": 359646790,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2012-03-01",
    "added": 1,
    "cumulative_count": 535,
    "cumulative_text_count": 535,
+   "cumulative_quantum_text_count": 535,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 535,
-   "cumulative_iast_bytes_total": 360712340
+   "cumulative_iast_bytes_total": 360712340,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2012-05-01",
    "added": 4,
    "cumulative_count": 539,
    "cumulative_text_count": 539,
+   "cumulative_quantum_text_count": 539,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 539,
-   "cumulative_iast_bytes_total": 361341041
+   "cumulative_iast_bytes_total": 361341041,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2012-10-01",
    "added": 2,
    "cumulative_count": 541,
    "cumulative_text_count": 541,
+   "cumulative_quantum_text_count": 541,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 541,
-   "cumulative_iast_bytes_total": 363971507
+   "cumulative_iast_bytes_total": 363971507,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2012-12-01",
    "added": 5,
    "cumulative_count": 546,
    "cumulative_text_count": 546,
+   "cumulative_quantum_text_count": 546,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 546,
-   "cumulative_iast_bytes_total": 365698352
+   "cumulative_iast_bytes_total": 365698352,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-01-01",
    "added": 2,
    "cumulative_count": 548,
    "cumulative_text_count": 548,
+   "cumulative_quantum_text_count": 548,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 548,
-   "cumulative_iast_bytes_total": 367022352
+   "cumulative_iast_bytes_total": 367022352,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-02-01",
    "added": 2,
    "cumulative_count": 550,
    "cumulative_text_count": 550,
+   "cumulative_quantum_text_count": 550,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 550,
-   "cumulative_iast_bytes_total": 367638565
+   "cumulative_iast_bytes_total": 367638565,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-04-01",
    "added": 3,
    "cumulative_count": 553,
    "cumulative_text_count": 553,
+   "cumulative_quantum_text_count": 553,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 553,
-   "cumulative_iast_bytes_total": 368417542
+   "cumulative_iast_bytes_total": 368417542,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-05-01",
    "added": 16,
    "cumulative_count": 569,
    "cumulative_text_count": 569,
+   "cumulative_quantum_text_count": 569,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 569,
-   "cumulative_iast_bytes_total": 379371317
+   "cumulative_iast_bytes_total": 379371317,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-06-01",
    "added": 3,
    "cumulative_count": 572,
    "cumulative_text_count": 572,
+   "cumulative_quantum_text_count": 572,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 572,
-   "cumulative_iast_bytes_total": 381637092
+   "cumulative_iast_bytes_total": 381637092,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-07-01",
    "added": 8,
    "cumulative_count": 580,
    "cumulative_text_count": 580,
+   "cumulative_quantum_text_count": 580,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 580,
-   "cumulative_iast_bytes_total": 386672914
+   "cumulative_iast_bytes_total": 386672914,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-08-01",
    "added": 19,
    "cumulative_count": 599,
    "cumulative_text_count": 599,
+   "cumulative_quantum_text_count": 599,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 599,
-   "cumulative_iast_bytes_total": 394746496
+   "cumulative_iast_bytes_total": 394746496,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-09-01",
    "added": 11,
    "cumulative_count": 610,
    "cumulative_text_count": 610,
+   "cumulative_quantum_text_count": 610,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 610,
-   "cumulative_iast_bytes_total": 401439370
+   "cumulative_iast_bytes_total": 401439370,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-10-01",
    "added": 1,
    "cumulative_count": 611,
    "cumulative_text_count": 611,
+   "cumulative_quantum_text_count": 611,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 611,
-   "cumulative_iast_bytes_total": 401459645
+   "cumulative_iast_bytes_total": 401459645,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-11-01",
    "added": 1,
    "cumulative_count": 612,
    "cumulative_text_count": 612,
+   "cumulative_quantum_text_count": 612,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 612,
-   "cumulative_iast_bytes_total": 402692435
+   "cumulative_iast_bytes_total": 402692435,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2013-12-01",
    "added": 3,
    "cumulative_count": 615,
    "cumulative_text_count": 615,
+   "cumulative_quantum_text_count": 615,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 615,
-   "cumulative_iast_bytes_total": 403518709
+   "cumulative_iast_bytes_total": 403518709,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2014-02-01",
    "added": 3,
    "cumulative_count": 618,
    "cumulative_text_count": 618,
+   "cumulative_quantum_text_count": 618,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 618,
-   "cumulative_iast_bytes_total": 405601420
+   "cumulative_iast_bytes_total": 405601420,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2014-03-01",
    "added": 15,
    "cumulative_count": 633,
    "cumulative_text_count": 633,
+   "cumulative_quantum_text_count": 633,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 633,
-   "cumulative_iast_bytes_total": 414278077
+   "cumulative_iast_bytes_total": 414278077,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2014-04-01",
    "added": 17,
    "cumulative_count": 650,
    "cumulative_text_count": 650,
+   "cumulative_quantum_text_count": 650,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 650,
-   "cumulative_iast_bytes_total": 432161251
+   "cumulative_iast_bytes_total": 432161251,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2014-07-01",
    "added": 6,
    "cumulative_count": 656,
    "cumulative_text_count": 656,
+   "cumulative_quantum_text_count": 656,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 656,
-   "cumulative_iast_bytes_total": 436339079
+   "cumulative_iast_bytes_total": 436339079,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2014-08-01",
    "added": 1,
    "cumulative_count": 657,
    "cumulative_text_count": 657,
+   "cumulative_quantum_text_count": 657,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 657,
-   "cumulative_iast_bytes_total": 436916902
+   "cumulative_iast_bytes_total": 436916902,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2014-11-01",
    "added": 4,
    "cumulative_count": 661,
    "cumulative_text_count": 661,
+   "cumulative_quantum_text_count": 661,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 661,
-   "cumulative_iast_bytes_total": 437747838
+   "cumulative_iast_bytes_total": 437747838,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-01-01",
    "added": 3,
    "cumulative_count": 664,
    "cumulative_text_count": 664,
+   "cumulative_quantum_text_count": 664,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 664,
-   "cumulative_iast_bytes_total": 438631072
+   "cumulative_iast_bytes_total": 438631072,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-02-01",
    "added": 6,
    "cumulative_count": 670,
    "cumulative_text_count": 670,
+   "cumulative_quantum_text_count": 670,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 670,
-   "cumulative_iast_bytes_total": 441091472
+   "cumulative_iast_bytes_total": 441091472,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-03-01",
    "added": 14,
    "cumulative_count": 684,
    "cumulative_text_count": 684,
+   "cumulative_quantum_text_count": 684,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 684,
-   "cumulative_iast_bytes_total": 452501237
+   "cumulative_iast_bytes_total": 452501237,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-04-01",
    "added": 11,
    "cumulative_count": 695,
    "cumulative_text_count": 695,
+   "cumulative_quantum_text_count": 695,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 695,
-   "cumulative_iast_bytes_total": 470988084
+   "cumulative_iast_bytes_total": 470988084,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-05-01",
    "added": 38,
    "cumulative_count": 733,
    "cumulative_text_count": 733,
+   "cumulative_quantum_text_count": 733,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 733,
-   "cumulative_iast_bytes_total": 496390655
+   "cumulative_iast_bytes_total": 496390655,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-06-01",
    "added": 22,
    "cumulative_count": 755,
    "cumulative_text_count": 755,
+   "cumulative_quantum_text_count": 755,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 755,
-   "cumulative_iast_bytes_total": 532639897
+   "cumulative_iast_bytes_total": 532639897,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-07-01",
    "added": 22,
    "cumulative_count": 777,
    "cumulative_text_count": 777,
+   "cumulative_quantum_text_count": 777,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 777,
-   "cumulative_iast_bytes_total": 546601933
+   "cumulative_iast_bytes_total": 546601933,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-08-01",
    "added": 44,
    "cumulative_count": 821,
    "cumulative_text_count": 821,
+   "cumulative_quantum_text_count": 821,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 821,
-   "cumulative_iast_bytes_total": 570486819
+   "cumulative_iast_bytes_total": 570486819,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-09-01",
    "added": 37,
    "cumulative_count": 858,
    "cumulative_text_count": 858,
+   "cumulative_quantum_text_count": 858,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 858,
-   "cumulative_iast_bytes_total": 607339734
+   "cumulative_iast_bytes_total": 607339734,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-11-01",
    "added": 16,
    "cumulative_count": 874,
    "cumulative_text_count": 874,
+   "cumulative_quantum_text_count": 874,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 874,
-   "cumulative_iast_bytes_total": 616150165
+   "cumulative_iast_bytes_total": 616150165,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2015-12-01",
    "added": 1,
    "cumulative_count": 875,
    "cumulative_text_count": 875,
+   "cumulative_quantum_text_count": 875,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 875,
-   "cumulative_iast_bytes_total": 616505400
+   "cumulative_iast_bytes_total": 616505400,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2016-01-01",
    "added": 8,
    "cumulative_count": 883,
    "cumulative_text_count": 883,
+   "cumulative_quantum_text_count": 883,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 883,
-   "cumulative_iast_bytes_total": 624548235
+   "cumulative_iast_bytes_total": 624548235,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2016-02-01",
    "added": 105,
    "cumulative_count": 988,
    "cumulative_text_count": 988,
+   "cumulative_quantum_text_count": 988,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 988,
-   "cumulative_iast_bytes_total": 687792793
+   "cumulative_iast_bytes_total": 687792793,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2016-03-01",
    "added": 240,
    "cumulative_count": 1228,
    "cumulative_text_count": 1228,
+   "cumulative_quantum_text_count": 1228,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 1228,
-   "cumulative_iast_bytes_total": 832184515
+   "cumulative_iast_bytes_total": 832184515,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2016-04-01",
    "added": 95,
    "cumulative_count": 1323,
    "cumulative_text_count": 1323,
+   "cumulative_quantum_text_count": 1323,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 1323,
-   "cumulative_iast_bytes_total": 893358819
+   "cumulative_iast_bytes_total": 893358819,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2016-05-01",
    "added": 12,
    "cumulative_count": 1335,
    "cumulative_text_count": 1335,
+   "cumulative_quantum_text_count": 1335,
+   "cumulative_elibrary_text_count": 0,
    "cumulative_sized_count": 1335,
-   "cumulative_iast_bytes_total": 909950528
+   "cumulative_iast_bytes_total": 909950528,
+   "cumulative_elibrary_iast_bytes": 0
   },
   {
    "date": "2016-06-01",
    "added": 14,
    "cumulative_count": 1349,
-   "cumulative_text_count": 1338,
-   "cumulative_sized_count": 1338,
-   "cumulative_iast_bytes_total": 912763413
+   "cumulative_text_count": 1349,
+   "cumulative_quantum_text_count": 1338,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1349,
+   "cumulative_iast_bytes_total": 916413421,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2016-07-01",
    "added": 1,
    "cumulative_count": 1350,
-   "cumulative_text_count": 1339,
-   "cumulative_sized_count": 1339,
-   "cumulative_iast_bytes_total": 912968381
+   "cumulative_text_count": 1350,
+   "cumulative_quantum_text_count": 1339,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1350,
+   "cumulative_iast_bytes_total": 916618389,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2016-08-01",
    "added": 5,
    "cumulative_count": 1355,
-   "cumulative_text_count": 1344,
-   "cumulative_sized_count": 1344,
-   "cumulative_iast_bytes_total": 914953539
+   "cumulative_text_count": 1355,
+   "cumulative_quantum_text_count": 1344,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1355,
+   "cumulative_iast_bytes_total": 918603547,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2016-10-01",
    "added": 2,
    "cumulative_count": 1357,
-   "cumulative_text_count": 1346,
-   "cumulative_sized_count": 1346,
-   "cumulative_iast_bytes_total": 915284394
+   "cumulative_text_count": 1357,
+   "cumulative_quantum_text_count": 1346,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1357,
+   "cumulative_iast_bytes_total": 918934402,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2016-11-01",
    "added": 6,
    "cumulative_count": 1363,
-   "cumulative_text_count": 1352,
-   "cumulative_sized_count": 1352,
-   "cumulative_iast_bytes_total": 918428071
+   "cumulative_text_count": 1363,
+   "cumulative_quantum_text_count": 1352,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1363,
+   "cumulative_iast_bytes_total": 922078079,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-01-01",
    "added": 3,
    "cumulative_count": 1366,
-   "cumulative_text_count": 1355,
-   "cumulative_sized_count": 1355,
-   "cumulative_iast_bytes_total": 920147240
+   "cumulative_text_count": 1366,
+   "cumulative_quantum_text_count": 1355,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1366,
+   "cumulative_iast_bytes_total": 923797248,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-03-01",
    "added": 12,
    "cumulative_count": 1378,
-   "cumulative_text_count": 1367,
-   "cumulative_sized_count": 1367,
-   "cumulative_iast_bytes_total": 923647954
+   "cumulative_text_count": 1378,
+   "cumulative_quantum_text_count": 1367,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1378,
+   "cumulative_iast_bytes_total": 927297962,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-04-01",
    "added": 22,
    "cumulative_count": 1400,
-   "cumulative_text_count": 1389,
-   "cumulative_sized_count": 1389,
-   "cumulative_iast_bytes_total": 931774548
+   "cumulative_text_count": 1400,
+   "cumulative_quantum_text_count": 1389,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1400,
+   "cumulative_iast_bytes_total": 935424556,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-05-01",
    "added": 1,
    "cumulative_count": 1401,
-   "cumulative_text_count": 1390,
-   "cumulative_sized_count": 1390,
-   "cumulative_iast_bytes_total": 933261306
+   "cumulative_text_count": 1401,
+   "cumulative_quantum_text_count": 1390,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1401,
+   "cumulative_iast_bytes_total": 936911314,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-07-01",
    "added": 2,
    "cumulative_count": 1403,
-   "cumulative_text_count": 1392,
-   "cumulative_sized_count": 1392,
-   "cumulative_iast_bytes_total": 933898218
+   "cumulative_text_count": 1403,
+   "cumulative_quantum_text_count": 1392,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1403,
+   "cumulative_iast_bytes_total": 937548226,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-08-01",
    "added": 25,
    "cumulative_count": 1428,
-   "cumulative_text_count": 1417,
-   "cumulative_sized_count": 1417,
-   "cumulative_iast_bytes_total": 948430145
+   "cumulative_text_count": 1428,
+   "cumulative_quantum_text_count": 1417,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1428,
+   "cumulative_iast_bytes_total": 952080153,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-09-01",
    "added": 11,
    "cumulative_count": 1439,
-   "cumulative_text_count": 1428,
-   "cumulative_sized_count": 1428,
-   "cumulative_iast_bytes_total": 952091175
+   "cumulative_text_count": 1439,
+   "cumulative_quantum_text_count": 1428,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1439,
+   "cumulative_iast_bytes_total": 955741183,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-10-01",
    "added": 10,
    "cumulative_count": 1449,
-   "cumulative_text_count": 1438,
-   "cumulative_sized_count": 1438,
-   "cumulative_iast_bytes_total": 959081985
+   "cumulative_text_count": 1449,
+   "cumulative_quantum_text_count": 1438,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1449,
+   "cumulative_iast_bytes_total": 962731993,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-11-01",
    "added": 21,
    "cumulative_count": 1470,
-   "cumulative_text_count": 1459,
-   "cumulative_sized_count": 1459,
-   "cumulative_iast_bytes_total": 965357640
+   "cumulative_text_count": 1470,
+   "cumulative_quantum_text_count": 1459,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1470,
+   "cumulative_iast_bytes_total": 969007648,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2017-12-01",
    "added": 13,
    "cumulative_count": 1483,
-   "cumulative_text_count": 1472,
-   "cumulative_sized_count": 1472,
-   "cumulative_iast_bytes_total": 969827289
+   "cumulative_text_count": 1483,
+   "cumulative_quantum_text_count": 1472,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1483,
+   "cumulative_iast_bytes_total": 973477297,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-01-01",
    "added": 31,
    "cumulative_count": 1514,
-   "cumulative_text_count": 1503,
-   "cumulative_sized_count": 1503,
-   "cumulative_iast_bytes_total": 986447582
+   "cumulative_text_count": 1514,
+   "cumulative_quantum_text_count": 1503,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1514,
+   "cumulative_iast_bytes_total": 990097590,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-02-01",
    "added": 31,
    "cumulative_count": 1545,
-   "cumulative_text_count": 1534,
-   "cumulative_sized_count": 1534,
-   "cumulative_iast_bytes_total": 998229544
+   "cumulative_text_count": 1545,
+   "cumulative_quantum_text_count": 1534,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1545,
+   "cumulative_iast_bytes_total": 1001879552,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-03-01",
    "added": 10,
    "cumulative_count": 1555,
-   "cumulative_text_count": 1544,
-   "cumulative_sized_count": 1544,
-   "cumulative_iast_bytes_total": 1002838169
+   "cumulative_text_count": 1555,
+   "cumulative_quantum_text_count": 1544,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1555,
+   "cumulative_iast_bytes_total": 1006488177,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-04-01",
    "added": 13,
    "cumulative_count": 1568,
-   "cumulative_text_count": 1557,
-   "cumulative_sized_count": 1557,
-   "cumulative_iast_bytes_total": 1011457477
+   "cumulative_text_count": 1568,
+   "cumulative_quantum_text_count": 1557,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1568,
+   "cumulative_iast_bytes_total": 1015107485,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-05-01",
    "added": 10,
    "cumulative_count": 1578,
-   "cumulative_text_count": 1567,
-   "cumulative_sized_count": 1567,
-   "cumulative_iast_bytes_total": 1012819550
+   "cumulative_text_count": 1578,
+   "cumulative_quantum_text_count": 1567,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1578,
+   "cumulative_iast_bytes_total": 1016469558,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-06-01",
    "added": 22,
    "cumulative_count": 1600,
-   "cumulative_text_count": 1589,
-   "cumulative_sized_count": 1589,
-   "cumulative_iast_bytes_total": 1030999023
+   "cumulative_text_count": 1600,
+   "cumulative_quantum_text_count": 1589,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1600,
+   "cumulative_iast_bytes_total": 1034649031,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-07-01",
    "added": 12,
    "cumulative_count": 1612,
-   "cumulative_text_count": 1601,
-   "cumulative_sized_count": 1601,
-   "cumulative_iast_bytes_total": 1031507892
+   "cumulative_text_count": 1612,
+   "cumulative_quantum_text_count": 1601,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1612,
+   "cumulative_iast_bytes_total": 1035157900,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-08-01",
    "added": 9,
    "cumulative_count": 1621,
-   "cumulative_text_count": 1610,
-   "cumulative_sized_count": 1610,
-   "cumulative_iast_bytes_total": 1035213765
+   "cumulative_text_count": 1621,
+   "cumulative_quantum_text_count": 1610,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1621,
+   "cumulative_iast_bytes_total": 1038863773,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-09-01",
    "added": 5,
    "cumulative_count": 1626,
-   "cumulative_text_count": 1615,
-   "cumulative_sized_count": 1615,
-   "cumulative_iast_bytes_total": 1041157373
+   "cumulative_text_count": 1626,
+   "cumulative_quantum_text_count": 1615,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1626,
+   "cumulative_iast_bytes_total": 1044807381,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-10-01",
    "added": 11,
    "cumulative_count": 1637,
-   "cumulative_text_count": 1626,
-   "cumulative_sized_count": 1626,
-   "cumulative_iast_bytes_total": 1053575560
+   "cumulative_text_count": 1637,
+   "cumulative_quantum_text_count": 1626,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1637,
+   "cumulative_iast_bytes_total": 1057225568,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2018-11-01",
    "added": 2,
    "cumulative_count": 1639,
-   "cumulative_text_count": 1628,
-   "cumulative_sized_count": 1628,
-   "cumulative_iast_bytes_total": 1053880015
+   "cumulative_text_count": 1639,
+   "cumulative_quantum_text_count": 1628,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1639,
+   "cumulative_iast_bytes_total": 1057530023,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-01-01",
    "added": 32,
    "cumulative_count": 1671,
-   "cumulative_text_count": 1660,
-   "cumulative_sized_count": 1660,
-   "cumulative_iast_bytes_total": 1066726632
+   "cumulative_text_count": 1671,
+   "cumulative_quantum_text_count": 1660,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1671,
+   "cumulative_iast_bytes_total": 1070376640,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-02-01",
    "added": 15,
    "cumulative_count": 1686,
-   "cumulative_text_count": 1675,
-   "cumulative_sized_count": 1675,
-   "cumulative_iast_bytes_total": 1074258800
+   "cumulative_text_count": 1686,
+   "cumulative_quantum_text_count": 1675,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1686,
+   "cumulative_iast_bytes_total": 1077908808,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-03-01",
    "added": 4,
    "cumulative_count": 1690,
-   "cumulative_text_count": 1679,
-   "cumulative_sized_count": 1679,
-   "cumulative_iast_bytes_total": 1076338258
+   "cumulative_text_count": 1690,
+   "cumulative_quantum_text_count": 1679,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1690,
+   "cumulative_iast_bytes_total": 1079988266,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-04-01",
    "added": 6,
    "cumulative_count": 1696,
-   "cumulative_text_count": 1685,
-   "cumulative_sized_count": 1685,
-   "cumulative_iast_bytes_total": 1079275125
+   "cumulative_text_count": 1696,
+   "cumulative_quantum_text_count": 1685,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1696,
+   "cumulative_iast_bytes_total": 1082925133,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-05-01",
    "added": 2,
    "cumulative_count": 1698,
-   "cumulative_text_count": 1687,
-   "cumulative_sized_count": 1687,
-   "cumulative_iast_bytes_total": 1081052951
+   "cumulative_text_count": 1698,
+   "cumulative_quantum_text_count": 1687,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1698,
+   "cumulative_iast_bytes_total": 1084702959,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-06-01",
    "added": 20,
    "cumulative_count": 1718,
-   "cumulative_text_count": 1707,
-   "cumulative_sized_count": 1707,
-   "cumulative_iast_bytes_total": 1096423949
+   "cumulative_text_count": 1718,
+   "cumulative_quantum_text_count": 1707,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1718,
+   "cumulative_iast_bytes_total": 1100073957,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-07-01",
    "added": 1,
    "cumulative_count": 1719,
-   "cumulative_text_count": 1708,
-   "cumulative_sized_count": 1708,
-   "cumulative_iast_bytes_total": 1096640743
+   "cumulative_text_count": 1719,
+   "cumulative_quantum_text_count": 1708,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1719,
+   "cumulative_iast_bytes_total": 1100290751,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-08-01",
    "added": 7,
    "cumulative_count": 1726,
-   "cumulative_text_count": 1715,
-   "cumulative_sized_count": 1715,
-   "cumulative_iast_bytes_total": 1098223055
+   "cumulative_text_count": 1726,
+   "cumulative_quantum_text_count": 1715,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1726,
+   "cumulative_iast_bytes_total": 1101873063,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-10-01",
    "added": 22,
    "cumulative_count": 1748,
-   "cumulative_text_count": 1737,
-   "cumulative_sized_count": 1737,
-   "cumulative_iast_bytes_total": 1117655265
+   "cumulative_text_count": 1748,
+   "cumulative_quantum_text_count": 1737,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1748,
+   "cumulative_iast_bytes_total": 1121305273,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-11-01",
    "added": 57,
    "cumulative_count": 1805,
-   "cumulative_text_count": 1794,
-   "cumulative_sized_count": 1794,
-   "cumulative_iast_bytes_total": 1145579625
+   "cumulative_text_count": 1805,
+   "cumulative_quantum_text_count": 1794,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1805,
+   "cumulative_iast_bytes_total": 1149229633,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2019-12-01",
    "added": 4,
    "cumulative_count": 1809,
-   "cumulative_text_count": 1798,
-   "cumulative_sized_count": 1798,
-   "cumulative_iast_bytes_total": 1151031513
+   "cumulative_text_count": 1809,
+   "cumulative_quantum_text_count": 1798,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1809,
+   "cumulative_iast_bytes_total": 1154681521,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2020-01-01",
    "added": 13,
    "cumulative_count": 1822,
-   "cumulative_text_count": 1811,
-   "cumulative_sized_count": 1811,
-   "cumulative_iast_bytes_total": 1153316595
+   "cumulative_text_count": 1822,
+   "cumulative_quantum_text_count": 1811,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1822,
+   "cumulative_iast_bytes_total": 1156966603,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2020-02-01",
    "added": 10,
    "cumulative_count": 1832,
-   "cumulative_text_count": 1821,
-   "cumulative_sized_count": 1821,
-   "cumulative_iast_bytes_total": 1158413027
+   "cumulative_text_count": 1832,
+   "cumulative_quantum_text_count": 1821,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1832,
+   "cumulative_iast_bytes_total": 1162063035,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2020-03-01",
    "added": 37,
    "cumulative_count": 1869,
-   "cumulative_text_count": 1858,
-   "cumulative_sized_count": 1858,
-   "cumulative_iast_bytes_total": 1166545917
+   "cumulative_text_count": 1869,
+   "cumulative_quantum_text_count": 1858,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1869,
+   "cumulative_iast_bytes_total": 1170195925,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2020-04-01",
    "added": 22,
    "cumulative_count": 1891,
-   "cumulative_text_count": 1880,
-   "cumulative_sized_count": 1880,
-   "cumulative_iast_bytes_total": 1186589850
+   "cumulative_text_count": 1891,
+   "cumulative_quantum_text_count": 1880,
+   "cumulative_elibrary_text_count": 11,
+   "cumulative_sized_count": 1891,
+   "cumulative_iast_bytes_total": 1190239858,
+   "cumulative_elibrary_iast_bytes": 3650008
   },
   {
    "date": "2020-05-01",
    "added": 9,
    "cumulative_count": 1900,
-   "cumulative_text_count": 1888,
-   "cumulative_sized_count": 1888,
-   "cumulative_iast_bytes_total": 1190013961
+   "cumulative_text_count": 1900,
+   "cumulative_quantum_text_count": 1888,
+   "cumulative_elibrary_text_count": 12,
+   "cumulative_sized_count": 1900,
+   "cumulative_iast_bytes_total": 1193692830,
+   "cumulative_elibrary_iast_bytes": 3678869
   },
   {
    "date": "2020-06-01",
    "added": 4,
    "cumulative_count": 1904,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 1904,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 13,
+   "cumulative_sized_count": 1904,
+   "cumulative_iast_bytes_total": 1195464053,
+   "cumulative_elibrary_iast_bytes": 3749861
   },
   {
    "date": "2020-07-01",
    "added": 9,
    "cumulative_count": 1913,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 1913,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 22,
+   "cumulative_sized_count": 1913,
+   "cumulative_iast_bytes_total": 1197733004,
+   "cumulative_elibrary_iast_bytes": 6018812
   },
   {
    "date": "2020-08-01",
    "added": 3,
    "cumulative_count": 1916,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 1916,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 25,
+   "cumulative_sized_count": 1916,
+   "cumulative_iast_bytes_total": 1199277696,
+   "cumulative_elibrary_iast_bytes": 7563504
   },
   {
    "date": "2020-09-01",
    "added": 22,
    "cumulative_count": 1938,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 1938,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 47,
+   "cumulative_sized_count": 1938,
+   "cumulative_iast_bytes_total": 1219359194,
+   "cumulative_elibrary_iast_bytes": 27645002
   },
   {
    "date": "2020-10-01",
    "added": 17,
    "cumulative_count": 1955,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 1955,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 64,
+   "cumulative_sized_count": 1955,
+   "cumulative_iast_bytes_total": 1230879107,
+   "cumulative_elibrary_iast_bytes": 39164915
   },
   {
    "date": "2020-12-01",
    "added": 30,
    "cumulative_count": 1985,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 1985,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 94,
+   "cumulative_sized_count": 1985,
+   "cumulative_iast_bytes_total": 1246220650,
+   "cumulative_elibrary_iast_bytes": 54506458
   },
   {
    "date": "2021-01-01",
    "added": 20,
    "cumulative_count": 2005,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2005,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 114,
+   "cumulative_sized_count": 2005,
+   "cumulative_iast_bytes_total": 1252312845,
+   "cumulative_elibrary_iast_bytes": 60598653
   },
   {
    "date": "2021-02-01",
    "added": 15,
    "cumulative_count": 2020,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2020,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 129,
+   "cumulative_sized_count": 2020,
+   "cumulative_iast_bytes_total": 1260055858,
+   "cumulative_elibrary_iast_bytes": 68341666
   },
   {
    "date": "2021-03-01",
    "added": 1,
    "cumulative_count": 2021,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2021,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 130,
+   "cumulative_sized_count": 2021,
+   "cumulative_iast_bytes_total": 1261607751,
+   "cumulative_elibrary_iast_bytes": 69893559
   },
   {
    "date": "2021-04-01",
    "added": 8,
    "cumulative_count": 2029,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2029,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 138,
+   "cumulative_sized_count": 2029,
+   "cumulative_iast_bytes_total": 1271189916,
+   "cumulative_elibrary_iast_bytes": 79475724
   },
   {
    "date": "2021-05-01",
    "added": 3,
    "cumulative_count": 2032,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2032,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 141,
+   "cumulative_sized_count": 2032,
+   "cumulative_iast_bytes_total": 1271992806,
+   "cumulative_elibrary_iast_bytes": 80278614
   },
   {
    "date": "2021-06-01",
    "added": 12,
    "cumulative_count": 2044,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2044,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 153,
+   "cumulative_sized_count": 2044,
+   "cumulative_iast_bytes_total": 1281453306,
+   "cumulative_elibrary_iast_bytes": 89739114
   },
   {
    "date": "2021-07-01",
    "added": 8,
    "cumulative_count": 2052,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2052,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 161,
+   "cumulative_sized_count": 2052,
+   "cumulative_iast_bytes_total": 1284246665,
+   "cumulative_elibrary_iast_bytes": 92532473
   },
   {
    "date": "2021-08-01",
    "added": 10,
    "cumulative_count": 2062,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2062,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 171,
+   "cumulative_sized_count": 2062,
+   "cumulative_iast_bytes_total": 1289564480,
+   "cumulative_elibrary_iast_bytes": 97850288
   },
   {
    "date": "2021-09-01",
    "added": 7,
    "cumulative_count": 2069,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2069,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 178,
+   "cumulative_sized_count": 2069,
+   "cumulative_iast_bytes_total": 1293198333,
+   "cumulative_elibrary_iast_bytes": 101484141
   },
   {
    "date": "2021-11-01",
    "added": 7,
    "cumulative_count": 2076,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2076,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 185,
+   "cumulative_sized_count": 2076,
+   "cumulative_iast_bytes_total": 1296452318,
+   "cumulative_elibrary_iast_bytes": 104738126
   },
   {
    "date": "2021-12-01",
    "added": 12,
    "cumulative_count": 2088,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2088,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 197,
+   "cumulative_sized_count": 2088,
+   "cumulative_iast_bytes_total": 1307777179,
+   "cumulative_elibrary_iast_bytes": 116062987
   },
   {
    "date": "2022-01-01",
    "added": 18,
    "cumulative_count": 2106,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2106,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 215,
+   "cumulative_sized_count": 2106,
+   "cumulative_iast_bytes_total": 1312265562,
+   "cumulative_elibrary_iast_bytes": 120551370
   },
   {
    "date": "2022-02-01",
    "added": 16,
    "cumulative_count": 2122,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2122,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 231,
+   "cumulative_sized_count": 2122,
+   "cumulative_iast_bytes_total": 1331367449,
+   "cumulative_elibrary_iast_bytes": 139653257
   },
   {
    "date": "2022-03-01",
    "added": 49,
    "cumulative_count": 2171,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2171,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 280,
+   "cumulative_sized_count": 2171,
+   "cumulative_iast_bytes_total": 1348506421,
+   "cumulative_elibrary_iast_bytes": 156792229
   },
   {
    "date": "2022-04-01",
    "added": 23,
    "cumulative_count": 2194,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2194,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 303,
+   "cumulative_sized_count": 2194,
+   "cumulative_iast_bytes_total": 1357422399,
+   "cumulative_elibrary_iast_bytes": 165708207
   },
   {
    "date": "2022-05-01",
    "added": 5,
    "cumulative_count": 2199,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2199,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 308,
+   "cumulative_sized_count": 2199,
+   "cumulative_iast_bytes_total": 1361558763,
+   "cumulative_elibrary_iast_bytes": 169844571
   },
   {
    "date": "2022-06-01",
    "added": 16,
    "cumulative_count": 2215,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2215,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 324,
+   "cumulative_sized_count": 2215,
+   "cumulative_iast_bytes_total": 1377145192,
+   "cumulative_elibrary_iast_bytes": 185431000
   },
   {
    "date": "2022-07-01",
    "added": 2,
    "cumulative_count": 2217,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2022-08-01",
    "added": 24,
    "cumulative_count": 2241,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2022-09-01",
    "added": 35,
    "cumulative_count": 2276,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2022-11-01",
    "added": 8,
    "cumulative_count": 2284,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2022-12-01",
    "added": 5,
    "cumulative_count": 2289,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-01-01",
    "added": 3,
    "cumulative_count": 2292,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-02-01",
    "added": 1,
    "cumulative_count": 2293,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-03-01",
    "added": 1,
    "cumulative_count": 2294,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-04-01",
    "added": 4,
    "cumulative_count": 2298,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-05-01",
    "added": 4,
    "cumulative_count": 2302,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-06-01",
    "added": 5,
    "cumulative_count": 2307,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-07-01",
    "added": 2,
    "cumulative_count": 2309,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2023-08-01",
    "added": 1,
    "cumulative_count": 2310,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2024-01-01",
    "added": 4,
    "cumulative_count": 2314,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2024-04-01",
    "added": 7,
    "cumulative_count": 2321,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2024-05-01",
    "added": 5,
    "cumulative_count": 2326,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2024-06-01",
    "added": 4,
    "cumulative_count": 2330,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2024-10-01",
    "added": 1,
    "cumulative_count": 2331,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2024-12-01",
    "added": 1,
    "cumulative_count": 2332,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2025-01-01",
    "added": 1,
    "cumulative_count": 2333,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2025-02-01",
    "added": 1,
    "cumulative_count": 2334,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2025-03-01",
    "added": 4,
    "cumulative_count": 2338,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2025-04-01",
    "added": 4,
    "cumulative_count": 2342,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2025-06-01",
    "added": 3,
    "cumulative_count": 2345,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   },
   {
    "date": "2026-06-01",
    "added": 1,
    "cumulative_count": 2346,
-   "cumulative_text_count": 1891,
-   "cumulative_sized_count": 1891,
-   "cumulative_iast_bytes_total": 1191714192
+   "cumulative_text_count": 2216,
+   "cumulative_quantum_text_count": 1891,
+   "cumulative_elibrary_text_count": 325,
+   "cumulative_sized_count": 2216,
+   "cumulative_iast_bytes_total": 1378357491,
+   "cumulative_elibrary_iast_bytes": 186643299
   }
  ],
  "undated_works": 119,
- "note": "cumulative_text_count counts items with a Jain Quantum booktext and flattens after mid-2020, when Quantum's text stops (its catalog runs to 2022); cumulative_iast_bytes_total covers only the items fetched and measured so far and is a floor."
+ "note": "cumulative_text_count counts items with a text from either source: Jain Quantum's public booktext (items added to mid-2020) or the library's own OCR file, fetched behind its login (to July 2022); the two are split out beside it. cumulative_iast_bytes_total covers the items fetched and measured."
 }

@@ -1,7 +1,11 @@
-# jain-quantum-atlas
+# jain-elibrary-atlas
 
-A browsable atlas over the **Jain eLibrary** collection as served by
-**jainqq.org** ("Jain Quantum"), one of the `sagara-sangama` atlases. A
+A browsable atlas over the **Jain eLibrary** collection (jainelibrary.org),
+read through both of its faces: the library's own API and files, and
+**jainqq.org** ("Jain Quantum"), its full-text search engine. One of the
+`sagara-sangama` atlases. Renamed from `jain-quantum-atlas` on 2026-10-17,
+once the library's own OCR files were fetched and Quantum stopped being the
+only text source. A
 `pipeline/` will emit `docs/data/tree.json`; a single-page frontend in `docs/`
 will browse it.
 
@@ -21,6 +25,8 @@ seeding day — re-derive, don't quote.
 | `make fetch-catalog` | **NETWORKED. NEEDS `rivulet`.** 34 catalog pages → `data/metadata_cache/jainqq/` |
 | `make parse-catalog` | cached pages → `data/catalogue.jsonl` + the language-slice table (no network) |
 | `make fetch-text` | **NETWORKED. NEEDS `rivulet`.** One booktext JSON per item with text → `data/fulltext_cache/<srno>.json`. `ARGS="--languages <selector>"`, default `sanskrit-only`; resumable |
+| `make library-login` | **NEEDS `rivulet`.** Opens a Chrome with its own profile (`data/library_profile/`) on jainelibrary.org; the owner logs in by hand and leaves it open |
+| `make fetch-ocr-docx` | **NETWORKED. NEEDS `rivulet` and the logged-in window.** The library's OCR Word file for each tier item Quantum has no text for → `data/ocr_docx_cache/<srno>.docx`, as served. Stops at the library's daily cap; resumable |
 | `make extract-text` | **NEEDS `rivulet`** (exits 2 without it; nothing else does). Cache → `data/text_extract/<srno>.txt`, furniture removed, pages separated by form feeds. Seconds |
 | `make count-sizes` | cache → `data/sizes.jsonl`: raw / content / IAST bytes, pages, script breakdown per item. Pure function of the cache, no rivulet. ~15 min single-threaded for the Sanskrit-only slice; `WORKERS=n` |
 
@@ -109,8 +115,18 @@ gated differently and carry different things, so the Atlas reads both:
 
 **The division of labour is fixed by the gates.** Metadata comes from the
 API (no login, no challenge, 500 per page). Text comes from Quantum's booktext
-pages, which need a browser-earned clearance cookie but no account. Nothing
-here should ever log in to jainelibrary.org.
+pages, which need a browser-earned clearance cookie but no account.
+
+**One exception, decided by the owner 2026-10-17: the library's own OCR Word
+files** for the tier items Quantum has no text for (325: the books OCR'd after
+Quantum's text stopped in mid-2020, plus twelve older ones Quantum serves
+empty). These need a jainelibrary.org account. The owner logs in **by hand**
+in a Chrome that `make library-login` opens with its own profile under
+`data/library_profile/`; `make fetch-ocr-docx` (rivulet) works through that
+window and never handles the password or the session token. OCR files only,
+nothing else behind the login; the library's daily download cap stops the run
+and the next run resumes. The tree marks these texts `text: "elibrary"`
+and the chart gives them their own colour.
 
 **Items that have text are the items with a non-blank `file_size` in the
 Quantum catalog** — a 22-item sample found the rule exact in both directions.

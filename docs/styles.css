@@ -6,6 +6,7 @@
   --muted: #a8b3c2;
   --border: #222b36;
   --accent: #66a3ff;
+  --library-ocr: #e0a33a;   /* text fetched from the library's own OCR, behind its login */
   --row-hover: rgba(255,255,255,0.04);
   --row-selected: rgba(102,163,255,0.18);
   --row-shared-highlight: rgba(255,196,102,0.18);
@@ -31,6 +32,7 @@
   --muted: #55606e;
   --border: #d7dde3;
   --accent: #2464c7;
+  --library-ocr: #b7791f;
   --row-hover: rgba(0,0,0,0.04);
   --row-selected: rgba(36,100,199,0.14);
   --row-shared-highlight: rgba(199,130,36,0.16);
@@ -1460,6 +1462,9 @@ tspan.venn-page{ fill: var(--accent); font-weight: 700; }
 .gb-pdf  { background: color-mix(in srgb, var(--accent) 28%, transparent); }
 .gb-both { background: color-mix(in srgb, var(--accent) 62%, transparent); }
 .gb-text { background: var(--accent); }
+/* The eLibrary's own OCR is a different source (a separate OCR pass), so a
+   different hue rather than another shade of the Quantum-text blue. */
+.gb-library { background: var(--library-ocr); }
 /* Absolutely placed into the chart's bottom padding so the plot area ends at
    the baseline; a flowed label would push the bars up off the 0 gridline. */
 .gb-year {

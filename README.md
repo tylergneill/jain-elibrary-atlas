@@ -1,8 +1,10 @@
-# jain-quantum-atlas
+# jain-elibrary-atlas
 
-A more accessible interface for the text content at [jainqq.org](https://jainqq.org)
-("Jain Quantum"), the full-text face of the Jain eLibrary, one of the
+A more accessible interface for the Sanskrit books of the
+[Jain eLibrary](https://jainelibrary.org), one of the
 [`Sāgarasaṅgama`](https://github.com/tylergneill/sagara-sangama) Atlases.
+(Formerly `jain-quantum-atlas`: it began from [jainqq.org](https://jainqq.org),
+"Jain Quantum", the library's full-text face, and now reads both.)
 
 Indexes metadata and structure; hosts no text of its own. Every item links
 back to its Jain Quantum page, and to jainelibrary.org where the two
@@ -22,8 +24,9 @@ Quantum's catalog. Most of it is Gujarati and Hindi; the Sanskrit and Prakrit
 minority (~6k items) is what this Atlas is primarily for. Jain Quantum is the
 same organisation's search engine over that catalogue, and serves each item's
 OCR plaintext on a public page; jainelibrary.org holds the richer metadata
-behind an open API, with the files themselves behind a login this Atlas never
-uses.
+behind an open API, with the files themselves behind a login. Text comes from
+Quantum's public pages, and, for the books OCR'd after Quantum's text stopped,
+from the library's own OCR files, fetched with an account.
 
 # how it works
 

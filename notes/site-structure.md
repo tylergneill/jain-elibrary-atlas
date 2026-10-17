@@ -209,9 +209,33 @@ library has added since lives only in the API, with no public plaintext.
 
 **OCR lags accession, or stopped.** Among any-Sanskrit items: 100% of
 2007–2015 accessions have an OCR docx, 93% of 2016–2022, **0% of
-2023–2026** (14 of 2,586). Quantum text follows the same curve (100% / 65% /
-none). So neither plaintext route reaches the last four years, and a
-`text_count` for this collection is a count of the pre-2023 library.
+2023–2026** (14 of 2,586). By month the two routes stop at different times:
+Quantum's text ends with items that went online in **June 2020**, while the
+library's OCR docx runs to **July 2022** and stops in August 2022. Items from
+mid-2020 to mid-2022 are in Quantum's catalog with a blank `file_size` and
+no text, but the library OCR'd them (about 4,400 items, ~740 any-Sanskrit,
+313 in the Sanskrit tier). So the public text is the library as of mid-2020,
+the login-gated OCR the library as of mid-2022, and nothing after that has
+text by either route.
+
+**The library's OCR is one batch, run on 2022-07-30.** Each OCR docx opens
+with a note ("OCR Unicode Note") giving the PDF and OCR page counts and a
+`Create Time`; all 325 fetched for the tier (items accessioned 2016 to July
+2022) say 2022-07-30. So the library re-OCR'd its backlog that day and has
+not run OCR since, which is the August-2022 cliff. It is a different pass from
+Quantum's text: on five items with both, lengths agree to a few percent but
+63–97% of words match in order (`recon/ocr_compare.py`). Treat the two as
+separate sources of comparable size, never as the same text.
+
+**Fetching it** (owner's decision, 2026-10-17): `make library-login` then
+`make fetch-ocr-docx`. The download route is
+`POST /api/books/get_signed_download_url/` with `{sr_no, filename,
+file_idx: 10, expires_in}`, called from inside the logged-in page (bearer
+token in `localStorage.accessToken`), returning a 180-second Wasabi link.
+`GET /api/books/<srno>/ocr_content/` would give text directly but answers 404
+"content has not been extracted yet" for these items. The library caps
+downloads per account per day (`daily_book_download_limit`, HTTP 429); 325 in
+one session did not reach it.
 
 **The `language` string changed convention around 2023.** Items accessioned
 2007–2015 that involve Sanskrit are tagged plain `Sanskrit` 40% of the time;

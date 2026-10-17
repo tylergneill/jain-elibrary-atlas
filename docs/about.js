@@ -84,18 +84,25 @@ const repeatsLanguage = (w) => (w.language || "").includes(",");
 function deriveStats(tree, log) {
   const works = tree.works || [];
   const stats = { ...(tree.all_stats || {}) };
+  // Two text sources: Quantum's public booktext, and the library's own OCR
+  // file, fetched behind its login for the items Quantum has no text for.
   const text = works.filter((w) => w.text);
+  const publicText = works.filter((w) => w.text === "quantum");
+  const libraryOcr = works.filter((w) => w.text === "elibrary");
 
   stats.no_text = works.length - text.length;
+  stats.no_public_text = works.length - publicText.length;
+  stats.elibrary_text_count = libraryOcr.length;
+  stats.elibrary_text_bytes = libraryOcr.reduce((s, w) => s + bytesOf(w), 0);
   stats.both_sources = works.filter((w) => inQuantum(w) && inApi(w)).length;
   stats.quantum_only = works.filter((w) => inQuantum(w) && !inApi(w)).length;
   stats.api_only = works.filter((w) => !inQuantum(w)).length;
-  stats.quantum_no_text = works.filter((w) => inQuantum(w) && !w.text).length;
+  stats.quantum_no_text = works.filter((w) => inQuantum(w) && w.text !== "quantum").length;
   stats.docx_count = works.filter((w) => w.ocr_docx).length;
 
   const horizontal = works.filter((w) => w.horizontal);
   stats.horizontal = horizontal.length;
-  stats.horizontal_text = horizontal.filter((w) => w.text).length;
+  stats.horizontal_text = horizontal.filter((w) => w.text === "quantum").length;
 
   const withAuthor = works.filter((w) => w.author);
   stats.author_count = withAuthor.length;
@@ -122,7 +129,7 @@ function deriveStats(tree, log) {
 
   // Where the text stops: the newest accession that has one, and what has
   // been catalogued since, by which face knows it.
-  const lastText = text.reduce((m, w) => (w.added && w.added > m ? w.added : m), "");
+  const lastText = publicText.reduce((m, w) => (w.added && w.added > m ? w.added : m), "");
   const since = works.filter((w) => w.added && w.added > lastText);
   stats.last_text_added = lastText.slice(0, 7);
   stats.since_last_text = since.length;
@@ -133,8 +140,24 @@ function deriveStats(tree, log) {
   stats.first_api_only_year = works.filter((w) => !inQuantum(w) && w.added)
     .reduce((m, w) => (!m || w.added < m ? w.added : m), "").slice(0, 4);
 
+  // The library's own OCR (the login-gated Word copy) runs two years past
+  // Quantum's text, so the books after the last text split in two: OCR'd but
+  // not public, and not OCR'd at all.
+  const lastDocx = works.filter((w) => w.ocr_docx)
+    .reduce((m, w) => (w.added && w.added > m ? w.added : m), "");
+  stats.last_docx_added = lastDocx.slice(0, 7);
+  stats.since_text_docx = since.filter((w) => w.ocr_docx).length;
+  stats.since_last_docx = works.filter((w) => w.added && w.added > lastDocx).length;
+  stats.docx_no_text = works.filter((w) => w.ocr_docx && w.text !== "quantum").length;
+  // The library's OCR files record when they were made: one batch, it turns
+  // out, for every item fetched (see Where the Text Stops).
+  const created = [...new Set(libraryOcr.map((w) => w.ocr_created).filter(Boolean))].sort();
+  stats.ocr_created_dates = created.length;
+  stats.ocr_created_first = created[0] || null;
+  stats.ocr_created_last = created[created.length - 1] || null;
+
   const undated = works.filter((w) => !w.added);
-  stats.undated_text = undated.filter((w) => w.text).length;
+  stats.undated_text = undated.filter((w) => w.text === "quantum").length;
 
   if (log) {
     const periods = log.periods || [];
@@ -264,18 +287,21 @@ function renderAudit(tree) {
 // this file fills the silent months in (so the x axis is time, not "months
 // with news") and takes differences for the per-period view.
 //
-// Two bands, because the mix is the story: every item has a PDF, and from
-// mid-2020 no new one has a text.
+// Three bands, because the mix is the story: every item has a PDF; Quantum's
+// public text stops with items added in mid-2020; the library's own OCR, which
+// the Atlas fetched behind its login, carries on to mid-2022; after that,
+// nothing has a text.
 
 const BANDS = [
-  { key: "text", label: "public text", cls: "gb-text" },
+  { key: "text", label: "Quantum text", cls: "gb-text" },
+  { key: "library", label: "eLibrary text", cls: "gb-library" },
   { key: "none", label: "PDF only", cls: "gb-pdf" },
 ];
 
 // Which bands the stack draws. A PDF carries no text, so in `size` the
-// second band is structurally zero and is dropped along with its legend key.
+// PDF-only band is structurally zero and is dropped along with its legend key.
 function activeBands() {
-  return growthState.metric === "size" ? BANDS.filter((b) => b.key === "text") : BANDS;
+  return growthState.metric === "size" ? BANDS.filter((b) => b.key !== "none") : BANDS;
 }
 
 // `granularity` is months per group: 1 monthly, 3 quarterly, 12 yearly. Year
@@ -284,14 +310,16 @@ const growthState = { mode: "cumulative", metric: "count", granularity: 12 };
 
 // What one published period says, as running totals per band.
 function readPeriod(p) {
-  const text = p.cumulative_text_count || 0;
+  const library = p.cumulative_elibrary_text_count || 0;
+  const text = p.cumulative_quantum_text_count ?? (p.cumulative_text_count || 0) - library;
+  const libraryBytes = p.cumulative_elibrary_iast_bytes || 0;
   return {
-    count: { text, none: Math.max(0, (p.cumulative_count || 0) - text) },
-    bytes: { text: p.cumulative_iast_bytes_total || 0, none: 0 },
+    count: { text, library, none: Math.max(0, (p.cumulative_count || 0) - text - library) },
+    bytes: { text: (p.cumulative_iast_bytes_total || 0) - libraryBytes, library: libraryBytes, none: 0 },
   };
 }
 
-const ZERO = { count: { text: 0, none: 0 }, bytes: { text: 0, none: 0 } };
+const ZERO = { count: { text: 0, library: 0, none: 0 }, bytes: { text: 0, library: 0, none: 0 } };
 
 function diffBands(now, before) {
   const out = {};

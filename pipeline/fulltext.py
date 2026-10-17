@@ -39,6 +39,16 @@ def load_extractor():
     return extract_cache
 
 
+def load_docx_extractor():
+    """The same, for the library's OCR Word files."""
+    try:
+        from rivulet.extract.jainquantum.text_extractor import extract_docx_cache
+    except ImportError:
+        print(_MISSING, file=sys.stderr)
+        raise SystemExit(EXIT_NOT_INSTALLED)
+    return extract_docx_cache
+
+
 def available() -> bool:
     try:
         import rivulet  # noqa: F401
