@@ -66,7 +66,8 @@ import re
 from datetime import date
 
 from pipeline.build_tree import NOT_CANON, empty_booktexts, load_sizes
-from pipeline.config import CHANGELOG_PATH, DOCS_DIR, SIZES_PATH, TEXT_LOG_PATH, TREE_PATH
+from pipeline.config import (CHANGELOG_PATH, DOCS_DIR, OCR_SIZES_PATH, SIZES_PATH,
+                             TEXT_LOG_PATH, TREE_PATH)
 
 SITE_ROOT = "https://jainqq.org"
 
@@ -163,10 +164,12 @@ def find_empty_booktexts(works, empty):
     return by_serial(w for w in works if w["id"] in empty)
 
 
-def find_unpublished_ocr(works):
-    """Quantum lists it, has no text for it; the library has an OCR file."""
+def find_unpublished_ocr(works, library_blank):
+    """Quantum lists it, has no text for it; the library has an OCR file that
+    is not itself blank -- a blank one is nothing Quantum is withholding."""
     return by_serial(w for w in works
-                     if in_quantum(w) and w.get("ocr_docx") and w.get("text") != "quantum")
+                     if in_quantum(w) and w.get("ocr_docx") and w.get("text") != "quantum"
+                     and w["id"] not in library_blank)
 
 
 def find_missed_by_batch(works):
@@ -199,11 +202,16 @@ def find_one_catalogue(works):
     }
 
 
-def run_checks(works, empty):
+def library_blank_ocr(path=OCR_SIZES_PATH):
+    """Library OCR files fetched and found to hold nothing past the note (034068)."""
+    return {s for s, r in load_sizes(path).items() if not r.get("chars")}
+
+
+def run_checks(works, empty, library_blank=frozenset()):
     return {
         "years": find_odd_years(works),
-        "empty_booktexts": find_empty_booktexts(works, empty),
-        "unpublished_ocr": find_unpublished_ocr(works),
+        "empty_booktexts": [(w, w["id"] in library_blank) for w in find_empty_booktexts(works, empty)],
+        "unpublished_ocr": find_unpublished_ocr(works, library_blank),
         "missed_by_batch": find_missed_by_batch(works),
         "hollow": find_hollow_texts(works),
         "languages": find_repeated_languages(works),
@@ -376,10 +384,15 @@ def render_years(rows):
     return _bullet("Publication years that cannot be right", len(rows), inner, unit=_items(len(rows)))
 
 
-def render_empty_booktexts(rows):
+def render_empty_booktexts(pairs):
+    rows = [w for w, _ in pairs]
+    blank = {w["id"] for w, b in pairs if b}
+
     def detail(w):
         if w.get("text") == "elibrary":
             return "the library's OCR has text"
+        if w["id"] in blank:
+            return "the library's OCR file is blank too"
         return "the library has an OCR file" if w.get("ocr_docx") else "no OCR anywhere"
 
     inner = (_preamble("Jain Quantum serves a text page for each, with page markers but nothing on "
@@ -561,7 +574,8 @@ def main():
     tree = load_tree()
     log = load_changelog()
     works = sanskrit_works(tree)
-    findings = run_checks(works, empty_booktexts(TEXT_LOG_PATH, load_sizes(SIZES_PATH)))
+    findings = run_checks(works, empty_booktexts(TEXT_LOG_PATH, load_sizes(SIZES_PATH)),
+                          library_blank_ocr())
     stats = intro_stats(tree, log, findings)
     print_report(findings, works)
 

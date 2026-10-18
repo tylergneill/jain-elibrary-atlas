@@ -11,10 +11,6 @@ library's OCR files only (`make library-login`).
 
 ## Text
 
-- [ ] **Fetch 034068's OCR file.** Quantum's booktext is page markers over
-      byte-order marks; the library has an OCR docx. Needs the owner's login,
-      then `fetch-ocr-docx`, `count-sizes`, `build`, `changelog`,
-      `audit-update-about`, and Sāgarasaṅgama's `make data`.
 - [ ] **Furniture audit.** Sample 50 extracted texts and list the recurring
       non-content lines the patterns miss (running headers, the
       "Shri Mahavir Jain Aradhana Kendra" variants OCR'd with Devanāgarī
