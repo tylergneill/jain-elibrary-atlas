@@ -13,7 +13,13 @@ in E-bhāratīsampat's dict shape, which the aggregator already reads:
          "cumulative_elibrary_text_count": ...,  of which the library's own OCR file (eLibrary)
          "cumulative_sized_count": ...,      items whose text was fetched and measured
          "cumulative_iast_bytes_total": ...} IAST bytes over the sized items -- a FLOOR
-     ], "undated_works": N}
+     ], "undated_works": N, "text_made": "2022-07-30"}
+
+**The dates are accessions, not the making of the text.** A book that went
+online in 2010 was not a text in 2010: the library's OCR files all say they
+were made on one day, `text_made` (the earliest `ocr_created` on the tree), and
+Quantum's earlier pass is undated. Before that day the text series counts
+books whose text came later, and a reader of the series should draw it so.
 
 **Quantum's text stops with items added in June 2020** (its catalog runs on to
 2022), and the library's own OCR, fetched behind its login, carries the count
@@ -93,6 +99,10 @@ def main() -> None:
         "undated_works": undated,
         "periods_prakrit": periods_prakrit,
         "undated_works_prakrit": undated_prakrit,
+        # The one dated OCR there is: before it, the series dates books by
+        # accession, not by when their text existed.
+        "text_made": min((w["ocr_created"] for w in tree["works"] if w.get("ocr_created")),
+                         default=None),
         "note": ("cumulative_text_count counts items with a text from either source: "
                  "Jain Quantum's public booktext (items added to mid-2020) or the library's "
                  "own OCR file, fetched behind its login (to July 2022); the two are split "

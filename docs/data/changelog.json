@@ -3824,5 +3824,6 @@
   }
  ],
  "undated_works_prakrit": 560,
+ "text_made": "2022-07-30",
  "note": "cumulative_text_count counts items with a text from either source: Jain Quantum's public booktext (items added to mid-2020) or the library's own OCR file, fetched behind its login (to July 2022); the two are split out beside it. cumulative_iast_bytes_total covers the items fetched and measured. `periods` is the Sanskrit tier; `periods_prakrit` adds the Prakrit tier."
 }
